@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://biiskars8k5vj"]
+[gd_scene load_steps=2 format=3 uid="uid://biiskars8k5vj"]
+
+[ext_resource type="PackedScene" uid="uid://6minmj4552sw" path="res://scenes/scrolling_background/scrolling_background.tscn" id="1_h3e3j"]
 
 [node name="Level" type="Node2D"]
+
+[node name="ScrollingBackground" parent="." instance=ExtResource("1_h3e3j")]
