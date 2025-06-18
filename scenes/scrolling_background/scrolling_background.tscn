@@ -11,21 +11,21 @@ offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.1, 0.1)
+motion_scale = Vector2(0.25, 0.25)
 motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 texture = ExtResource("1_asg85")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.3, 0.3)
+motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 texture = ExtResource("2_nlsme")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.6, 0.6)
+motion_scale = Vector2(0.75, 0.75)
 motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
