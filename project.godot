@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Space Snake Survivor"
+run/main_scene="uid://biiskars8k5vj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SignalManager="*res://singletons/signal_manager.gd"
 
 [display]
 
