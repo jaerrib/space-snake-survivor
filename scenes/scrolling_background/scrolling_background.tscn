@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://6minmj4552sw"]
+[gd_scene load_steps=3 format=3 uid="uid://6minmj4552sw"]
+
+[ext_resource type="Texture2D" uid="uid://dju2qb7qig8qh" path="res://assets/background/spr_stars01.png" id="1_asg85"]
+[ext_resource type="Texture2D" uid="uid://ceyxv12mc3a14" path="res://assets/background/spr_stars02.png" id="2_nlsme"]
 
 [node name="ScrollingBackground" type="ParallaxBackground"]
 
@@ -8,13 +11,23 @@ offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_asg85")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+texture = ExtResource("2_nlsme")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2560, 2560)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture = ExtResource("2_nlsme")
+flip_v = true
