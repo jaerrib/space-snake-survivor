@@ -3,6 +3,8 @@ class_name Snake extends CharacterBody2D
 var move_direction = Vector2.RIGHT
 var speed = 50
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 func _physics_process(delta: float) -> void:
 	get_input()
 	velocity = move_direction * speed
