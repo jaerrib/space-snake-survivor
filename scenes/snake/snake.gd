@@ -1,16 +1,34 @@
 class_name Snake extends CharacterBody2D
 
-var move_direction = Vector2.RIGHT
-var speed = 50
+const SEGMENT = preload("res://scenes/snake/segment.tscn")
+const SEGMENT_SPACING = 18
 
+var hp: int = 80
+var move_direction = Vector2.RIGHT
+var move_positions = []
+var segments = []
+var speed = 50
+var xp_level: int = 1
+var xp_points: int = 0
+
+@onready var player_cam: Camera2D = $PlayerCam
+@onready var segment_holder: Node = $SegmentHolder
 @onready var sprite_2d: Sprite2D = $Sprite2D
+
+
+func _ready() -> void:
+	SignalManager.on_xp_touched.connect(on_xp_touched)
 
 
 func _physics_process(delta: float) -> void:
 	get_input()
 	velocity = move_direction * speed
+	move_positions.insert(0, position)
+	if move_positions.size() > (segments.size() + 2) * SEGMENT_SPACING:
+		move_positions.pop_back()
 	move_and_slide()
 	rotate_sprite()
+	update_segments()
 
 
 func get_input():
@@ -34,3 +52,26 @@ func rotate_sprite():
 			sprite_2d.rotation_degrees = 90
 		Vector2.RIGHT:
 			sprite_2d.rotation_degrees = -90
+
+
+func on_xp_touched(val: int) -> void:
+	xp_points += val
+	grow()
+
+
+func grow():
+	var new_segment = SEGMENT.instantiate()
+	segment_holder.add_child(new_segment)
+	if segments.size() > 0:
+		var last_segment = segments[-1]
+		new_segment.global_position = last_segment.global_position - (move_direction * SEGMENT_SPACING)
+	else:
+		new_segment.global_position = global_position - (move_direction * SEGMENT_SPACING)
+	segments.append(new_segment)
+
+
+func update_segments():
+	for i in range(segments.size()):
+		var spacing_index = (i + 1) * SEGMENT_SPACING
+		if spacing_index < move_positions.size():
+			segments[i].global_position = move_positions[spacing_index]
