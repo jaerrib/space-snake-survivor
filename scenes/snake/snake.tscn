@@ -17,7 +17,6 @@ shape = SubResource("RectangleShape2D_uqw23")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
-rotation = -1.5708
 texture = ExtResource("2_reko3")
 hframes = 2
 
