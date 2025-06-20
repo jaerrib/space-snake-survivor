@@ -6,6 +6,7 @@ extends Node2D
 func _ready() -> void:
 	SignalManager.on_rotate_snake.connect(on_rotate_snake)
 
+
 func on_rotate_snake(move_direction: Vector2) -> void:
 	match move_direction:
 		Vector2.UP:

@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	update_segments()
 
 
-func get_input():
+func get_input() -> void:
 	if Input.is_action_just_pressed("down") and move_direction != Vector2.UP:
 		move_direction = Vector2.DOWN
 	elif Input.is_action_just_pressed("up") and move_direction != Vector2.DOWN:
@@ -43,7 +43,7 @@ func get_input():
 		move_direction = Vector2.RIGHT
 
 
-func rotate_sprite():
+func rotate_sprite() -> void:
 	match move_direction:
 		Vector2.UP:
 			sprite_2d.rotation_degrees = 180
@@ -60,7 +60,7 @@ func on_xp_touched(val: int) -> void:
 	grow()
 
 
-func grow():
+func grow() -> void:
 	var new_segment = SEGMENT.instantiate()
 	segment_holder.add_child(new_segment)
 	if segments.size() > 0:
@@ -71,7 +71,7 @@ func grow():
 	segments.append(new_segment)
 
 
-func update_segments():
+func update_segments() -> void:
 	for i in range(segments.size()):
 		var spacing_index = (i + 1) * SEGMENT_SPACING
 		if spacing_index < move_positions.size():
