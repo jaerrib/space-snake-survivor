@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 		move_positions.pop_back()
 	move_and_slide()
 	rotate_sprite()
+	SignalManager.on_rotate_snake.emit(move_direction)
 	update_segments()
 
 

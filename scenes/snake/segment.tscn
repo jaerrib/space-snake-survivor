@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d23hypou3iqk2"]
+[gd_scene load_steps=4 format=3 uid="uid://d23hypou3iqk2"]
 
+[ext_resource type="Script" uid="uid://bjk4deu5te083" path="res://scenes/snake/segment.gd" id="1_1va46"]
 [ext_resource type="Texture2D" uid="uid://mx3estf5ra65" path="res://assets/player/snake.png" id="1_277yi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_277yi"]
 size = Vector2(16, 16)
 
 [node name="Segment" type="Node2D"]
+script = ExtResource("1_1va46")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8, 8)
