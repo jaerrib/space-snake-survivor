@@ -1,10 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://biiskars8k5vj"]
+[gd_scene load_steps=4 format=3 uid="uid://biiskars8k5vj"]
 
 [ext_resource type="PackedScene" uid="uid://6minmj4552sw" path="res://scenes/scrolling_background/scrolling_background.tscn" id="1_h3e3j"]
 [ext_resource type="PackedScene" uid="uid://myxpskh0ubg0" path="res://scenes/snake/snake.tscn" id="2_nbgty"]
+[ext_resource type="PackedScene" uid="uid://bdrydxd7w56li" path="res://scenes/xp/xp.tscn" id="3_i166f"]
 
 [node name="Level" type="Node2D"]
 
 [node name="ScrollingBackground" parent="." instance=ExtResource("1_h3e3j")]
+
+[node name="XpHolder" type="Node" parent="."]
+
+[node name="XP" parent="XpHolder" instance=ExtResource("3_i166f")]
+position = Vector2(40, 96)
+
+[node name="XP2" parent="XpHolder" instance=ExtResource("3_i166f")]
+position = Vector2(104, 144)
+
+[node name="XP3" parent="XpHolder" instance=ExtResource("3_i166f")]
+position = Vector2(208, 112)
+
+[node name="XP4" parent="XpHolder" instance=ExtResource("3_i166f")]
+position = Vector2(208, 40)
 
 [node name="Snake" parent="." instance=ExtResource("2_nbgty")]
