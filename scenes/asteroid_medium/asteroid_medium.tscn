@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://2485q7jl1pa3"]
+[gd_scene load_steps=9 format=3 uid="uid://cuogv2eam1xy8"]
 
-[ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_8h5fj"]
-[ext_resource type="Texture2D" uid="uid://cap5c3y2pllnj" path="res://assets/enemies/asteroid.png" id="2_4c28j"]
+[ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_ta4au"]
+[ext_resource type="Texture2D" uid="uid://cap5c3y2pllnj" path="res://assets/enemies/asteroid.png" id="2_st8ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vdy8"]
 size = Vector2(16, 16)
@@ -10,7 +10,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_luwdf"]
-size = Vector2(8, 8)
+size = Vector2(12, 10)
 
 [sub_resource type="Animation" id="Animation_1xiqd"]
 length = 0.001
@@ -29,7 +29,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_7vdy8"]
 resource_name = "rotate"
-length = 4.0
+length = 6.0
 loop_mode = 1
 step = 1.0
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0, 6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.28319]
@@ -51,13 +51,14 @@ _data = {
 &"rotate": SubResource("Animation_7vdy8")
 }
 
-[node name="AsteroidSmall" instance=ExtResource("1_8h5fj")]
+[node name="AsteroidMedium" instance=ExtResource("1_ta4au")]
 collision_layer = 0
 motion_mode = 1
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_4c28j")
+texture = ExtResource("2_st8ts")
 hframes = 4
+frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_7vdy8")
