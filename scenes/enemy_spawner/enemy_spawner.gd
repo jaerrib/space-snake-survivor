@@ -11,14 +11,9 @@ func _on_timer_timeout() -> void:
 				spawn_info.spawn_delay_counter += 1
 			else:
 				spawn_info.spawn_delay_counter = 0
-				var counter: int = 0
-				while counter < spawn_info.enemy_num:
-					if spawn_info.enemy:
-						var enemy_spawn = spawn_info.enemy.instantiate()
-						enemy_spawn.global_position = get_random_position()
-						print("Spawned at:", enemy_spawn.global_position)
-						add_child(enemy_spawn)
-					counter += 1
+				for i in spawn_info.enemy_num:
+					var position = get_random_position()
+					SignalManager.on_create_enemy.emit(position, spawn_info.enemy)
 
 
 func get_random_position() -> Vector2:
