@@ -24,6 +24,10 @@ SignalManager="*res://singletons/signal_manager.gd"
 window/size/viewport_width=960
 window/size/viewport_height=720
 
+[global_group]
+
+player=""
+
 [input]
 
 up={
