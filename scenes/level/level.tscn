@@ -1,28 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://biiskars8k5vj"]
 
 [ext_resource type="PackedScene" uid="uid://6minmj4552sw" path="res://scenes/scrolling_background/scrolling_background.tscn" id="1_h3e3j"]
+[ext_resource type="Script" uid="uid://e48mvc850soi" path="res://scenes/level/level.gd" id="1_vpf64"]
 [ext_resource type="PackedScene" uid="uid://myxpskh0ubg0" path="res://scenes/snake/snake.tscn" id="2_nbgty"]
-[ext_resource type="PackedScene" uid="uid://bdrydxd7w56li" path="res://scenes/xp/xp.tscn" id="3_i166f"]
 [ext_resource type="PackedScene" uid="uid://cnb7mxv8umpi6" path="res://object_maker/object_maker.tscn" id="4_hnne4"]
 [ext_resource type="PackedScene" uid="uid://dcm3d821asbyw" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="4_qkmgm"]
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_vpf64")
 
 [node name="ScrollingBackground" parent="." instance=ExtResource("1_h3e3j")]
-
-[node name="XpHolder" type="Node" parent="."]
-
-[node name="XP" parent="XpHolder" instance=ExtResource("3_i166f")]
-position = Vector2(40, 96)
-
-[node name="XP2" parent="XpHolder" instance=ExtResource("3_i166f")]
-position = Vector2(104, 144)
-
-[node name="XP3" parent="XpHolder" instance=ExtResource("3_i166f")]
-position = Vector2(208, 112)
-
-[node name="XP4" parent="XpHolder" instance=ExtResource("3_i166f")]
-position = Vector2(208, 40)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_qkmgm")]
 
