@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cuogv2eam1xy8"]
+[gd_scene load_steps=10 format=3 uid="uid://cuogv2eam1xy8"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_ta4au"]
+[ext_resource type="Script" uid="uid://bkpw1gikn30s" path="res://scenes/asteroid_medium/asteroid_medium.gd" id="2_e4xro"]
 [ext_resource type="Texture2D" uid="uid://cap5c3y2pllnj" path="res://assets/enemies/asteroid.png" id="2_st8ts"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vdy8"]
@@ -54,6 +55,7 @@ _data = {
 [node name="AsteroidMedium" instance=ExtResource("1_ta4au")]
 collision_layer = 0
 motion_mode = 1
+script = ExtResource("2_e4xro")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_st8ts")
@@ -65,13 +67,11 @@ shape = SubResource("RectangleShape2D_7vdy8")
 
 [node name="HitBox" parent="." index="2"]
 collision_layer = 4
-collision_mask = 0
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("RectangleShape2D_1xiqd")
 
 [node name="HurtBox" parent="." index="3"]
-collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]

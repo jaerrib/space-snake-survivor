@@ -11,3 +11,9 @@ func _physics_process(_delta) -> void:
 		var direction: Vector2 = global_position.direction_to(player.global_position)
 		velocity = direction * movement_speed
 		move_and_slide()
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	var spawn_pos: Vector2 = global_position
+	SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"])
+	queue_free()
