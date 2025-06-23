@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://c57ku4k1cuecy"]
+
+[ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_ym41x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ueuq"]
+size = Vector2(8, 8)
+
+[node name="SnakeProjectile1" instance=ExtResource("1_ym41x")]
+collision_layer = 16
+collision_mask = 4
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(4, 4)
+scale = Vector2(0.4, 0.4)
+
+[node name="ColorRect" type="ColorRect" parent="." index="2"]
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0, 1, 1)
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(4, 4)
+shape = SubResource("RectangleShape2D_8ueuq")
