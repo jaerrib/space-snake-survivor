@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://blptdmarkhjn0"]
 
-[ext_resource type="Script" uid="uid://cw7k18lwvmwau" path="res://scenes/weapon_manager/weapon_manager.gd" id="1_hx5ju"]
+[ext_resource type="PackedScene" uid="uid://drkk7wfvfe8yo" path="res://scenes/snake_attack_1/snake_attack_1.tscn" id="2_m85e8"]
 
 [node name="WeaponManager" type="Node2D"]
-script = ExtResource("1_hx5ju")
+
+[node name="SnakeAttack1" parent="." instance=ExtResource("2_m85e8")]

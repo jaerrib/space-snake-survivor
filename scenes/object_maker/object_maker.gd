@@ -49,3 +49,8 @@ func on_create_projectile(
 	scene.position = start_pos
 	scene.setup(direction, speed, flip_sprite)
 	call_deferred(ADD_OBJECT, scene, start_pos)
+
+
+func add_object(obj: Node, global_position: Vector2) -> void:
+	add_child(obj)
+	obj.global_position = global_position

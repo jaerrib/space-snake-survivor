@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://myxpskh0ubg0"]
+[gd_scene load_steps=7 format=3 uid="uid://myxpskh0ubg0"]
 
 [ext_resource type="Script" uid="uid://b2nc1ih7ldqom" path="res://scenes/snake/snake.gd" id="1_4ska3"]
 [ext_resource type="PackedScene" uid="uid://8qwve0r7dghn" path="res://scenes/player_cam/player_cam.tscn" id="2_h1wbu"]
 [ext_resource type="Texture2D" uid="uid://mx3estf5ra65" path="res://assets/player/snake.png" id="2_reko3"]
+[ext_resource type="PackedScene" uid="uid://blptdmarkhjn0" path="res://scenes/weapon_manager/weapon_manager.tscn" id="4_reko3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqw23"]
 size = Vector2(16, 16)
@@ -43,3 +44,5 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_h1wbu")
+
+[node name="WeaponManager" parent="." instance=ExtResource("4_reko3")]
