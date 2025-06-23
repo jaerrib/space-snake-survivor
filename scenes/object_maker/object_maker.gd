@@ -13,7 +13,7 @@ const OBJECT_SCENES: Dictionary = {
 }
 
 const PROJECTILE_SCENE: Dictionary = {
-	Constants.ProjectileType.SNAKE_ATTACK_1: preload("res://scenes/snake_projectile_1/snake_projectile_1.tscn")
+	Constants.ProjectileType.SNAKE_PROJECTILE_1: preload("res://scenes/snake_projectile_1/snake_projectile_1.tscn")
 }
 
 
