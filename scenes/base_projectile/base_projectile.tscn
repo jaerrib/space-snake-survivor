@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhfu5ipauvtoc"]
+
+[ext_resource type="Script" uid="uid://va4rui72ofxa" path="res://scenes/base_projectile/base_projectile.gd" id="1_aa5rf"]
+
+[node name="BaseProjectile" type="Area2D"]
+script = ExtResource("1_aa5rf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="RemovalTimer" type="Timer" parent="."]
