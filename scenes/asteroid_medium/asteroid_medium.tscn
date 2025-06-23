@@ -65,9 +65,6 @@ frame = 1
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_7vdy8")
 
-[node name="HitBox" parent="." index="2"]
-collision_layer = 4
-
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("RectangleShape2D_1xiqd")
 
