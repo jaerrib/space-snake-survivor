@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6minmj4552sw" path="res://scenes/scrolling_background/scrolling_background.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://e48mvc850soi" path="res://scenes/level/level.gd" id="1_vpf64"]
 [ext_resource type="PackedScene" uid="uid://myxpskh0ubg0" path="res://scenes/snake/snake.tscn" id="2_nbgty"]
-[ext_resource type="PackedScene" uid="uid://cnb7mxv8umpi6" path="res://object_maker/object_maker.tscn" id="4_hnne4"]
+[ext_resource type="PackedScene" uid="uid://cnb7mxv8umpi6" path="res://scenes/object_maker/object_maker.tscn" id="4_hnne4"]
 [ext_resource type="PackedScene" uid="uid://dcm3d821asbyw" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="4_qkmgm"]
 
 [node name="Level" type="Node2D"]
