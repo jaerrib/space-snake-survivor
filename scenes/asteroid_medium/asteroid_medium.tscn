@@ -59,7 +59,7 @@ script = ExtResource("2_e4xro")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_st8ts")
-hframes = 4
+hframes = 8
 frame = 1
 
 [node name="CollisionShape2D" parent="." index="1"]

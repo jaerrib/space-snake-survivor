@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://2485q7jl1pa3"]
+[gd_scene load_steps=10 format=3 uid="uid://2485q7jl1pa3"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_8h5fj"]
 [ext_resource type="Texture2D" uid="uid://cap5c3y2pllnj" path="res://assets/enemies/asteroid.png" id="2_4c28j"]
+[ext_resource type="Script" uid="uid://cblcq2s4fy7ug" path="res://scenes/asteroid_small/asteroid_small.gd" id="2_7vdy8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vdy8"]
 size = Vector2(16, 16)
@@ -54,10 +55,11 @@ _data = {
 [node name="AsteroidSmall" instance=ExtResource("1_8h5fj")]
 collision_layer = 0
 motion_mode = 1
+script = ExtResource("2_7vdy8")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_4c28j")
-hframes = 4
+hframes = 8
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_7vdy8")
