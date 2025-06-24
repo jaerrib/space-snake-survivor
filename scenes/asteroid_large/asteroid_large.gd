@@ -7,8 +7,14 @@ func _ready() -> void:
 	sprite_2d.frame = frame_number
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var spawn_pos_1: Vector2 = Vector2(global_position.x + 30, global_position.y)
-	var spawn_pos_2: Vector2 = Vector2(global_position.x - 30, global_position.y)
+	var spawn_pos_1: Vector2 = get_random_position()
+	var spawn_pos_2: Vector2 = get_random_position()
 	SignalManager.on_create_enemy.emit(spawn_pos_1, Constants.EnemyType.ASTEROID_MEDIUM)
 	SignalManager.on_create_enemy.emit(spawn_pos_2, Constants.EnemyType.ASTEROID_MEDIUM)
 	queue_free()
+
+
+func get_random_position() -> Vector2:
+	var angle: float = randf_range(0, TAU)
+	var offset: Vector2 = Vector2.RIGHT.rotated(angle) * 17
+	return global_position + offset
