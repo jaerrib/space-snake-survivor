@@ -15,10 +15,10 @@ texture = ExtResource("1_277yi")
 hframes = 2
 frame = 1
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="XpDetection" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="XpDetection"]
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_277yi")
