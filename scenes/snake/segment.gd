@@ -17,3 +17,7 @@ func on_rotate_snake(move_direction: Vector2) -> void:
 			sprite_2d.rotation_degrees = 90
 		Vector2.RIGHT:
 			sprite_2d.rotation_degrees = -90
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	SignalManager.on_segment_hit.emit(area)

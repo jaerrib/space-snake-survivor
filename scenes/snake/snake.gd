@@ -18,6 +18,7 @@ var xp_points: int = 0
 
 func _ready() -> void:
 	SignalManager.on_xp_touched.connect(on_xp_touched)
+	SignalManager.on_segment_hit.connect(_on_hit_box_area_entered)
 
 
 func _physics_process(delta: float) -> void:
@@ -76,3 +77,12 @@ func update_segments() -> void:
 		var spacing_index = (i + 1) * SEGMENT_SPACING
 		if spacing_index < move_positions.size():
 			segments[i].global_position = move_positions[spacing_index]
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	var enemy = area.get_parent()
+	var damage = enemy.get_damage()
+	hp -= damage
+	print("HIT FOR ", damage, " DAMAGE")
+	if hp <= 0:
+		print("DEAD")
