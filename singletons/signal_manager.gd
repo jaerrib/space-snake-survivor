@@ -10,6 +10,7 @@ signal on_create_projectile(
 	direction: Vector2, 
 	speed: float,
 	flip_sprite: bool,
+	damage: int,
 	projectile_type: Constants.ProjectileType,
 	)
 signal on_rotate_snake(direction: Vector2)

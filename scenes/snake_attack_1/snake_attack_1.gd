@@ -1,5 +1,6 @@
 class_name SnakeAttack1 extends Node2D
 
+@export var damage: int = 1
 @export var delay_time: float = 3.0
 @export var speed_modifier: float = 30
 
@@ -20,5 +21,6 @@ func _on_timer_timeout() -> void:
 		direction,
 		projectile_speed,
 		true,
+		damage,
 		Constants.ProjectileType.SNAKE_PROJECTILE_1
 	)

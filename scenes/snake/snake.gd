@@ -83,6 +83,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	var damage = enemy.get_damage()
 	hp -= damage
-	print("HIT FOR ", damage, " DAMAGE")
+	print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
 	if hp <= 0:
 		print("DEAD")

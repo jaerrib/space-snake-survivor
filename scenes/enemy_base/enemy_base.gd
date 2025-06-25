@@ -15,9 +15,13 @@ func _physics_process(_delta) -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var spawn_pos: Vector2 = global_position
-	SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"])
-	queue_free()
+	var damage = area.get_damage()
+	hp -= damage
+	print("HIT BY PLAYER FOR ", damage, " DAMAGE")
+	if hp <= 0:	
+		var spawn_pos: Vector2 = global_position
+		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"])
+		queue_free()
 
 
 func get_damage() -> int:

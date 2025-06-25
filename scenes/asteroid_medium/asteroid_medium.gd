@@ -9,11 +9,15 @@ func _ready() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var spawn_pos_1: Vector2 = get_random_position()
-	var spawn_pos_2: Vector2 = get_random_position()
-	SignalManager.on_create_enemy.emit(spawn_pos_1, Constants.EnemyType.ASTEROID_SMALL)
-	SignalManager.on_create_enemy.emit(spawn_pos_2, Constants.EnemyType.ASTEROID_SMALL)
-	queue_free()
+	var damage = area.get_damage()
+	hp -= damage
+	print("HIT BY PLAYER FOR ", damage, " DAMAGE")
+	if hp <= 0:	
+		var spawn_pos_1: Vector2 = get_random_position()
+		var spawn_pos_2: Vector2 = get_random_position()
+		SignalManager.on_create_enemy.emit(spawn_pos_1, Constants.EnemyType.ASTEROID_SMALL)
+		SignalManager.on_create_enemy.emit(spawn_pos_2, Constants.EnemyType.ASTEROID_SMALL)
+		queue_free()
 
 
 func get_random_position() -> Vector2:

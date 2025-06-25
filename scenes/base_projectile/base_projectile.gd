@@ -1,7 +1,6 @@
 class_name BaseProjectile extends Area2D
 
-@export var damage: int = 1
-
+var _damage: int = 1
 var _direction: Vector2 = Vector2.ZERO
 var _speed: float = 200.0
 var _flip_sprite: bool = false
@@ -19,10 +18,11 @@ func _process(delta: float) -> void:
 	position += _direction * _speed * delta
 
 
-func setup(direction: Vector2, speed: float, flip_sprite: bool) -> void:
+func setup(direction: Vector2, speed: float, flip_sprite: bool, damage: int) -> void:
 	_direction = direction.normalized()
 	_speed = speed
 	_flip_sprite = flip_sprite
+	_damage = damage
 
 
 func deactivate () -> void:
@@ -30,7 +30,7 @@ func deactivate () -> void:
 
 
 func get_damage() -> int:
-	return damage
+	return _damage
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
