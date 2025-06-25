@@ -3,6 +3,7 @@ class_name EnemyBase extends CharacterBody2D
 @export var movement_speed: float = 20.0
 @export var hp: float = 1.0
 @export var damage: float = 1.0
+@export var xp_val: int = 1
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 
@@ -20,7 +21,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	print("HIT BY PLAYER FOR ", damage, " DAMAGE")
 	if hp <= 0:	
 		var spawn_pos: Vector2 = global_position
-		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"])
+		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"], xp_val)
 		queue_free()
 
 

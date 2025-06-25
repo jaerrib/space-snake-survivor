@@ -56,9 +56,18 @@ func rotate_sprite() -> void:
 			sprite_2d.rotation_degrees = -90
 
 
+func xp_required_for(level: int) -> int:
+	return 10 * level * level + 50
+
+
+
 func on_xp_touched(val: int) -> void:
 	xp_points += val
-	grow()
+	while xp_points >= xp_required_for(xp_level):
+		xp_points -= xp_required_for(xp_level)
+		xp_level += 1
+		grow()
+		print("LEVEL UP! Now at level ", xp_level)
 
 
 func grow() -> void:

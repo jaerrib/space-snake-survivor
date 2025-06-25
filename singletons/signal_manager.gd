@@ -4,6 +4,7 @@ signal on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType)
 signal on_create_object(
 	position: Vector2,
 	object_type: Constants.ObjectType,
+	value: int
 )
 signal on_create_projectile(
 	position: Vector2, 

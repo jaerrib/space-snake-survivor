@@ -29,11 +29,12 @@ func on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType):
 	call_deferred("add_child", scene)
 
 
-func on_create_object(position: Vector2, object_type: Constants.ObjectType) -> void:
+func on_create_object(position: Vector2, object_type: Constants.ObjectType, value: int) -> void:
 	if !OBJECT_SCENES.has(object_type):
 		return
 	var new_object = OBJECT_SCENES[object_type].instantiate()
 	new_object.position = position
+	new_object.setup(value)
 	call_deferred("add_child", new_object)
 
 
