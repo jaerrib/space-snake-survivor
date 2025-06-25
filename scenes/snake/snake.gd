@@ -4,10 +4,10 @@ const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 18
 
 var hp: float = 80
-var move_direction = Vector2.RIGHT
+var move_direction: Vector2 = Vector2.RIGHT
 var move_positions = []
-var segments = []
-var speed = 50
+var segments: Array[Segment] = []
+var speed: int = 50
 var xp_level: int = 1
 var xp_points: int = 0
 
