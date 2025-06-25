@@ -1,6 +1,6 @@
 class_name SnakeAttack1 extends Node2D
 
-@export var damage: int = 1
+@export var damage: float = 1.0
 @export var delay_time: float = 3.0
 @export var speed_modifier: float = 30
 

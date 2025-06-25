@@ -1,8 +1,8 @@
 class_name EnemyBase extends CharacterBody2D
 
 @export var movement_speed: float = 20.0
-@export var hp: int = 1
-@export var damage: int = 1
+@export var hp: float = 1.0
+@export var damage: float = 1.0
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 

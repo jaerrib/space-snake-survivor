@@ -42,7 +42,7 @@ func on_create_projectile(
 	direction: Vector2,
 	speed: float,
 	flip_sprite: bool,
-	damage: int,
+	damage: float,
 	projectile_type: Constants.ProjectileType ) -> void:
 	if !PROJECTILE_SCENE.has(projectile_type):
 		return

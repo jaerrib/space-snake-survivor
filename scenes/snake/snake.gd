@@ -3,7 +3,7 @@ class_name Snake extends CharacterBody2D
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 18
 
-var hp: int = 80
+var hp: float = 80
 var move_direction = Vector2.RIGHT
 var move_positions = []
 var segments = []
