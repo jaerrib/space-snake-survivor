@@ -10,10 +10,6 @@ var _penetration: int = 1
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-func _ready() -> void:
-	#sprite_2d.flip_h = _flip_sprite
-	pass
-
 func _process(delta: float) -> void:
 	position += _direction * _speed * delta
 
@@ -21,7 +17,6 @@ func _process(delta: float) -> void:
 func setup(direction: Vector2, speed: float, damage: int, penetration: int) -> void:
 	_direction = direction.normalized()
 	_speed = speed
-	#_flip_sprite = flip_sprite
 	_damage = damage
 	_penetration = penetration
 

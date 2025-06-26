@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c57ku4k1cuecy"]
+[gd_scene load_steps=5 format=3 uid="uid://c57ku4k1cuecy"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_ym41x"]
+[ext_resource type="Script" uid="uid://l5q5nsypywt3" path="res://scenes/snake_projectile_1/snake_projectile_1.gd" id="2_p5qym"]
+[ext_resource type="Texture2D" uid="uid://bm6o08o7akrj2" path="res://assets/player/projectile_1.png" id="2_vb5hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ueuq"]
 size = Vector2(8, 8)
@@ -8,18 +10,16 @@ size = Vector2(8, 8)
 [node name="SnakeProjectile1" instance=ExtResource("1_ym41x")]
 collision_layer = 16
 collision_mask = 4
+script = ExtResource("2_p5qym")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
-position = Vector2(4, 4)
+position = Vector2(2.38419e-07, 2.38419e-07)
 scale = Vector2(0.4, 0.4)
 
-[node name="ColorRect" type="ColorRect" parent="." index="2"]
-offset_right = 8.0
-offset_bottom = 8.0
-color = Color(1, 0, 1, 1)
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_vb5hh")
 
-[node name="CollisionShape2D" parent="." index="3"]
-position = Vector2(4, 4)
+[node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_8ueuq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
