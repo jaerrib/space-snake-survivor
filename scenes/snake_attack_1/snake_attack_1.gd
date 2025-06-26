@@ -22,7 +22,6 @@ func _on_timer_timeout() -> void:
 		player_pos,
 		direction,
 		projectile_speed,
-		true,
 		damage,
 		penetration,
 		Constants.ProjectileType.SNAKE_PROJECTILE_1

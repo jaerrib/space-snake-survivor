@@ -3,7 +3,6 @@ class_name BaseProjectile extends Area2D
 var _damage: int = 1
 var _direction: Vector2 = Vector2.ZERO
 var _speed: float = 200.0
-var _flip_sprite: bool = false
 var _penetration: int = 1
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -12,17 +11,17 @@ var _penetration: int = 1
 
 
 func _ready() -> void:
-	sprite_2d.flip_h = _flip_sprite
-
+	#sprite_2d.flip_h = _flip_sprite
+	pass
 
 func _process(delta: float) -> void:
 	position += _direction * _speed * delta
 
 
-func setup(direction: Vector2, speed: float, flip_sprite: bool, damage: int, penetration: int) -> void:
+func setup(direction: Vector2, speed: float, damage: int, penetration: int) -> void:
 	_direction = direction.normalized()
 	_speed = speed
-	_flip_sprite = flip_sprite
+	#_flip_sprite = flip_sprite
 	_damage = damage
 	_penetration = penetration
 

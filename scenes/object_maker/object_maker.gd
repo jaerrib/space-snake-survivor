@@ -42,7 +42,6 @@ func on_create_projectile(
 	start_pos: Vector2,
 	direction: Vector2,
 	speed: float,
-	flip_sprite: bool,
 	damage: float,
 	penetration: int,
 	projectile_type: Constants.ProjectileType ) -> void:
@@ -50,7 +49,7 @@ func on_create_projectile(
 		return
 	var scene = PROJECTILE_SCENE[projectile_type].instantiate()
 	scene.position = start_pos
-	scene.setup(direction, speed, flip_sprite, damage, penetration)
+	scene.setup(direction, speed, damage, penetration)
 	call_deferred(ADD_OBJECT, scene, start_pos)
 
 

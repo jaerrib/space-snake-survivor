@@ -10,7 +10,6 @@ signal on_create_projectile(
 	position: Vector2, 
 	direction: Vector2, 
 	speed: float,
-	flip_sprite: bool,
 	damage: float,
 	penetration, int,
 	projectile_type: Constants.ProjectileType,
