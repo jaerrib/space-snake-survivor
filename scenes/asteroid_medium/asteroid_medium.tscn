@@ -53,7 +53,8 @@ _data = {
 }
 
 [node name="AsteroidMedium" instance=ExtResource("1_ta4au")]
-collision_layer = 0
+collision_layer = 4
+collision_mask = 5
 motion_mode = 1
 script = ExtResource("2_e4xro")
 xp_val = 10
@@ -70,7 +71,7 @@ shape = SubResource("RectangleShape2D_7vdy8")
 shape = SubResource("RectangleShape2D_1xiqd")
 
 [node name="HurtBox" parent="." index="3"]
-collision_mask = 2
+collision_mask = 6
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_luwdf")
