@@ -4,6 +4,7 @@ var _damage: int = 1
 var _direction: Vector2 = Vector2.ZERO
 var _speed: float = 200.0
 var _flip_sprite: bool = false
+var _penetration: int = 1
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var removal_timer: Timer = $RemovalTimer
@@ -18,11 +19,12 @@ func _process(delta: float) -> void:
 	position += _direction * _speed * delta
 
 
-func setup(direction: Vector2, speed: float, flip_sprite: bool, damage: int) -> void:
+func setup(direction: Vector2, speed: float, flip_sprite: bool, damage: int, penetration: int) -> void:
 	_direction = direction.normalized()
 	_speed = speed
 	_flip_sprite = flip_sprite
 	_damage = damage
+	_penetration = penetration
 
 
 func deactivate () -> void:
@@ -38,5 +40,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	set_process(false)
-	queue_free()
+	_penetration -= 1
+	check_max_penetation()
+
+
+func check_max_penetation() -> void:
+	if _penetration <= 0:
+		set_process(false)
+		queue_free()

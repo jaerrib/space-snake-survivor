@@ -2,6 +2,7 @@ class_name SnakeAttack1 extends Node2D
 
 @export var damage: float = 1.0
 @export var delay_time: float = 3.0
+@export var penetration: int = 1
 @export var speed_modifier: float = 30
 
 @onready var timer: Timer = $Timer
@@ -22,5 +23,6 @@ func _on_timer_timeout() -> void:
 		projectile_speed,
 		true,
 		damage,
+		penetration,
 		Constants.ProjectileType.SNAKE_PROJECTILE_1
 	)
