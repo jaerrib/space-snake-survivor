@@ -10,6 +10,7 @@ class_name SnakeAttack1 extends Node2D
 
 func _ready() -> void:
 	timer.wait_time = delay_time
+	SignalManager.on_level_up.connect(on_level_up)
 
 
 func _on_timer_timeout() -> void:
@@ -26,3 +27,12 @@ func _on_timer_timeout() -> void:
 		penetration,
 		Constants.ProjectileType.SNAKE_PROJECTILE_1
 	)
+
+
+func on_level_up() -> void:
+	damage *= 1.02
+	delay_time *= 0.99
+	speed_modifier *= 1.02
+	var player: Snake = get_tree().get_first_node_in_group("player")
+	if player.get_level() % 5 == 0:
+		penetration += 1

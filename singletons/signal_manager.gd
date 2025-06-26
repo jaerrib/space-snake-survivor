@@ -18,3 +18,4 @@ signal on_create_projectile(
 signal on_rotate_snake(direction: Vector2)
 signal on_xp_touched(val: int)
 signal on_segment_hit(area: Area2D)
+signal on_level_up

@@ -19,6 +19,7 @@ var xp_points: int = 0
 func _ready() -> void:
 	SignalManager.on_xp_touched.connect(on_xp_touched)
 	SignalManager.on_segment_hit.connect(_on_hit_box_area_entered)
+	SignalManager.on_level_up.connect(on_level_up)
 
 
 func _physics_process(delta: float) -> void:
@@ -60,7 +61,6 @@ func xp_required_for(level: int) -> int:
 	return 10 * level * level + 50
 
 
-
 func on_xp_touched(val: int) -> void:
 	xp_points += val
 	while xp_points >= xp_required_for(xp_level):
@@ -68,6 +68,7 @@ func on_xp_touched(val: int) -> void:
 		xp_level += 1
 		grow()
 		print("LEVEL UP! Now at level ", xp_level)
+		SignalManager.on_level_up.emit()
 
 
 func grow() -> void:
@@ -95,3 +96,11 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
 	if hp <= 0:
 		print("DEAD")
+
+
+func get_level() -> int:
+	return xp_level
+
+
+func on_level_up() -> void:
+	pass
