@@ -47,4 +47,8 @@ shape = SubResource("RectangleShape2D_h1wbu")
 
 [node name="WeaponManager" parent="." instance=ExtResource("4_reko3")]
 
+[node name="HealTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

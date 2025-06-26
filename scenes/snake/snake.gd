@@ -4,6 +4,9 @@ const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 18
 
 var hp: float = 80
+var hp_regen_amount: float = 0.02
+var hp_regen_time: float = 1
+var max_hp: float = 80
 var move_direction: Vector2 = Vector2.RIGHT
 var move_positions = []
 var segments: Array[Segment] = []
@@ -11,12 +14,14 @@ var speed: int = 50
 var xp_level: int = 1
 var xp_points: int = 0
 
+@onready var heal_timer: Timer = $HealTimer
 @onready var player_cam: Camera2D = $PlayerCam
 @onready var segment_holder: Node = $SegmentHolder
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
+	hp = max_hp
 	SignalManager.on_xp_touched.connect(on_xp_touched)
 	SignalManager.on_segment_hit.connect(_on_hit_box_area_entered)
 	SignalManager.on_level_up.connect(on_level_up)
@@ -104,3 +109,10 @@ func get_level() -> int:
 
 func on_level_up() -> void:
 	pass
+
+
+func _on_heal_timer_timeout() -> void:
+	if hp + hp_regen_amount <= max_hp:
+		hp += hp_regen_amount
+	else:
+		hp = max_hp
