@@ -1,8 +1,8 @@
 class_name HealthBar extends TextureProgressBar
 
-const COLOR_DANGER: Color = Color("#cc0000")
-const COLOR_MIDDLE: Color = Color("#ff9900")
-const COLOR_GOOD: Color = Color("#33cc33")
+const COLOR_DANGER: Color = Color("#e01b24")
+const COLOR_MIDDLE: Color = Color("#ff7800")
+const COLOR_GOOD: Color = Color("#33d17a")
 
 var start_health: float
 var level_med: float
