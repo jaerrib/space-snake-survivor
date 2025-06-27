@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm6ipr5efunpg"]
+
+[ext_resource type="Script" uid="uid://6ng35qfvmyvj" path="res://scenes/hud/timer.gd" id="1_48c2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MC2" type="MarginContainer" parent="MC"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="MC/MC2"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+color = Color(0, 0.501961, 0, 0.752941)
+
+[node name="HB" type="HBoxContainer" parent="MC/MC2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MC/MC2/HB"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_48c2t")
+
+[node name="LevelTimer" type="Timer" parent="."]
+autostart = true
+script = ExtResource("1_48c2t")
