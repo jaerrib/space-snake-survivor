@@ -5,9 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://beaium1e18d1q" path="res://assets/misc/progress.png" id="2_eutov"]
 
 [node name="HealthBar" type="TextureProgressBar"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 200.0
+offset_bottom = 16.0
 value = 50.0
+nine_patch_stretch = true
 texture_under = ExtResource("1_n3ttx")
 texture_progress = ExtResource("2_eutov")
 script = ExtResource("1_qy603")

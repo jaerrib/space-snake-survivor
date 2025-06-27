@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm6ipr5efunpg"]
+[gd_scene load_steps=4 format=3 uid="uid://bm6ipr5efunpg"]
 
 [ext_resource type="Script" uid="uid://6ng35qfvmyvj" path="res://scenes/hud/timer.gd" id="1_48c2t"]
+[ext_resource type="PackedScene" uid="uid://8pydh1pfgx1s" path="res://scenes/health_bar/health_bar.tscn" id="1_cgeww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
 
@@ -34,8 +35,17 @@ color = Color(0, 0.501961, 0, 0.752941)
 layout_mode = 2
 alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HealthBar" parent="MC/MC2/HB/HBoxContainer" instance=ExtResource("1_cgeww")]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="Label" type="Label" parent="MC/MC2/HB"]
 layout_mode = 2
+size_flags_horizontal = 6
 text = "00:00"
 label_settings = SubResource("LabelSettings_48c2t")
 
