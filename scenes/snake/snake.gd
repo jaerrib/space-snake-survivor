@@ -101,6 +101,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
 	if hp <= 0:
 		print("DEAD")
+	SignalManager.on_update_health.emit(hp)
 
 
 func get_level() -> int:
@@ -116,6 +117,7 @@ func _on_heal_timer_timeout() -> void:
 		hp += hp_regen_amount
 	else:
 		hp = max_hp
+	SignalManager.on_update_health.emit(hp)
 
 
 func get_health() -> float:
