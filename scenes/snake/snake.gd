@@ -116,3 +116,23 @@ func _on_heal_timer_timeout() -> void:
 		hp += hp_regen_amount
 	else:
 		hp = max_hp
+
+
+func get_health() -> float:
+	return hp
+
+
+func get_max_health() -> float:
+	return max_hp
+
+
+func get_xp() -> int:
+	return xp_points
+
+
+func get_xp_required_for_current_level() -> int:
+	return xp_required_for(xp_level)
+
+
+func get_xp_required_for_next_level() -> int:
+	return xp_required_for(xp_level + 1)
