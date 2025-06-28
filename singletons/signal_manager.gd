@@ -20,3 +20,4 @@ signal on_segment_hit(area: Area2D)
 signal on_level_up
 signal on_update_health(hp: float)
 signal on_update_xp
+signal on_level_complete

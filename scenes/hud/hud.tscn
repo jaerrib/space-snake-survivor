@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm6ipr5efunpg"]
+[gd_scene load_steps=6 format=3 uid="uid://bm6ipr5efunpg"]
 
-[ext_resource type="Script" uid="uid://6ng35qfvmyvj" path="res://scenes/hud/timer.gd" id="1_48c2t"]
+[ext_resource type="Script" uid="uid://bgyqs8s1n6j1r" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="PackedScene" uid="uid://8pydh1pfgx1s" path="res://scenes/health_bar/health_bar.tscn" id="1_cgeww"]
 [ext_resource type="PackedScene" uid="uid://b1lplrwpbqcsk" path="res://scenes/xp_bar/xp_bar.tscn" id="2_c45xl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -13,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_0bx4p")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -44,11 +47,17 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MC/MC2/HB"]
+[node name="TimeLabel" type="Label" parent="MC/MC2/HB"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "00:00"
 label_settings = SubResource("LabelSettings_48c2t")
+
+[node name="XPLevelLabel" type="Label" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "1"
+label_settings = SubResource("LabelSettings_c45xl")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
@@ -60,4 +69,5 @@ size_flags_horizontal = 3
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
-script = ExtResource("1_48c2t")
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
