@@ -14,6 +14,8 @@ var speed: int = 50
 var xp_level: int = 1
 var xp_points: int = 0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_animation_timer: Timer = $DamageAnimationTimer
 @onready var heal_timer: Timer = $HealTimer
 @onready var player_cam: Camera2D = $PlayerCam
 @onready var segment_holder: Node = $SegmentHolder
@@ -25,6 +27,7 @@ func _ready() -> void:
 	SignalManager.on_xp_touched.connect(on_xp_touched)
 	SignalManager.on_segment_hit.connect(_on_hit_box_area_entered)
 	SignalManager.on_level_up.connect(on_level_up)
+	SignalManager.on_snake_hit.connect(on_snake_hit)
 
 
 func _physics_process(delta: float) -> void:
@@ -103,6 +106,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if hp <= 0:
 		print("DEAD")
 	SignalManager.on_update_health.emit(hp)
+	SignalManager.on_snake_hit.emit()
 
 
 func get_level() -> int:
@@ -135,3 +139,12 @@ func get_xp() -> int:
 
 func get_xp_required_for_next_level() -> int:
 	return xp_required_for(xp_level)
+
+
+func _on_damage_animation_timer_timeout() -> void:
+	animation_player.stop()
+
+
+func on_snake_hit() -> void:
+	damage_animation_timer.start()
+	animation_player.play("damaged")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://myxpskh0ubg0"]
+[gd_scene load_steps=10 format=3 uid="uid://myxpskh0ubg0"]
 
 [ext_resource type="Script" uid="uid://b2nc1ih7ldqom" path="res://scenes/snake/snake.gd" id="1_4ska3"]
 [ext_resource type="PackedScene" uid="uid://8qwve0r7dghn" path="res://scenes/player_cam/player_cam.tscn" id="2_h1wbu"]
@@ -10,6 +10,43 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1wbu"]
 size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_reko3"]
+resource_name = "damaged"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fkoge"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fkoge"]
+_data = {
+&"RESET": SubResource("Animation_fkoge"),
+&"damaged": SubResource("Animation_reko3")
+}
 
 [node name="Snake" type="CharacterBody2D" groups=["player"]]
 collision_layer = 0
@@ -50,5 +87,14 @@ shape = SubResource("RectangleShape2D_h1wbu")
 [node name="HealTimer" type="Timer" parent="."]
 autostart = true
 
+[node name="DamageAnimationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fkoge")
+}
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
+[connection signal="timeout" from="DamageAnimationTimer" to="." method="_on_damage_animation_timer_timeout"]
