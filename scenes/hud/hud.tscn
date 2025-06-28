@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm6ipr5efunpg"]
+[gd_scene load_steps=5 format=3 uid="uid://bm6ipr5efunpg"]
 
 [ext_resource type="Script" uid="uid://6ng35qfvmyvj" path="res://scenes/hud/timer.gd" id="1_48c2t"]
 [ext_resource type="PackedScene" uid="uid://8pydh1pfgx1s" path="res://scenes/health_bar/health_bar.tscn" id="1_cgeww"]
+[ext_resource type="PackedScene" uid="uid://b1lplrwpbqcsk" path="res://scenes/xp_bar/xp_bar.tscn" id="2_c45xl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
 
@@ -48,6 +49,14 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "00:00"
 label_settings = SubResource("LabelSettings_48c2t")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="XPBar" parent="MC/MC2/HB/HBoxContainer3" instance=ExtResource("2_c45xl")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true

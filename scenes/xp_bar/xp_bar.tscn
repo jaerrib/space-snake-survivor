@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1lplrwpbqcsk"]
+
+[ext_resource type="Texture2D" uid="uid://cqt41khfbpull" path="res://assets/misc/progress-bg.png" id="1_154m3"]
+[ext_resource type="Texture2D" uid="uid://beaium1e18d1q" path="res://assets/misc/progress.png" id="1_l50ll"]
+[ext_resource type="Script" uid="uid://u2287nf4f3ls" path="res://scenes/xp_bar/xp_bar.gd" id="1_ohdb3"]
+
+[node name="XPBar" type="TextureProgressBar"]
+offset_right = 200.0
+offset_bottom = 16.0
+value = 50.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = ExtResource("1_154m3")
+texture_progress = ExtResource("1_l50ll")
+script = ExtResource("1_ohdb3")

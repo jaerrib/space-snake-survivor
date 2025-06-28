@@ -19,3 +19,4 @@ signal on_xp_touched(val: int)
 signal on_segment_hit(area: Area2D)
 signal on_level_up
 signal on_update_health(hp: float)
+signal on_update_xp

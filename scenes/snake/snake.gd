@@ -68,6 +68,7 @@ func xp_required_for(level: int) -> int:
 
 func on_xp_touched(val: int) -> void:
 	xp_points += val
+	SignalManager.on_update_xp.emit()
 	while xp_points >= xp_required_for(xp_level):
 		xp_points -= xp_required_for(xp_level)
 		xp_level += 1
@@ -132,9 +133,5 @@ func get_xp() -> int:
 	return xp_points
 
 
-func get_xp_required_for_current_level() -> int:
-	return xp_required_for(xp_level)
-
-
 func get_xp_required_for_next_level() -> int:
-	return xp_required_for(xp_level + 1)
+	return xp_required_for(xp_level)
