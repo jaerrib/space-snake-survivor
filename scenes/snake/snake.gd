@@ -63,7 +63,7 @@ func rotate_sprite() -> void:
 
 
 func xp_required_for(level: int) -> int:
-	return 10 * level * level + 50
+	return int(10 + pow(level, 1.3))
 
 
 func on_xp_touched(val: int) -> void:
@@ -73,7 +73,7 @@ func on_xp_touched(val: int) -> void:
 		xp_points -= xp_required_for(xp_level)
 		xp_level += 1
 		grow()
-		print("LEVEL UP! Now at level ", xp_level)
+		#print("LEVEL UP! Now at level ", xp_level)
 		SignalManager.on_level_up.emit()
 
 
@@ -99,7 +99,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	var damage = enemy.get_damage()
 	hp -= damage
-	print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
+	#print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
 	if hp <= 0:
 		print("DEAD")
 	SignalManager.on_update_health.emit(hp)
