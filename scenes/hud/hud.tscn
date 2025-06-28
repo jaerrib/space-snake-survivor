@@ -33,7 +33,7 @@ size_flags_vertical = 0
 [node name="ColorRect" type="ColorRect" parent="MC/MC2"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-color = Color(0, 0.501961, 0, 0.752941)
+color = Color(0, 0, 0, 0.564706)
 
 [node name="HB" type="HBoxContainer" parent="MC/MC2"]
 layout_mode = 2
@@ -42,10 +42,12 @@ alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 
 [node name="HealthBar" parent="MC/MC2/HB/HBoxContainer" instance=ExtResource("1_cgeww")]
+custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
 
 [node name="TimeLabel" type="Label" parent="MC/MC2/HB"]
 layout_mode = 2
@@ -64,8 +66,10 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="XPBar" parent="MC/MC2/HB/HBoxContainer3" instance=ExtResource("2_c45xl")]
+custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 6
+size_flags_vertical = 4
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
