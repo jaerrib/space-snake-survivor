@@ -74,8 +74,8 @@ func on_xp_touched(val: int) -> void:
 	while xp_points >= xp_required_for(xp_level):
 		xp_points -= xp_required_for(xp_level)
 		xp_level += 1
-		grow()
-		#print("LEVEL UP! Now at level ", xp_level)
+		if xp_level % 5 == 0:
+			grow()
 		SignalManager.on_level_up.emit()
 
 
@@ -101,7 +101,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	var damage = enemy.get_damage()
 	hp -= damage
-	#print("HIT BY ASTEROID FOR ", damage, " DAMAGE")
 	if hp <= 0:
 		print("DEAD")
 	SignalManager.on_update_health.emit(hp)
