@@ -1,7 +1,7 @@
 class_name Snake extends CharacterBody2D
 
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
-const SEGMENT_SPACING = 18
+const SEGMENT_SPACING = 24
 const HP_REGEN_AMOUNT: float = 0.1
 
 var hp: float
