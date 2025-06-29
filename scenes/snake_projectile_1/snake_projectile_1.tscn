@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ueuq"]
 size = Vector2(8, 8)
 
-[node name="SnakeProjectile1" instance=ExtResource("1_ym41x")]
+[node name="SnakeProjectile1" groups=["movables"] instance=ExtResource("1_ym41x")]
 collision_layer = 16
 collision_mask = 4
 script = ExtResource("2_p5qym")
@@ -21,5 +21,3 @@ texture = ExtResource("2_vb5hh")
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_8ueuq")
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

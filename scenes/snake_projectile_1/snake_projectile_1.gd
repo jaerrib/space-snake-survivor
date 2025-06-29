@@ -3,7 +3,8 @@ extends BaseProjectile
 
 func _ready() -> void:
 	rotate_sprite()
-	
+
+
 func rotate_sprite() -> void:
 	match _direction:
 		Vector2.UP:
