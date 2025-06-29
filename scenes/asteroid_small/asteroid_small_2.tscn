@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c16qrpjxutr1d"]
+
+[ext_resource type="PackedScene" uid="uid://2485q7jl1pa3" path="res://scenes/asteroid_small/asteroid_small.tscn" id="1_qsaib"]
+
+[node name="AsteroidSmall2" instance=ExtResource("1_qsaib")]
+sprite_frame = 1
+movement_speed = 20.0

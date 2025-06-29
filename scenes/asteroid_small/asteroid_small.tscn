@@ -57,6 +57,8 @@ collision_layer = 4
 collision_mask = 5
 motion_mode = 1
 script = ExtResource("2_7vdy8")
+sprite_frame = 0
+movement_speed = 10.0
 hp = 5.0
 
 [node name="Sprite2D" parent="." index="0"]
