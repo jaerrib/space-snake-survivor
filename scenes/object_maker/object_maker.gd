@@ -4,7 +4,9 @@ const ADD_OBJECT: String = "add_object"
 
 const ENEMY_SCENE: Dictionary = {
 	Constants.EnemyType.ASTEROID_SMALL: preload("res://scenes/asteroid_small/asteroid_small.tscn"),
+	Constants.EnemyType.ASTEROID_SMALL_2: preload("res://scenes/asteroid_small/asteroid_small_2.tscn"),
 	Constants.EnemyType.ASTEROID_MEDIUM: preload("res://scenes/asteroid_medium/asteroid_medium.tscn"),
+	Constants.EnemyType.ASTEROID_MEDIUM_2: preload("res://scenes/asteroid_medium/asteroid_medium_2.tscn"),
 	Constants.EnemyType.ASTEROID_LARGE: preload("res://scenes/asteroid_large/asteroid_large.tscn")
 }
 
