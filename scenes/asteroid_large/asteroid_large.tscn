@@ -59,6 +59,7 @@ motion_mode = 1
 script = ExtResource("2_28w4v")
 hp = 15.0
 xp_val = 20
+knockback_amount = 2
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_aagf1")

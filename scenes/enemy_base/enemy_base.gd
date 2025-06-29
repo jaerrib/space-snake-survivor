@@ -4,29 +4,38 @@ class_name EnemyBase extends CharacterBody2D
 @export var hp: float = 1.0
 @export var damage: float = 1.0
 @export var xp_val: int = 1
+@export var knockback_amount: int = 1
 
+
+var _knocked_back: bool = false
+var _knockback_direction: Vector2 = Vector2.ZERO
 var _seek_player: bool = false
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
+@onready var knockback_timer: Timer = $KnockbackTimer
 
 
 func _physics_process(_delta) -> void:
-	if player and player.is_inside_tree() and _seek_player:
+	if not _seek_player:
+		return
+	if _knocked_back:
+		move_and_slide()
+		return
+	if player and player.is_inside_tree():
 		var direction: Vector2 = global_position.direction_to(player.global_position)
 		velocity = direction * movement_speed
-		move_and_slide()
+	move_and_slide()
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var damage = area.get_damage()
 	hp -= damage
-	#print("HIT BY PLAYER FOR ", damage, " DAMAGE")
-	if hp <= 0:	
+	if hp <= 0:
 		var spawn_pos: Vector2 = global_position
 		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"], xp_val)
 		queue_free()
 	else:
-		velocity *= -velocity
+		knockback()
 
 
 func get_damage() -> int:
@@ -35,3 +44,14 @@ func get_damage() -> int:
 
 func _on_seek_timer_timeout() -> void:
 	_seek_player = true
+
+
+func knockback() -> void:
+	_knockback_direction = (global_position - player.global_position).normalized()
+	velocity = _knockback_direction * movement_speed * knockback_amount
+	knockback_timer.start()
+	_knocked_back = true
+
+
+func _on_knockback_timer_timeout() -> void:
+	_knocked_back = false

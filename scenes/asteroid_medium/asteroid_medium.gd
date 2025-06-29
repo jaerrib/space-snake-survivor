@@ -19,6 +19,8 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		SignalManager.on_create_enemy.emit(spawn_pos_1, Constants.EnemyType.ASTEROID_SMALL)
 		SignalManager.on_create_enemy.emit(spawn_pos_2, Constants.EnemyType.ASTEROID_SMALL)
 		queue_free()
+	else:
+		knockback()
 
 
 func get_random_position() -> Vector2:
