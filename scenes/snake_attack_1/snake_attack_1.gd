@@ -1,9 +1,14 @@
 class_name SnakeAttack1 extends Node2D
 
-@export var damage: float = 1.0
-@export var delay_time: float = 3.0
+const MULTIPLIER: float = .1
+
+@export var damage: float = 6.5
+@export var delay_time: float = 1.0
 @export var penetration: int = 1
 @export var speed_modifier: float = 30
+
+var weapon_level: int = 1
+var level_increases: int = 0
 
 @onready var timer: Timer = $Timer
 
@@ -29,9 +34,12 @@ func _on_timer_timeout() -> void:
 
 
 func on_level_up() -> void:
-	damage *= 1.02
-	delay_time *= 0.99
-	speed_modifier *= 1.02
-	var player: Snake = get_tree().get_first_node_in_group("player")
-	if player.get_level() % 5 == 0:
+	if level_increases > 5:
+		return
+	weapon_level += 1
+	if weapon_level % 10 == 0:
+		level_increases += 1
+		damage += (damage * MULTIPLIER)
+		speed_modifier += (damage * MULTIPLIER)
+		delay_time *= (1 - MULTIPLIER)
 		penetration += 1
