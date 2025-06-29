@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm6ipr5efunpg"]
+[gd_scene load_steps=7 format=3 uid="uid://bm6ipr5efunpg"]
 
 [ext_resource type="Script" uid="uid://bgyqs8s1n6j1r" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="PackedScene" uid="uid://8pydh1pfgx1s" path="res://scenes/health_bar/health_bar.tscn" id="1_cgeww"]
 [ext_resource type="PackedScene" uid="uid://b1lplrwpbqcsk" path="res://scenes/xp_bar/xp_bar.tscn" id="2_c45xl"]
+[ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="3_0bx4p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
+font = ExtResource("3_0bx4p")
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
+font = ExtResource("3_0bx4p")
+font_size = 24
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -60,6 +65,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "1"
 label_settings = SubResource("LabelSettings_c45xl")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
