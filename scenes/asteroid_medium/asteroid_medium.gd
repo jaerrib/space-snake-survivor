@@ -11,7 +11,6 @@ func _ready() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var damage = area.get_damage()
 	hp -= damage
-	print("HIT BY PLAYER FOR ", damage, " DAMAGE")
 	if hp <= 0:	
 		SignalManager.on_create_object.emit(global_position, Constants.ObjectType["XP"], xp_val)
 		var spawn_pos_1: Vector2 = get_random_position()
