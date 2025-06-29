@@ -33,12 +33,15 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
 
 
-func _on_area_entered(area: Area2D) -> void:
-	_penetration -= 1
-	check_max_penetation()
-
 
 func check_max_penetation() -> void:
 	if _penetration <= 0:
 		set_process(false)
 		queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+		if not body.is_in_group("enemies"):
+			return
+		_penetration -= 1
+		check_max_penetation()
