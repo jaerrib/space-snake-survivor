@@ -50,7 +50,6 @@ func _on_body_entered(body: Node2D) -> void:
 func critical() -> int:
 	var chance: int = randi_range(0, 100)
 	if chance <= 30:
-		print("CRITICAL")
 		return 3
 	else:
 		return 1
