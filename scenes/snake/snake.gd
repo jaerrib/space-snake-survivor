@@ -2,15 +2,14 @@ class_name Snake extends CharacterBody2D
 
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 18
+const HP_REGEN_AMOUNT: float = 0.1
 
-var hp: float = 80
-var hp_regen_amount: float = 0.02
-var hp_regen_time: float = 1
-var max_hp: float = 80
+var hp: float
+var max_hp: float = 100
 var move_direction: Vector2 = Vector2.RIGHT
 var move_positions = []
 var segments: Array[Segment] = []
-var speed: int = 50
+var speed: float = 50
 var xp_level: int = 1
 var xp_points: int = 0
 
@@ -118,9 +117,8 @@ func on_level_up() -> void:
 
 
 func _on_heal_timer_timeout() -> void:
-	if hp + hp_regen_amount <= max_hp:
-		hp += hp_regen_amount
-	else:
+	hp += HP_REGEN_AMOUNT
+	if hp > max_hp:
 		hp = max_hp
 	SignalManager.on_update_health.emit(hp)
 
