@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuk2r2j34kelh"]
+
+[ext_resource type="PackedScene" uid="uid://cuogv2eam1xy8" path="res://scenes/asteroid_medium/asteroid_medium.tscn" id="1_pyhcj"]
+
+[node name="AsteroidMedium2" instance=ExtResource("1_pyhcj")]
+sprite_frame = 3
+hp = 15.0
+xp_val = 15
+
+[node name="Sprite2D" parent="." index="0"]
+frame = 3

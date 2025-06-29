@@ -1,11 +1,12 @@
 class_name AsteroidMedium extends EnemyBase
 
+@export var sprite_frame: int
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
 func _ready() -> void:
-	var frame_number: int = randi_range(2, 3)
-	sprite_2d.frame = frame_number
+	sprite_2d.frame = sprite_frame
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
