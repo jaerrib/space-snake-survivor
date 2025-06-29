@@ -26,12 +26,12 @@ func deactivate () -> void:
 
 
 func get_damage() -> int:
-	return _damage
+	var projectile_damage: float = _damage * critical()
+	return projectile_damage
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	queue_free()
-
 
 
 func check_max_penetation() -> void:
@@ -41,7 +41,16 @@ func check_max_penetation() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-		if not body.is_in_group("enemies"):
-			return
-		_penetration -= 1
-		check_max_penetation()
+	if not body.is_in_group("enemies"):
+		return
+	_penetration -= 1
+	check_max_penetation()
+
+
+func critical() -> int:
+	var chance: int = randi_range(0, 100)
+	if chance <= 30:
+		print("CRITICAL")
+		return 3
+	else:
+		return 1
