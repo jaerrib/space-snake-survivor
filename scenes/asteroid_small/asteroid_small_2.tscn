@@ -5,3 +5,4 @@
 [node name="AsteroidSmall2" instance=ExtResource("1_qsaib")]
 sprite_frame = 1
 movement_speed = 20.0
+xp_val = 2
