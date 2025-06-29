@@ -9,7 +9,7 @@ var max_hp: float = 100
 var move_direction: Vector2 = Vector2.RIGHT
 var move_positions = []
 var segments: Array[Segment] = []
-var speed: float = 50
+var speed: float = 40
 var xp_level: int = 1
 var xp_points: int = 0
 
