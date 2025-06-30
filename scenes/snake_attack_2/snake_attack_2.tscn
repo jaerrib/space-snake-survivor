@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qmypw1vf4miu"]
+
+[ext_resource type="Script" uid="uid://bbues0761aqcd" path="res://scenes/snake_attack_2/snake_attack_2.gd" id="1_h75d8"]
+
+[node name="SnakeAttack2" type="Node2D"]
+script = ExtResource("1_h75d8")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]

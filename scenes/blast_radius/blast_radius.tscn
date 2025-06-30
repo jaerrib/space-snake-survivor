@@ -1,9 +1,92 @@
-[gd_scene load_steps=3 format=3 uid="uid://fbhf06cgio7o"]
+[gd_scene load_steps=8 format=3 uid="uid://fbhf06cgio7o"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_f608o"]
+[ext_resource type="Script" uid="uid://yracyvyies21" path="res://scenes/blast_radius/blast_radius.gd" id="2_eujkt"]
 [ext_resource type="Texture2D" uid="uid://3mql31l2h4lr" path="res://assets/player/blast_radius.png" id="2_gqkmv"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gqkmv"]
+radius = 32.0
+
+[sub_resource type="Animation" id="Animation_gqkmv"]
+resource_name = "expand"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_eujkt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hduaj"]
+_data = {
+&"RESET": SubResource("Animation_eujkt"),
+&"expand": SubResource("Animation_gqkmv")
+}
+
 [node name="BlastRadius" instance=ExtResource("1_f608o")]
+collision_layer = 16
+collision_mask = 4
+script = ExtResource("2_eujkt")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+position = Vector2(4.17233e-07, 4.17233e-07)
+scale = Vector2(0.8, 0.8)
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_gqkmv")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_gqkmv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_hduaj")
+}
+autoplay = "expand"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
