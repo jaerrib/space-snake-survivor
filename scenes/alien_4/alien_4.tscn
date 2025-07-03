@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwfbtaf2dcral"]
+[gd_scene load_steps=9 format=3 uid="uid://cwfbtaf2dcral"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_5t0g7"]
 [ext_resource type="Texture2D" uid="uid://csdgrxdt3tw5u" path="res://assets/enemies/aliens.png" id="2_ln0il"]
@@ -25,8 +25,28 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ln0il"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlppc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lc2cu"]
+size = Vector2(12, 12)
+
 [node name="Alien4" instance=ExtResource("1_5t0g7")]
+collision_layer = 4
+collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_l5gkp")
 autoplay = "default"
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_ln0il")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_qlppc")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_lc2cu")
