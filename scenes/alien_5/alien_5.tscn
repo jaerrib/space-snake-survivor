@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3nyaue8r4fxs"]
+
+[ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_se603"]
+[ext_resource type="Texture2D" uid="uid://csdgrxdt3tw5u" path="res://assets/enemies/aliens.png" id="2_41bc0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cdb6"]
+atlas = ExtResource("2_41bc0")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udvrm"]
+atlas = ExtResource("2_41bc0")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eivvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cdb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udvrm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Alien5" instance=ExtResource("1_se603")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_eivvj")
+autoplay = "default"
