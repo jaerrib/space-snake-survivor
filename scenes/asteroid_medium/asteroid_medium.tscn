@@ -61,7 +61,7 @@ sprite_frame = 2
 movement_speed = 15.0
 hp = 10.0
 xp_val = 10
-knockback_amount = 4
+knockback_amount = 2
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_st8ts")
