@@ -7,7 +7,14 @@ const ENEMY_SCENE: Dictionary = {
 	Constants.EnemyType.ASTEROID_SMALL_2: preload("res://scenes/asteroid_small/asteroid_small_2.tscn"),
 	Constants.EnemyType.ASTEROID_MEDIUM: preload("res://scenes/asteroid_medium/asteroid_medium.tscn"),
 	Constants.EnemyType.ASTEROID_MEDIUM_2: preload("res://scenes/asteroid_medium/asteroid_medium_2.tscn"),
-	Constants.EnemyType.ASTEROID_LARGE: preload("res://scenes/asteroid_large/asteroid_large.tscn")
+	Constants.EnemyType.ASTEROID_LARGE: preload("res://scenes/asteroid_large/asteroid_large.tscn"),
+	Constants.EnemyType.ALIEN_1: preload("res://scenes/alien_1/alien_1.tscn"),
+	Constants.EnemyType.ALIEN_2: preload("res://scenes/alien_2/alien_2.tscn"),
+	Constants.EnemyType.ALIEN_3: preload("res://scenes/alien_3/alien_3.tscn"),
+	Constants.EnemyType.ALIEN_4: preload("res://scenes/alien_4/alien_4.tscn"),
+	Constants.EnemyType.ALIEN_5: preload("res://scenes/alien_5/alien_5.tscn"),
+	Constants.EnemyType.ALIEN_6: preload("res://scenes/alien_6/alien_6.tscn"),
+	Constants.EnemyType.UFO: preload("res://scenes/ufo/ufo.tscn")
 }
 
 const OBJECT_SCENES: Dictionary = {
