@@ -5,6 +5,7 @@ const LEVEL_LENGTH: int = 1800 #in seconds
 @onready var level_timer: Timer = $LevelTimer
 @onready var time_label: Label = $MC/MC2/HB/TimeLabel
 @onready var xp_level_label: Label = $MC/MC2/HB/XPLevelLabel
+@onready var scan_lines: ColorRect = $"../ScanLines"
 
 
 var player_ref: Snake
@@ -17,6 +18,10 @@ func _ready() -> void:
 	xp_level_label.text = str(player_ref.get_level())
 	SignalManager.on_level_up.connect(on_level_up)
 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("toggle-scanlines"):
+		scan_lines.visible = !scan_lines.visible
 
 
 func update_timer_label() -> void:
