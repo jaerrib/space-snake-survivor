@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cesh4ds6to7ey" path="res://assets/audio/level_music.ogg" id="6_vpf64"]
 
 [node name="Level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_vpf64")
 
 [node name="ScrollingBackground" parent="." instance=ExtResource("1_h3e3j")]

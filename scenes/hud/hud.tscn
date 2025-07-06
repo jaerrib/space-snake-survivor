@@ -78,6 +78,9 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
+[node name="MarginContainer" type="MarginContainer" parent="MC"]
+layout_mode = 2
+
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
 
