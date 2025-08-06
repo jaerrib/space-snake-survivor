@@ -36,7 +36,7 @@ size = Vector2(32, 16)
 
 [node name="UFO" instance=ExtResource("1_bcm52")]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 movement_speed = 30.0
 hp = 15.0
 damage = 5.0
