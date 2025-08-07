@@ -25,7 +25,7 @@ func deactivate () -> void:
 	collision_shape_2d.call_deferred("set_disabled", true)
 
 
-func get_damage() -> int:
+func get_damage() -> float:
 	var projectile_damage: float = _damage * critical()
 	return projectile_damage
 
