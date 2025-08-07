@@ -1,12 +1,72 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnapw5famkaxy"]
+[gd_scene load_steps=10 format=3 uid="uid://cnapw5famkaxy"]
 
 [ext_resource type="Script" uid="uid://bquh46ky6oufe" path="res://scenes/station/station.gd" id="1_fwkoa"]
+[ext_resource type="Texture2D" uid="uid://wlw6lh37kiiq" path="res://assets/misc/station.png" id="2_s6h3s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gedjm"]
-size = Vector2(96, 96)
+size = Vector2(86.0001, 55.9996)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tl6a"]
+size = Vector2(26, 92)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwkoa"]
-size = Vector2(96, 96)
+size = Vector2(26.0004, 91.9999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s6h3s"]
+size = Vector2(86, 56)
+
+[sub_resource type="Animation" id="Animation_s6h3s"]
+length = 24.0
+loop_mode = 1
+step = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D2:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.28319]
+}
 
 [sub_resource type="Animation" id="Animation_fwkoa"]
 resource_name = "rotate"
@@ -28,65 +88,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -6.28319]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -6.28319]
-}
-
-[sub_resource type="Animation" id="Animation_s6h3s"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-6.28319]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/path = NodePath("Area2D/CollisionShape2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-6.28319]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-6.28319]
+"values": [0.0, -6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2tl6a"]
@@ -98,35 +107,30 @@ _data = {
 [node name="Station" type="CharacterBody2D"]
 script = ExtResource("1_fwkoa")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -48.0
-offset_right = 48.0
-offset_bottom = 48.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -6.28319
-pivot_offset = Vector2(48, 48)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s6h3s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -6.28319
+position = Vector2(-6.46114e-05, -2.23291e-06)
 shape = SubResource("RectangleShape2D_gedjm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2tl6a")
 
 [node name="Area2D" type="Area2D" parent="." groups=["enemies"]]
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.90735e-06)
 rotation = -6.28319
 shape = SubResource("RectangleShape2D_fwkoa")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_s6h3s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_2tl6a")
 }
-autoplay = "rotate"
+autoplay = "RESET"
