@@ -62,6 +62,10 @@ texture = ExtResource("2_reko3")
 hframes = 2
 
 [node name="PlayerCam" parent="." instance=ExtResource("2_h1wbu")]
+limit_left = 0
+limit_top = 0
+limit_right = 9600
+limit_bottom = 7200
 
 [node name="SegmentHolder" type="Node" parent="."]
 
