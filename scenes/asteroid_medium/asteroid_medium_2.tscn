@@ -6,7 +6,6 @@
 sprite_frame = 3
 hp = 15.0
 xp_val = 15
-knockback_amount = 2
 
 [node name="Sprite2D" parent="." index="0"]
 frame = 3

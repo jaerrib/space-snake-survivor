@@ -36,7 +36,7 @@ size = Vector2(14, 14)
 
 [node name="Alien6" instance=ExtResource("1_vs0fs")]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 hp = 10.0
 damage = 2.0
 xp_val = 3

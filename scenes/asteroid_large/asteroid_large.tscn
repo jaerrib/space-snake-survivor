@@ -54,7 +54,7 @@ _data = {
 
 [node name="AsteroidLarge" instance=ExtResource("1_h0dey")]
 collision_layer = 4
-collision_mask = 5
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("2_28w4v")
 hp = 15.0
