@@ -17,6 +17,7 @@ func _ready() -> void:
 	player_ref = player
 	xp_level_label.text = str(player_ref.get_level())
 	SignalManager.on_level_up.connect(on_level_up)
+	SignalManager.on_player_died.connect(on_player_died)
 
 
 func _process(delta: float) -> void:
@@ -39,3 +40,7 @@ func _on_level_timer_timeout() -> void:
 
 func on_level_up() -> void:
 	xp_level_label.text = str(player_ref.get_level())
+
+
+func on_player_died() -> void:
+	print("DEAD")

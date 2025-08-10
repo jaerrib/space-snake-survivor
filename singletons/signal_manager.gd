@@ -23,3 +23,4 @@ signal on_update_xp
 signal on_level_complete
 signal on_snake_hit
 signal on_add_weapon(weapon: Constants.PlayerWeapons)
+signal on_player_died

@@ -37,6 +37,7 @@ func _physics_process(delta: float) -> void:
 		move_positions.pop_back()
 	move_and_slide()
 	rotate_sprite()
+	check_wall_collision()
 	SignalManager.on_rotate_snake.emit(move_direction)
 	update_segments()
 
@@ -101,10 +102,18 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var enemy = area.get_parent()
 	var damage = enemy.get_damage()
 	hp -= damage
-	if hp <= 0:
-		print("DEAD")
 	SignalManager.on_update_health.emit(hp)
-	SignalManager.on_snake_hit.emit()
+	if hp <= 0:
+		SignalManager.on_player_died.emit()
+	else:
+		SignalManager.on_snake_hit.emit()
+
+
+func check_wall_collision() -> void:
+	if is_on_wall():
+		hp = 0
+		SignalManager.on_update_health.emit(hp)
+		SignalManager.on_player_died.emit()
 
 
 func get_level() -> int:
