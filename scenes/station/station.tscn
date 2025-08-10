@@ -105,6 +105,8 @@ _data = {
 }
 
 [node name="Station" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_fwkoa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
