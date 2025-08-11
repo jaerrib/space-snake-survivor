@@ -21,7 +21,7 @@ func _ready() -> void:
 func _on_timer_timeout() -> void:
 	var player: Snake = get_tree().get_first_node_in_group("player")
 	var player_pos: Vector2 = Vector2(player.global_position.x + 8, player.global_position.y + 8)
-	var direction: Vector2 = player.move_direction
+	var direction: Vector2 = player.move_direction.normalized()
 	var projectile_speed: float = player.speed + speed_modifier
 	SignalManager.on_create_projectile.emit(
 		player_pos,

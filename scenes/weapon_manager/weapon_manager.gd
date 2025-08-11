@@ -6,6 +6,7 @@ const ADD_WEAPON: String = "add_weapon"
 const WEAPON_SCENES: Dictionary = {
 	Constants.PlayerWeapons.ATTACK_1: preload("res://scenes/snake_attack_1/snake_attack_1.tscn"),
 	Constants.PlayerWeapons.ATTACK_2: preload("res://scenes/snake_attack_2/snake_attack_2.tscn"),
+	Constants.PlayerWeapons.ATTACK_3: preload("res://scenes/snake_attack_3/snake_attack_3.tscn"),
 }
 
 func _ready() -> void:

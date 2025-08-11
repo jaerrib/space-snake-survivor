@@ -19,6 +19,7 @@ func setup(direction: Vector2, speed: float, damage: int, penetration: int) -> v
 	_speed = speed
 	_damage = damage
 	_penetration = penetration
+	rotation = _direction.angle()
 
 
 func deactivate () -> void:

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c57ku4k1cuecy"]
+[gd_scene load_steps=4 format=3 uid="uid://c57ku4k1cuecy"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_ym41x"]
-[ext_resource type="Script" uid="uid://l5q5nsypywt3" path="res://scenes/snake_projectile_1/snake_projectile_1.gd" id="2_p5qym"]
 [ext_resource type="Texture2D" uid="uid://bm6o08o7akrj2" path="res://assets/player/projectile_1.png" id="2_vb5hh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ueuq"]
@@ -10,7 +9,6 @@ size = Vector2(8, 8)
 [node name="SnakeProjectile1" groups=["movables"] instance=ExtResource("1_ym41x")]
 collision_layer = 16
 collision_mask = 4
-script = ExtResource("2_p5qym")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
 position = Vector2(2.38419e-07, 2.38419e-07)

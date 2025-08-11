@@ -2,10 +2,10 @@ class_name SnakeAttack3 extends Node2D
 
 const MULTIPLIER: float = .1
 
-@export var damage: float = 6.5
-@export var delay_time: float = 1.0
+@export var damage: float = 20
+@export var delay_time: float = 2.0
 @export var penetration: int = 1
-@export var speed_modifier: float = 30
+@export var speed_modifier: float = 50
 
 var weapon_level: int = 1
 var level_increases: int = 0
@@ -19,8 +19,19 @@ func _ready() -> void:
 
 
 func _on_timer_timeout() -> void:
-	# Needs to fire the missile in a random direction away from the snake
-	pass
+	var player: Snake = get_tree().get_first_node_in_group("player")
+	var player_pos: Vector2 = Vector2(player.global_position.x + 8, player.global_position.y + 8)
+	var angle: float = randf_range(0, TAU)
+	var random_direction: Vector2 = Vector2.RIGHT.rotated(angle).normalized()
+	var projectile_speed: float = player.speed + speed_modifier
+	SignalManager.on_create_projectile.emit(
+		player_pos,
+		random_direction,
+		projectile_speed,
+		damage,
+		penetration,
+		Constants.ProjectileType.SNAKE_MISSILE
+	)
 
 
 func on_level_up() -> void:
