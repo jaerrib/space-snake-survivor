@@ -6,7 +6,7 @@ const COLOR_GOOD: Color = Color("#33d17a")
 
 var start_health: float
 var level_med: float
-var level_low: float = start_health * .33
+var level_low: float
 var player_ref: Snake
 
 
