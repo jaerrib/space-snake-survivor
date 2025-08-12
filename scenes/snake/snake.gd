@@ -27,6 +27,7 @@ func _ready() -> void:
 	SignalManager.on_segment_hit.connect(_on_hit_box_area_entered)
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_snake_hit.connect(on_snake_hit)
+	SignalManager.on_snake_heal.connect(on_snake_heal)
 
 
 func _physics_process(delta: float) -> void:
@@ -157,3 +158,11 @@ func _on_damage_animation_timer_timeout() -> void:
 func on_snake_hit() -> void:
 	damage_animation_timer.start()
 	animation_player.play("damaged")
+
+
+func on_snake_heal(val: float) -> void:
+	hp += max_hp * val
+	if hp > max_hp:
+		hp = max_hp
+	print(hp)
+	SignalManager.on_update_health.emit(hp)

@@ -5,7 +5,7 @@ signal on_create_object(
 	position: Vector2,
 	object_type: Constants.ObjectType,
 	value: int
-)
+	)
 signal on_create_projectile(
 	position: Vector2, 
 	direction: Vector2, 
@@ -21,6 +21,7 @@ signal on_level_up
 signal on_update_health(hp: float)
 signal on_update_xp
 signal on_level_complete
+signal on_snake_heal(hp: float)
 signal on_snake_hit
 signal on_add_weapon(weapon: Constants.PlayerWeapons)
 signal on_player_died
