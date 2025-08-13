@@ -21,7 +21,8 @@ signal on_level_up
 signal on_update_health(hp: float)
 signal on_update_xp
 signal on_level_complete
-signal on_snake_heal(hp: float)
+signal on_station_entered(val: float)
 signal on_snake_hit
 signal on_add_weapon(weapon: Constants.PlayerWeapons)
 signal on_player_died
+signal on_update_supply(value: float)

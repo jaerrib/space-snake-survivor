@@ -1,14 +1,28 @@
 class_name Station extends CharacterBody2D
 
-@export var damage_percentage: float = .20
+@export var heal_percentage: float = .20
+@export var max_supply: float = 100.0
+@export var supply: float
+
+@onready var station_heal_supply: StationHealSupply = $StationHealSupply
+
+func _ready() -> void:
+	supply = max_supply
+	SignalManager.on_update_supply.emit(supply)
 
 
-func get_damage() -> int:
+
+func get_heal_amt() -> float:
 	var player_ref: Snake =  get_tree().get_first_node_in_group("player")
-	var station_damage = player_ref.get_health() * damage_percentage
-	return station_damage
+	var heal_amt: float = (player_ref.get_max_health() - player_ref.get_health()) * heal_percentage
+	if supply - heal_amt > 0:
+		supply -= heal_amt
+	else:
+		heal_amt = supply
+		supply = 0
+	return heal_amt
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("ENTERED")
-	SignalManager.on_snake_heal.emit(damage_percentage)
+	SignalManager.on_station_entered.emit(get_heal_amt())
+	SignalManager.on_update_supply.emit(supply)

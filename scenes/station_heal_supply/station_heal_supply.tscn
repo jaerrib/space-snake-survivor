@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://5pd88ukd1oo6"]
+
+[ext_resource type="Texture2D" uid="uid://cqt41khfbpull" path="res://assets/misc/progress-bg.png" id="1_2q026"]
+[ext_resource type="Script" uid="uid://b8r4w6d2b6jxh" path="res://scenes/station_heal_supply/station_heal_supply.gd" id="1_jkbs3"]
+[ext_resource type="Texture2D" uid="uid://beaium1e18d1q" path="res://assets/misc/progress.png" id="2_u1d5c"]
+
+[node name="StationHealSupply" type="TextureProgressBar"]
+offset_right = 16.0
+offset_bottom = 4.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_2q026")
+texture_progress = ExtResource("2_u1d5c")
+tint_under = Color(0.129412, 0.121569, 0.203922, 1)
+tint_progress = Color(0.2, 0.819608, 0.478431, 1)
+script = ExtResource("1_jkbs3")
