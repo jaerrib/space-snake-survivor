@@ -25,4 +25,3 @@ signal on_station_entered(val: float)
 signal on_snake_hit
 signal on_add_weapon(weapon: Constants.PlayerWeapons)
 signal on_player_died
-signal on_update_supply(value: float)

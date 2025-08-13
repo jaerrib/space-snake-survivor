@@ -8,8 +8,7 @@ class_name Station extends CharacterBody2D
 
 func _ready() -> void:
 	supply = max_supply
-	SignalManager.on_update_supply.emit(supply)
-
+	station_heal_supply.on_update_supply(supply)
 
 
 func get_heal_amt() -> float:
@@ -25,4 +24,4 @@ func get_heal_amt() -> float:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	SignalManager.on_station_entered.emit(get_heal_amt())
-	SignalManager.on_update_supply.emit(supply)
+	station_heal_supply.on_update_supply(supply)
