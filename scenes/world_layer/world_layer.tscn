@@ -48,3 +48,4 @@ tile_map_data = PackedByteArray("AADE/9P/AAAEAAAAAADF/9P/AAADAAAAAADG/9P/AAADAAA
 [editable path="Sectors/Sector2"]
 [editable path="Sectors/Sector3"]
 [editable path="Sectors/Sector4"]
+[editable path="Sectors/Sector5"]
