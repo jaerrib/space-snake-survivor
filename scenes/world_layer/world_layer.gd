@@ -2,11 +2,11 @@ class_name WorldLayer extends Node2D
 
 var active_sectors: Array = []
 
-@onready var sector_1: TileMapLayer = $Sector1
-@onready var sector_2: TileMapLayer = $Sector2
-@onready var sector_3: TileMapLayer = $Sector3
-@onready var sector_4: TileMapLayer = $Sector4
-@onready var sector_5: TileMapLayer = $Sector5
+@onready var sector_1: BaseSector = $Sectors/Sector1
+@onready var sector_2: BaseSector = $Sectors/Sector2
+@onready var sector_3: BaseSector = $Sectors/Sector3
+@onready var sector_4: BaseSector = $Sectors/Sector4
+@onready var sector_5: BaseSector = $Sectors/Sector5
 @onready var sector_timer: Timer = $SectorTimer
 
 
@@ -16,7 +16,8 @@ func _ready() -> void:
 
 func _on_sector_timer_timeout() -> void:
 	if active_sectors.size() > 0:
-		active_sectors[0].queue_free()
+		var walls: TileMapLayer = active_sectors[0].get_node("Walls")
+		walls.enabled = false
 		active_sectors.pop_front()
 	else:
 		sector_timer.stop()

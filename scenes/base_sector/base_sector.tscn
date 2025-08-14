@@ -25,6 +25,94 @@ sources/0 = SubResource("TileSetAtlasSource_7tn7l")
 [node name="BaseSector" type="Node2D"]
 script = ExtResource("1_7tn7l")
 
+[node name="SectorRefs" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Sector1" type="Node2D" parent="SectorRefs"]
+metadata/_edit_lock_ = true
+
+[node name="SectorRef1" type="ColorRect" parent="SectorRefs/Sector1"]
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0.729412, 0.0941176, 0.223529, 0.501961)
+
+[node name="Sector2" type="Node2D" parent="SectorRefs"]
+metadata/_edit_lock_ = true
+
+[node name="SectorRef2" type="ColorRect" parent="SectorRefs/Sector2"]
+offset_top = -720.0
+offset_right = 960.0
+color = Color(0.976471, 0.780392, 0.0666667, 0.501961)
+
+[node name="SectorRef3" type="ColorRect" parent="SectorRefs/Sector2"]
+offset_left = 960.0
+offset_top = -720.0
+offset_right = 1920.0
+color = Color(0.976471, 0.780392, 0.0666667, 0.501961)
+
+[node name="Sector3" type="Node2D" parent="SectorRefs"]
+metadata/_edit_lock_ = true
+
+[node name="SectorRef4" type="ColorRect" parent="SectorRefs/Sector3"]
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 720.0
+color = Color(0.352941, 0.901961, 0.270588, 0.501961)
+
+[node name="SectorRef5" type="ColorRect" parent="SectorRefs/Sector3"]
+offset_left = 960.0
+offset_top = 720.0
+offset_right = 1920.0
+offset_bottom = 1440.0
+color = Color(0.352941, 0.901961, 0.270588, 0.501961)
+
+[node name="SectorRef6" type="ColorRect" parent="SectorRefs/Sector3"]
+offset_top = 720.0
+offset_right = 960.0
+offset_bottom = 1440.0
+color = Color(0.352941, 0.901961, 0.270588, 0.501961)
+
+[node name="Sector4" type="Node2D" parent="SectorRefs"]
+metadata/_edit_lock_ = true
+
+[node name="SectorRef7" type="ColorRect" parent="SectorRefs/Sector4"]
+offset_left = -960.0
+offset_top = 720.0
+offset_bottom = 1440.0
+color = Color(0.211765, 0.85098, 0.690196, 0.501961)
+
+[node name="SectorRef8" type="ColorRect" parent="SectorRefs/Sector4"]
+offset_left = -960.0
+offset_bottom = 720.0
+color = Color(0.211765, 0.85098, 0.690196, 0.501961)
+
+[node name="SectorRef9" type="ColorRect" parent="SectorRefs/Sector4"]
+offset_left = -960.0
+offset_top = -720.0
+color = Color(0.211765, 0.85098, 0.690196, 0.501961)
+
+[node name="Sector5" type="Node2D" parent="SectorRefs"]
+metadata/_edit_lock_ = true
+
+[node name="SectorRef10" type="ColorRect" parent="SectorRefs/Sector5"]
+offset_left = -960.0
+offset_top = -1440.0
+offset_bottom = -720.0
+color = Color(0.341176, 0.141176, 0.568627, 0.501961)
+
+[node name="SectorRef11" type="ColorRect" parent="SectorRefs/Sector5"]
+offset_top = -1440.0
+offset_right = 960.0
+offset_bottom = -720.0
+color = Color(0.341176, 0.141176, 0.568627, 0.501961)
+
+[node name="SectorRef12" type="ColorRect" parent="SectorRefs/Sector5"]
+offset_left = 960.0
+offset_top = -1440.0
+offset_right = 1920.0
+offset_bottom = -720.0
+color = Color(0.341176, 0.141176, 0.568627, 0.501961)
+
 [node name="Walls" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_103wm")
 

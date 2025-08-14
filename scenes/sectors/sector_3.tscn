@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0vb37c741lly"]
+
+[ext_resource type="PackedScene" uid="uid://cylg7g4xep1h6" path="res://scenes/base_sector/base_sector.tscn" id="1_gehdd"]
+
+[node name="Sector3" instance=ExtResource("1_gehdd")]
+
+[node name="Sector1" parent="SectorRefs" index="0"]
+visible = false
+
+[node name="Sector2" parent="SectorRefs" index="1"]
+visible = false
+
+[node name="Sector4" parent="SectorRefs" index="3"]
+visible = false
+
+[node name="Sector5" parent="SectorRefs" index="4"]
+visible = false
