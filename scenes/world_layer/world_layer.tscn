@@ -11,10 +11,6 @@
 [node name="WorldLayer" type="Node2D"]
 script = ExtResource("1_w6kjd")
 
-[node name="SectorTimer" type="Timer" parent="."]
-wait_time = 300.0
-autostart = true
-
 [node name="Sectors" type="Node2D" parent="."]
 
 [node name="Sector4" parent="Sectors" instance=ExtResource("5_h4gq7")]
@@ -28,5 +24,3 @@ autostart = true
 [node name="Sector5" parent="Sectors" instance=ExtResource("6_br2k4")]
 
 [node name="Sector6" parent="Sectors" instance=ExtResource("7_h4gq7")]
-
-[connection signal="timeout" from="SectorTimer" to="." method="_on_sector_timer_timeout"]

@@ -28,6 +28,7 @@ func _ready() -> void:
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_snake_hit.connect(on_snake_hit)
 	SignalManager.on_station_entered.connect(on_station_entered)
+	SignalManager.on_snake_grow.connect(on_snake_grow)
 
 
 func _physics_process(delta: float) -> void:
@@ -77,11 +78,11 @@ func on_xp_touched(val: int) -> void:
 		xp_points -= xp_required_for(xp_level)
 		xp_level += 1
 		if xp_level % 5 == 0:
-			grow()
+			SignalManager.on_snake_grow.emit()
 		SignalManager.on_level_up.emit()
 
 
-func grow() -> void:
+func on_snake_grow() -> void:
 	var new_segment = SEGMENT.instantiate()
 	segment_holder.add_child(new_segment)
 	if segments.size() > 0:
