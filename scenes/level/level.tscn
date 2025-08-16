@@ -21,11 +21,8 @@ script = ExtResource("1_vpf64")
 [node name="ObjectMaker" parent="." instance=ExtResource("4_hnne4")]
 
 [node name="Snake" parent="." instance=ExtResource("2_nbgty")]
-position = Vector2(480, 360)
+position = Vector2(256, 344)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_vpf64")
 autoplay = true
-
-[editable path="WorldLayer"]
-[editable path="WorldLayer/Sectors/Sector2"]
