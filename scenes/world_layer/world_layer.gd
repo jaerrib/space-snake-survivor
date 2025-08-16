@@ -2,20 +2,15 @@ class_name WorldLayer extends Node2D
 
 var active_sectors: Array = []
 
-@onready var sector_1: BaseSector = $Sectors/Sector1
-@onready var sector_2: BaseSector = $Sectors/Sector2
-@onready var sector_3: BaseSector = $Sectors/Sector3
-@onready var sector_4: BaseSector = $Sectors/Sector4
-@onready var sector_5: BaseSector = $Sectors/Sector5
-
 
 func _ready() -> void:
-	active_sectors = [ sector_1, sector_2, sector_3, sector_4, sector_5 ]
+	for sector in get_node("Sectors").get_children():
+		active_sectors.append(sector)
 	SignalManager.on_snake_grow.connect(on_snake_grow)
 
 
 func on_snake_grow() -> void:
 	if active_sectors.size() > 0:
-		var walls: TileMapLayer = active_sectors[0].get_node("Walls")
-		walls.enabled = false
+		var forcefield: TileMapLayer = active_sectors[0].get_node("Forcefield")
+		forcefield.enabled = false
 		active_sectors.pop_front()

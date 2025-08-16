@@ -1,26 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://4omcptgsxete"]
+[gd_scene load_steps=4 format=3 uid="uid://4omcptgsxete"]
 
 [ext_resource type="Script" uid="uid://wt4p01t5hidv" path="res://scenes/world_layer/world_layer.gd" id="1_w6kjd"]
+[ext_resource type="PackedScene" uid="uid://x35if8fdexp0" path="res://scenes/sectors/sector_2.tscn" id="3_yvo5i"]
 [ext_resource type="PackedScene" uid="uid://b21b1fyf3io8r" path="res://scenes/sectors/sector_1.tscn" id="4_5yd6d"]
-[ext_resource type="PackedScene" uid="uid://x35if8fdexp0" path="res://scenes/sectors/sector_2.tscn" id="4_jb2ja"]
-[ext_resource type="PackedScene" uid="uid://cga0nru2tcd72" path="res://scenes/sectors/sector_4.tscn" id="5_h4gq7"]
-[ext_resource type="PackedScene" uid="uid://c0vb37c741lly" path="res://scenes/sectors/sector_3.tscn" id="5_jb2ja"]
-[ext_resource type="PackedScene" uid="uid://b10ldhp2jk7br" path="res://scenes/sectors/sector_5.tscn" id="6_br2k4"]
-[ext_resource type="PackedScene" uid="uid://cojldealcdfm8" path="res://scenes/sectors/sector_6.tscn" id="7_h4gq7"]
 
 [node name="WorldLayer" type="Node2D"]
 script = ExtResource("1_w6kjd")
 
 [node name="Sectors" type="Node2D" parent="."]
 
-[node name="Sector4" parent="Sectors" instance=ExtResource("5_h4gq7")]
-
-[node name="Sector3" parent="Sectors" instance=ExtResource("5_jb2ja")]
-
-[node name="Sector2" parent="Sectors" instance=ExtResource("4_jb2ja")]
-
 [node name="Sector1" parent="Sectors" instance=ExtResource("4_5yd6d")]
 
-[node name="Sector5" parent="Sectors" instance=ExtResource("6_br2k4")]
-
-[node name="Sector6" parent="Sectors" instance=ExtResource("7_h4gq7")]
+[node name="Sector2" parent="Sectors" instance=ExtResource("3_yvo5i")]
+position = Vector2(960, 0)
