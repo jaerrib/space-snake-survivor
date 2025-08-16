@@ -49,6 +49,7 @@ _data = {
 }
 
 [node name="Snake" type="CharacterBody2D" groups=["player"]]
+z_index = 100
 motion_mode = 1
 script = ExtResource("1_4ska3")
 
