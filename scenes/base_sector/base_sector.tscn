@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cylg7g4xep1h6"]
+[gd_scene load_steps=8 format=4 uid="uid://cylg7g4xep1h6"]
 
 [ext_resource type="Script" uid="uid://dokoqgo4itmi8" path="res://scenes/base_sector/base_sector.gd" id="1_7tn7l"]
 [ext_resource type="Texture2D" uid="uid://bfdxwdamvgs5l" path="res://assets/misc/tilemap.png" id="1_y8cs6"]
@@ -109,9 +109,11 @@ offset_bottom = 704.0
 color = Color(0.729412, 0.0941176, 0.223529, 0.501961)
 
 [node name="Forcefield" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAA7ABAAAAAAAAEAAAA7ABEAAAAAAAEAAAA7ABIAAAAAAAEAAAA7ABMAAAAAAAEAAAA7ABQAAAAAAAEAAAA7ABUAAAAAAAEAAAA7ABYAAAAAAAEAAAA7ABcAAAAAAAEAAAA7ABgAAAAAAAEAAAA7ABkAAAAAAAEAAAA7ABoAAAAAAAEAAAA7ABsAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_103wm")
 
 [node name="Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAA7ABwAAAAAAAMAAAA7AA8AAAAAAAUAAAA=")
 tile_set = SubResource("TileSet_103wm")
 
 [node name="Objects" type="Node" parent="."]
