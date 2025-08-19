@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=4 uid="uid://b21b1fyf3io8r"]
+[gd_scene load_steps=5 format=4 uid="uid://b21b1fyf3io8r"]
 
 [ext_resource type="PackedScene" uid="uid://cylg7g4xep1h6" path="res://scenes/base_sector/base_sector.tscn" id="1_14xn3"]
+[ext_resource type="Script" uid="uid://bdo7p2djb1o70" path="res://resources/spawn_info.gd" id="2_5twaw"]
+
+[sub_resource type="Resource" id="Resource_wsjlk"]
+script = ExtResource("2_5twaw")
+enemy = 0
+enemy_num = 1
+enemy_spawn_delay = 1
+metadata/_custom_type_script = "uid://bdo7p2djb1o70"
+
+[sub_resource type="Resource" id="Resource_5twaw"]
+script = ExtResource("2_5twaw")
+enemy = 1
+enemy_num = 1
+enemy_spawn_delay = 5
+metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [node name="Sector1" instance=ExtResource("1_14xn3")]
-enemy_type = 2
+spawns = Array[ExtResource("2_5twaw")]([SubResource("Resource_wsjlk"), SubResource("Resource_5twaw")])
 
 [node name="Forcefield" parent="." index="1"]
 tile_map_data = PackedByteArray("AAA7ABAAAAACAAEAAAA7ABEAAAACAAEAAAA7ABIAAAACAAEAAAA7ABMAAAACAAEAAAA7ABQAAAACAAEAAAA7ABUAAAACAAEAAAA7ABYAAAACAAEAAAA7ABcAAAACAAEAAAA7ABgAAAACAAEAAAA7ABkAAAACAAEAAAA7ABoAAAACAAEAAAA7ABsAAAACAAEAAAA=")
