@@ -10,8 +10,10 @@ func _ready() -> void:
 	call_deferred("_finalize_setup")
 	SignalManager.on_snake_grow.connect(on_snake_grow)
 
+
 func _finalize_setup() -> void:
 	active_sectors = get_children()
+	SignalManager.on_set_enemies.emit(active_sectors[0])
 
 
 func on_snake_grow() -> void:
@@ -19,6 +21,7 @@ func on_snake_grow() -> void:
 		var forcefield: TileMapLayer = active_sectors[0].get_node("Forcefield")
 		forcefield.enabled = false
 		active_sectors.pop_front()
+		SignalManager.on_set_enemies.emit(active_sectors[0])
 
 
 func instantiate_random_sectors()  -> void:

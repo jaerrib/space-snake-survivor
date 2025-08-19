@@ -26,3 +26,4 @@ signal on_snake_hit
 signal on_add_weapon(weapon: Constants.PlayerWeapons)
 signal on_player_died
 signal on_snake_grow
+signal on_set_enemies(sector: BaseSector)

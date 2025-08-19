@@ -3,6 +3,15 @@ extends Node2D
 @export var spawns: Array[SpawnInfo] = []
 @export var time: int = 0
 
+var enemy_type: Constants.EnemyType
+
+func _ready() -> void:
+	SignalManager.on_set_enemies.connect(on_set_enemies)
+
+
+func on_set_enemies(sector: BaseSector) -> void:
+	enemy_type = sector.enemy_type
+
 func _on_timer_timeout() -> void:
 	time += 1
 	for spawn_info in spawns:
@@ -13,7 +22,8 @@ func _on_timer_timeout() -> void:
 				spawn_info.spawn_delay_counter = 0
 				for i in spawn_info.enemy_num:
 					var position = get_random_position()
-					SignalManager.on_create_enemy.emit(position, spawn_info.enemy)
+					#SignalManager.on_create_enemy.emit(position, spawn_info.enemy)
+					SignalManager.on_create_enemy.emit(position, enemy_type)
 
 
 func get_random_position() -> Vector2:
