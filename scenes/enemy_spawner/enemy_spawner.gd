@@ -1,29 +1,31 @@
+class_name EnemySpawner
 extends Node2D
 
-@export var spawns: Array[SpawnInfo] = []
 @export var time: int = 0
 
-var enemy_type: Constants.EnemyType
+var spawn_list: Array[SpawnInfo] = []
+var diff_multipler: int
+
 
 func _ready() -> void:
 	SignalManager.on_set_enemies.connect(on_set_enemies)
+	diff_multipler = get_parent().get_node("WorldLayer").difficulty_modifier
 
 
 func on_set_enemies(sector: BaseSector) -> void:
-	enemy_type = sector.enemy_type
+	spawn_list = sector.spawns
+
 
 func _on_timer_timeout() -> void:
 	time += 1
-	for spawn_info in spawns:
-		if time >= spawn_info.time_start and time <= spawn_info.time_end:
+	for spawn_info in spawn_list:
+		for i in (spawn_info.enemy_num * diff_multipler):
 			if spawn_info.spawn_delay_counter < spawn_info.enemy_spawn_delay:
 				spawn_info.spawn_delay_counter += 1
 			else:
 				spawn_info.spawn_delay_counter = 0
-				for i in spawn_info.enemy_num:
-					var position = get_random_position()
-					#SignalManager.on_create_enemy.emit(position, spawn_info.enemy)
-					SignalManager.on_create_enemy.emit(position, enemy_type)
+				var position = get_random_position()
+				SignalManager.on_create_enemy.emit(position, spawn_info.enemy)
 
 
 func get_random_position() -> Vector2:

@@ -6,5 +6,6 @@
 [node name="WorldLayer" type="Node2D"]
 script = ExtResource("1_w6kjd")
 total_sectors = 5
+difficulty_modifier = 1
 
 [node name="Sector1" parent="." instance=ExtResource("4_5yd6d")]

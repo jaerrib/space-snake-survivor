@@ -1,6 +1,7 @@
 class_name WorldLayer extends Node2D
 
 @export var total_sectors: int
+@export var difficulty_modifier: int
 
 var active_sectors: Array = []
 
