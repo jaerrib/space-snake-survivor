@@ -7,6 +7,12 @@ const SECTOR_SCENES: Dictionary = {
 	Constants.Sectors.SECTOR_5: preload("res://scenes/sectors/sector_5.tscn"),
 }
 
+const DIFFICULTY_MODIFIERS: Dictionary = {
+	Constants.Difficulty.EASY: 1,
+	Constants.Difficulty.NORMAL: 2,
+	Constants.Difficulty.HARD: 3,
+}
+
 enum EnemyType {
 	ASTEROID_SMALL,
 	ASTEROID_SMALL_2,
@@ -27,6 +33,8 @@ enum ProjectileType { SNAKE_PROJECTILE_1, BLAST_RADIUS, SNAKE_MISSILE }
 enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3 }
 
 enum ObjectType { XP }
+
+enum Difficulty { EASY, NORMAL, HARD }
 
 enum Sectors {
 	#SECTOR_1, 

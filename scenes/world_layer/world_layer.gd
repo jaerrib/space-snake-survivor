@@ -1,7 +1,8 @@
 class_name WorldLayer extends Node2D
 
 @export var total_sectors: int
-@export var difficulty_modifier: int
+@export var difficulty: Constants.Difficulty
+
 
 var active_sectors: Array = []
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 func _finalize_setup() -> void:
 	active_sectors = get_children()
 	SignalManager.on_set_enemies.emit(active_sectors[0])
+	SignalManager.on_set_difficulty.emit(difficulty)
 
 
 func on_snake_grow() -> void:
@@ -23,6 +25,7 @@ func on_snake_grow() -> void:
 		forcefield.enabled = false
 		active_sectors.pop_front()
 		SignalManager.on_set_enemies.emit(active_sectors[0])
+		SignalManager.on_advance_sector.emit()
 
 
 func instantiate_random_sectors()  -> void:

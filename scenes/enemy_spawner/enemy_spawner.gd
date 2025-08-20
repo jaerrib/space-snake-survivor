@@ -4,23 +4,38 @@ extends Node2D
 @export var time: int = 0
 
 var spawn_list: Array[SpawnInfo] = []
-var diff_multipler: int
+var difficulty_multiplier: int
+var sector_multiplier: int = 1
 
 
 func _ready() -> void:
 	SignalManager.on_set_enemies.connect(on_set_enemies)
-	diff_multipler = get_parent().get_node("WorldLayer").difficulty_modifier
+	SignalManager.on_advance_sector.connect(on_advance_sector)
+	SignalManager.on_set_difficulty.connect(on_set_difficulty)
 
 
 func on_set_enemies(sector: BaseSector) -> void:
 	spawn_list = sector.spawns
 
 
+func on_set_difficulty(difficulty: Constants.Difficulty) -> void:
+	difficulty_multiplier = Constants.DIFFICULTY_MODIFIERS[difficulty]
+
+
+func on_advance_sector() -> void:
+	sector_multiplier += 1
+
+
 func _on_timer_timeout() -> void:
 	time += 1
 	for spawn_info in spawn_list:
-		for i in (spawn_info.enemy_num * diff_multipler):
-			if spawn_info.spawn_delay_counter < spawn_info.enemy_spawn_delay:
+		for i in spawn_info.enemy_num * sector_multiplier * difficulty_multiplier:
+			var modified_delay = (
+				spawn_info.enemy_spawn_delay / (sqrt(sector_multiplier) * difficulty_multiplier)
+				)
+			modified_delay = max(modified_delay, 0.2)
+			
+			if spawn_info.spawn_delay_counter < modified_delay:
 				spawn_info.spawn_delay_counter += 1
 			else:
 				spawn_info.spawn_delay_counter = 0
