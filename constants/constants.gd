@@ -8,9 +8,9 @@ const SECTOR_SCENES: Dictionary = {
 }
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
-	Constants.Difficulty.EASY: 1,
-	Constants.Difficulty.NORMAL: 2,
-	Constants.Difficulty.HARD: 3,
+	Constants.Difficulty.EASY: 0.75,
+	Constants.Difficulty.NORMAL: 1.0,
+	Constants.Difficulty.HARD: 1.5,
 }
 
 enum EnemyType {
