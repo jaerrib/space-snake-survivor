@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func get_heal_amt() -> float:
 	var player_ref: Snake =  get_tree().get_first_node_in_group("player")
-	var heal_amt: float = (player_ref.get_max_health() - player_ref.get_health()) * heal_percentage
+	var heal_amt: float = (player_ref.get_max_health() - player_ref.get_health()) #* heal_percentage
 	if supply - heal_amt > 0:
 		supply -= heal_amt
 	else:
