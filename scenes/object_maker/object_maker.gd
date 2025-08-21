@@ -1,5 +1,7 @@
 extends Node2D
 
+const MAX_ENEMIES: int = 200
+
 const ADD_OBJECT: String = "add_object"
 
 const ENEMY_SCENE: Dictionary = {
@@ -27,17 +29,21 @@ const PROJECTILE_SCENE: Dictionary = {
 	Constants.ProjectileType.SNAKE_MISSILE: preload("res://scenes/snake_missile/snake_missile.tscn")
 }
 
+@onready var enemy_holder: Node = $EnemyHolder
+
 
 func _ready() -> void:
 	SignalManager.on_create_enemy.connect(on_create_enemy)
 	SignalManager.on_create_object.connect(on_create_object)
 	SignalManager.on_create_projectile.connect(on_create_projectile)
-	
-	
+
+
 func on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType):
-	var scene = ENEMY_SCENE[enemy_type].instantiate()
-	scene.position = position
-	call_deferred("add_child", scene)
+	var num_enemies: int = enemy_holder.get_child_count()
+	if num_enemies < MAX_ENEMIES:
+		var scene = ENEMY_SCENE[enemy_type].instantiate()
+		scene.position = position
+		enemy_holder.call_deferred("add_child", scene)
 
 
 func on_create_object(position: Vector2, object_type: Constants.ObjectType, value: int) -> void:

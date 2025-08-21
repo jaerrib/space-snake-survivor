@@ -4,3 +4,5 @@
 
 [node name="ObjectMaker" type="Node2D"]
 script = ExtResource("1_cjanq")
+
+[node name="EnemyHolder" type="Node" parent="."]
