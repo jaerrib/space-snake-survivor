@@ -23,6 +23,7 @@ SignalManager="*res://singletons/signal_manager.gd"
 
 window/size/viewport_width=960
 window/size/viewport_height=720
+window/stretch/mode="viewport"
 
 [global_group]
 
@@ -84,5 +85,6 @@ pause={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
