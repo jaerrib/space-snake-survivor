@@ -1,10 +1,12 @@
 class_name Constants
 
 const SECTOR_SCENES: Dictionary = {
+	Constants.Sectors.SECTOR_1: preload("res://scenes/sectors/sector_1.tscn"),
 	Constants.Sectors.SECTOR_2: preload("res://scenes/sectors/sector_2.tscn"),
 	Constants.Sectors.SECTOR_3: preload("res://scenes/sectors/sector_3.tscn"),
 	Constants.Sectors.SECTOR_4: preload("res://scenes/sectors/sector_4.tscn"),
 	Constants.Sectors.SECTOR_5: preload("res://scenes/sectors/sector_5.tscn"),
+	Constants.Sectors.SECTOR_6: preload("res://scenes/sectors/sector_6.tscn"),
 }
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
@@ -41,5 +43,6 @@ enum Sectors {
 	SECTOR_2,
 	SECTOR_3,
 	SECTOR_4,
-	SECTOR_5
+	SECTOR_5,
+	SECTOR_6,
 }
