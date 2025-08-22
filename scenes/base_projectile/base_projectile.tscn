@@ -12,5 +12,7 @@ script = ExtResource("1_aa5rf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="RemovalTimer" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
