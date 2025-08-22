@@ -13,6 +13,7 @@ var _seek_player: bool = false
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 @onready var knockback_timer: Timer = $KnockbackTimer
+@onready var fade_animation_player: AnimationPlayer = $FadeAnimationPlayer
 
 
 func _physics_process(_delta) -> void:
@@ -55,3 +56,11 @@ func knockback() -> void:
 
 func _on_knockback_timer_timeout() -> void:
 	_knocked_back = false
+
+
+func _on_death_timer_timeout() -> void:
+	fade_animation_player.play("Fade")
+
+
+func _on_fade_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()
