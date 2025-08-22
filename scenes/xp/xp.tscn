@@ -1,10 +1,96 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdrydxd7w56li"]
+[gd_scene load_steps=7 format=3 uid="uid://bdrydxd7w56li"]
 
 [ext_resource type="Script" uid="uid://dl6sffsn60744" path="res://scenes/xp/xp.gd" id="1_57t6t"]
 [ext_resource type="Texture2D" uid="uid://b36ti0ks8mn03" path="res://assets/misc/xp.png" id="2_kqc2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jp7dy"]
 size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_kqc2r"]
+resource_name = "Fade"
+length = 1.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jp7dy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3fssp"]
+_data = {
+&"Fade": SubResource("Animation_kqc2r"),
+&"RESET": SubResource("Animation_jp7dy")
+}
 
 [node name="XP" type="Node2D"]
 script = ExtResource("1_57t6t")
@@ -20,4 +106,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_jp7dy")
 
+[node name="FadeTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[node name="FadeAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../FadeTimer")
+libraries = {
+&"": SubResource("AnimationLibrary_3fssp")
+}
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="FadeTimer" to="." method="_on_fade_timer_timeout"]
+[connection signal="animation_finished" from="FadeAnimationPlayer" to="." method="_on_fade_animation_player_animation_finished"]

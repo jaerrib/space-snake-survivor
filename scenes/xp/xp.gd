@@ -3,6 +3,7 @@ class_name XP extends Node2D
 var _xp_val: int = 1
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var fade_animation_player: AnimationPlayer = $FadeAnimationPlayer
 
 
 func _ready() -> void:
@@ -26,3 +27,11 @@ func select_sprite() -> void:
 			sprite_2d.frame = 1
 		else:
 			sprite_2d.frame = 0
+
+
+func _on_fade_timer_timeout() -> void:
+	fade_animation_player.play("Fade")
+
+
+func _on_fade_animation_player_animation_finished(anim_name: StringName) -> void:
+	queue_free()
