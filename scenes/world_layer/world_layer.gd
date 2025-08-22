@@ -1,10 +1,14 @@
 class_name WorldLayer extends Node2D
 
+const STARTING_LOC: Vector2 = Vector2(-384.0, 176.0)
+
 @export var total_sectors: int
 @export var difficulty: Constants.Difficulty
 
-
 var active_sectors: Array = []
+
+@onready var random_sectors: Node2D = $RandomSectors
+@onready var starting_sector: BaseSector = $StartingSector
 
 
 func _ready() -> void:
@@ -14,7 +18,8 @@ func _ready() -> void:
 
 
 func _finalize_setup() -> void:
-	active_sectors = get_children()
+	active_sectors = random_sectors.get_children()
+	starting_sector.position = STARTING_LOC
 	SignalManager.on_set_enemies.emit(active_sectors[0])
 	SignalManager.on_set_difficulty.emit(difficulty)
 
@@ -30,10 +35,10 @@ func on_snake_grow() -> void:
 
 func instantiate_random_sectors()  -> void:
 	var available: Dictionary = Constants.SECTOR_SCENES.duplicate()
-	for i in range(1, total_sectors):
+	for i in range(0, total_sectors):
 		if available.size() != 0:
 			var sector_key: Constants.Sectors = available.keys().pick_random()
 			var scene: BaseSector = Constants.SECTOR_SCENES[sector_key].instantiate()
 			scene.position.x = i * 960
-			call_deferred("add_child", scene)
+			random_sectors.call_deferred("add_child", scene)
 			available.erase(sector_key)

@@ -37,7 +37,7 @@ enum ObjectType { XP }
 enum Difficulty { EASY, NORMAL, HARD }
 
 enum Sectors {
-	#SECTOR_1, 
+	SECTOR_1,
 	SECTOR_2,
 	SECTOR_3,
 	SECTOR_4,

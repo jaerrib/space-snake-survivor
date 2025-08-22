@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://4omcptgsxete"]
 
 [ext_resource type="Script" uid="uid://wt4p01t5hidv" path="res://scenes/world_layer/world_layer.gd" id="1_w6kjd"]
-[ext_resource type="PackedScene" uid="uid://b21b1fyf3io8r" path="res://scenes/sectors/sector_1.tscn" id="4_5yd6d"]
+[ext_resource type="PackedScene" uid="uid://c1eyoyojdqi1e" path="res://scenes/sectors/starting_sector.tscn" id="3_yvo5i"]
 
 [node name="WorldLayer" type="Node2D"]
 script = ExtResource("1_w6kjd")
 total_sectors = 5
 difficulty = 1
 
-[node name="Sector1" parent="." instance=ExtResource("4_5yd6d")]
+[node name="StartingSector" parent="." instance=ExtResource("3_yvo5i")]
+
+[node name="RandomSectors" type="Node2D" parent="."]
