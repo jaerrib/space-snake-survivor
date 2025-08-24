@@ -1,7 +1,7 @@
 extends Node2D
 
 const MAX_ENEMIES: int = 200
-
+const MAX_OBJECTS: int = 200
 const ADD_OBJECT: String = "add_object"
 
 const ENEMY_SCENE: Dictionary = {
@@ -30,6 +30,8 @@ const PROJECTILE_SCENE: Dictionary = {
 }
 
 @onready var enemy_holder: Node = $EnemyHolder
+@onready var object_holder: Node = $ObjectHolder
+@onready var projectile_holder: Node = $ProjectileHolder
 
 
 func _ready() -> void:
@@ -49,10 +51,12 @@ func on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType):
 func on_create_object(position: Vector2, object_type: Constants.ObjectType, value: int) -> void:
 	if !OBJECT_SCENES.has(object_type):
 		return
-	var new_object = OBJECT_SCENES[object_type].instantiate()
-	new_object.position = position
-	new_object.setup(value)
-	call_deferred("add_child", new_object)
+	var num_objects: int = object_holder.get_child_count()
+	if num_objects < MAX_OBJECTS:
+		var new_object = OBJECT_SCENES[object_type].instantiate()
+		new_object.position = position
+		new_object.setup(value)
+		object_holder.call_deferred("add_child", new_object)
 
 
 func on_create_projectile(

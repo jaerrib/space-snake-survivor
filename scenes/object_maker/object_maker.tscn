@@ -6,3 +6,5 @@
 script = ExtResource("1_cjanq")
 
 [node name="EnemyHolder" type="Node" parent="."]
+
+[node name="ObjectHolder" type="Node" parent="."]
