@@ -9,6 +9,8 @@ const SECTOR_SCENES: Dictionary = {
 	Constants.Sectors.SECTOR_6: preload("res://scenes/sectors/sector_6.tscn"),
 	Constants.Sectors.SECTOR_7: preload("res://scenes/sectors/sector_7.tscn"),
 	Constants.Sectors.SECTOR_8: preload("res://scenes/sectors/sector_8.tscn"),
+	Constants.Sectors.SECTOR_9: preload("res://scenes/sectors/sector_9.tscn"),
+	Constants.Sectors.SECTOR_10: preload("res://scenes/sectors/sector_10.tscn"),
 }
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
@@ -49,4 +51,6 @@ enum Sectors {
 	SECTOR_6,
 	SECTOR_7,
 	SECTOR_8,
+	SECTOR_9,
+	SECTOR_10,
 }
