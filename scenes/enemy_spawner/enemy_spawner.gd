@@ -4,7 +4,7 @@ extends Node2D
 @export var time: int = 0
 
 var spawn_list: Array[SpawnInfo] = []
-var difficulty_multiplier: int
+var difficulty_multiplier: float
 var sector_multiplier: int = 1
 
 
