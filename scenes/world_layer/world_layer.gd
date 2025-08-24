@@ -25,7 +25,7 @@ func _finalize_setup() -> void:
 
 
 func on_snake_grow() -> void:
-	if active_sectors.size() > 0:
+	if active_sectors.size() > 1:
 		var forcefield: TileMapLayer = active_sectors[0].get_node("Forcefield")
 		forcefield.enabled = false
 		active_sectors.pop_front()
