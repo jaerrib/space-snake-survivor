@@ -30,7 +30,7 @@ func _on_timer_timeout() -> void:
 	time += 1
 	for spawn_info in spawn_list:
 		var spawn_num: int = max(
-			roundi(spawn_info.enemy_num * sector_multiplier * difficulty_multiplier),
+			roundi((spawn_info.enemy_num + sector_multiplier) * difficulty_multiplier),
 			1
 			)
 		for i in spawn_num:
