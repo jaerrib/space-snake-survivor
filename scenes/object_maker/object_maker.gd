@@ -71,9 +71,16 @@ func on_create_projectile(
 	var scene = PROJECTILE_SCENE[projectile_type].instantiate()
 	scene.position = start_pos
 	scene.setup(direction, speed, damage, penetration)
-	call_deferred(ADD_OBJECT, scene, start_pos)
+	projectile_holder.call_deferred("add_child", scene)
 
 
-func add_object(obj: Node, global_position: Vector2) -> void:
-	add_child(obj)
-	obj.global_position = global_position
+func get_enemy_count() -> int:
+	return enemy_holder.get_child_count()
+
+
+func get_object_count() -> int:
+	return object_holder.get_child_count()
+
+
+func get_projectile_count() -> int:
+	return projectile_holder.get_child_count()
