@@ -1,4 +1,4 @@
-extends Node2D
+class_name ObjectMaker extends Node2D
 
 const MAX_ENEMIES: int = 200
 const MAX_OBJECTS: int = 200
