@@ -19,10 +19,7 @@ var _seek_player: bool = false
 func _physics_process(_delta) -> void:
 	if not _seek_player:
 		return
-	if _knocked_back:
-		move_and_slide()
-		return
-	if player and player.is_inside_tree():
+	if !_knocked_back and player and player.is_inside_tree():
 		var direction: Vector2 = global_position.direction_to(player.global_position)
 		velocity = direction * movement_speed
 	move_and_slide()
