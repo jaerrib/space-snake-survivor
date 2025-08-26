@@ -6,6 +6,8 @@ const LEVEL_LENGTH: int = 1800 #in seconds
 @onready var time_label: Label = $MC/MC2/HB/TimeLabel
 @onready var xp_level_label: Label = $MC/MC2/HB/XPLevelLabel
 @onready var scan_lines: ColorRect = $"../ScanLines"
+@onready var fps_label: Label = $MarginContainer/FPSLabel
+
 
 
 var player_ref: Snake
@@ -23,6 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("toggle-scanlines"):
 		scan_lines.visible = !scan_lines.visible
+	fps_label.text = "FPS %d" % Engine.get_frames_per_second()
 
 
 func update_timer_label() -> void:

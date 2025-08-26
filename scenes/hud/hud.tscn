@@ -78,10 +78,30 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="MC"]
-layout_mode = 2
-
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -39.0
+offset_right = 66.0
+grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0, 0, 0.752941)
+
+[node name="FPSLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "FPS 60"
+vertical_alignment = 1
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
