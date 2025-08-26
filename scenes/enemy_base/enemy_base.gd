@@ -6,23 +6,22 @@ class_name EnemyBase extends CharacterBody2D
 @export var xp_val: int = 1
 @export var knockback_amount: int = 1
 
-
 var _knocked_back: bool = false
 var _knockback_direction: Vector2 = Vector2.ZERO
-var _seek_player: bool = false
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 @onready var knockback_timer: Timer = $KnockbackTimer
 @onready var fade_animation_player: AnimationPlayer = $FadeAnimationPlayer
 
 
-func _physics_process(_delta) -> void:
-	if not _seek_player:
-		return
-	if !_knocked_back and player and player.is_inside_tree():
-		var direction: Vector2 = global_position.direction_to(player.global_position)
+func _physics_process(delta: float) -> void:
+	move_and_collide(velocity * delta)
+
+
+func _on_direction_timer_timeout() -> void:
+	if not _knocked_back and player and player.is_inside_tree():
+		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * movement_speed
-	move_and_slide()
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
@@ -39,9 +38,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 func get_damage() -> int:
 	return damage
 
-
-func _on_seek_timer_timeout() -> void:
-	_seek_player = true
 
 
 func knockback() -> void:
