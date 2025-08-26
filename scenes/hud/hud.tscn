@@ -81,27 +81,49 @@ size_flags_vertical = 4
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="DebugInfo" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -39.0
-offset_right = 66.0
+offset_top = -120.0
+offset_right = 150.0
+offset_bottom = 10.0
 grow_vertical = 0
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="ColorRect" type="ColorRect" parent="DebugInfo"]
+custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0, 0, 0.752941)
 
-[node name="FPSLabel" type="Label" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DebugInfo"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="FPSLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "FPS 60"
+vertical_alignment = 1
+
+[node name="EnemyCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
+layout_mode = 2
+text = "Enemies: 000"
+vertical_alignment = 1
+
+[node name="ObjectCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
+layout_mode = 2
+text = "Objects: 000"
+vertical_alignment = 1
+
+[node name="ProjectileCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
+layout_mode = 2
+text = "Projectiles: 000"
 vertical_alignment = 1
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
