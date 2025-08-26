@@ -101,9 +101,8 @@ func update_segments() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var enemy = area.get_parent()
-	var damage = enemy.get_damage()
-	hp -= damage
+	var damage = area.get_parent().get_damage()
+	hp = max(hp - damage, 0)
 	SignalManager.on_update_health.emit(hp)
 	if hp <= 0:
 		SignalManager.on_player_died.emit()
