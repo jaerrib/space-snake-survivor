@@ -29,15 +29,15 @@ func on_advance_sector() -> void:
 func _on_timer_timeout() -> void:
 	time += 1
 	for spawn_info in spawn_list:
-		var spawn_num: int = max(
-			roundi((spawn_info.enemy_num + sector_multiplier) * difficulty_multiplier),
-			1
-			)
+		var base_spawn: int = spawn_info.enemy_num
+		var scaled_spawn: float = base_spawn * log(1 + difficulty_multiplier * sector_multiplier)
+		var spawn_num: int = max(roundi(scaled_spawn), 1)
 		for i in spawn_num:
-			var modified_delay: float = max(
+			var modified_delay: float = clamp(
 				spawn_info.enemy_spawn_delay / (sqrt(sector_multiplier) * difficulty_multiplier),
-				0.2
-				)
+				0.5,
+				spawn_info.enemy_spawn_delay
+			)
 			if spawn_info.spawn_delay_counter < modified_delay:
 				spawn_info.spawn_delay_counter += 1
 			else:
