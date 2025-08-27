@@ -104,10 +104,9 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var damage = area.get_parent().get_damage()
 	hp = max(hp - damage, 0)
 	SignalManager.on_update_health.emit(hp)
+	SignalManager.on_snake_hit.emit()
 	if hp <= 0:
 		SignalManager.on_player_died.emit()
-	else:
-		SignalManager.on_snake_hit.emit()
 
 
 func check_wall_collision() -> void:
@@ -115,6 +114,7 @@ func check_wall_collision() -> void:
 		hp = 0
 		SignalManager.on_update_health.emit(hp)
 		SignalManager.on_player_died.emit()
+		SignalManager.on_snake_hit.emit()
 
 
 func get_level() -> int:
