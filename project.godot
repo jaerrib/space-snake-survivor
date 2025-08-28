@@ -30,6 +30,7 @@ window/stretch/mode="viewport"
 player=""
 movables=""
 enemies=""
+enemy_spawner=""
 
 [input]
 

@@ -12,6 +12,13 @@ var _knockback_direction: Vector2 = Vector2.ZERO
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 @onready var knockback_timer: Timer = $KnockbackTimer
 @onready var fade_animation_player: AnimationPlayer = $FadeAnimationPlayer
+@onready var death_timer: Timer = $DeathTimer
+
+
+func _ready() -> void:
+	var enemy_spawner: EnemySpawner = get_tree().get_first_node_in_group("enemy_spawner")
+	var sector_multiplier: int = enemy_spawner.get_sector_multipler()
+	death_timer.wait_time = clamp(90 / sqrt(sector_multiplier), 30, 90)
 
 
 func _physics_process(delta: float) -> void:
@@ -37,7 +44,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 func get_damage() -> int:
 	return damage
-
 
 
 func knockback() -> void:

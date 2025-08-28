@@ -54,3 +54,7 @@ func get_random_position() -> Vector2:
 	var angle: float = randf_range(0, TAU)
 	var offset: Vector2 = Vector2.RIGHT.rotated(angle) * spawn_distance
 	return player.global_position + offset
+
+
+func get_sector_multipler() -> int:
+	return sector_multiplier

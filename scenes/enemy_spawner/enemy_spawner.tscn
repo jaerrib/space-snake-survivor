@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cdeqq7n8ex74r" path="res://scenes/enemy_spawner/enemy_spawner.gd" id="1_85wi1"]
 
-[node name="EnemySpawner" type="Node2D"]
+[node name="EnemySpawner" type="Node2D" groups=["enemy_spawner"]]
 script = ExtResource("1_85wi1")
 
 [node name="Timer" type="Timer" parent="."]
