@@ -1,20 +1,7 @@
 class_name Constants
 
-const SECTOR_SCENES: Dictionary = {
-	Constants.Sectors.SECTOR_1: preload("res://scenes/sectors/sector_1.tscn"),
-	Constants.Sectors.SECTOR_2: preload("res://scenes/sectors/sector_2.tscn"),
-	Constants.Sectors.SECTOR_3: preload("res://scenes/sectors/sector_3.tscn"),
-	Constants.Sectors.SECTOR_4: preload("res://scenes/sectors/sector_4.tscn"),
-	Constants.Sectors.SECTOR_5: preload("res://scenes/sectors/sector_5.tscn"),
-	Constants.Sectors.SECTOR_6: preload("res://scenes/sectors/sector_6.tscn"),
-	Constants.Sectors.SECTOR_7: preload("res://scenes/sectors/sector_7.tscn"),
-	Constants.Sectors.SECTOR_8: preload("res://scenes/sectors/sector_8.tscn"),
-	Constants.Sectors.SECTOR_9: preload("res://scenes/sectors/sector_9.tscn"),
-	Constants.Sectors.SECTOR_10: preload("res://scenes/sectors/sector_10.tscn"),
-	Constants.Sectors.SECTOR_11: preload("res://scenes/sectors/sector_11.tscn"),
-	Constants.Sectors.SECTOR_12: preload("res://scenes/sectors/sector_12.tscn"),
-	Constants.Sectors.SECTOR_13: preload("res://scenes/sectors/sector_13.tscn"),
-}
+# Name new sectors in sequential order (1 through n) and increase this value when adding them
+const TOTAL_SECTOR_SCENES = 13
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
 	Constants.Difficulty.EASY: 0.75,
@@ -44,19 +31,3 @@ enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3 }
 enum ObjectType { XP }
 
 enum Difficulty { EASY, NORMAL, HARD }
-
-enum Sectors {
-	SECTOR_1,
-	SECTOR_2,
-	SECTOR_3,
-	SECTOR_4,
-	SECTOR_5,
-	SECTOR_6,
-	SECTOR_7,
-	SECTOR_8,
-	SECTOR_9,
-	SECTOR_10,
-	SECTOR_11,
-	SECTOR_12,
-	SECTOR_13,
-	}

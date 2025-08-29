@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=4 uid="uid://c1eyoyojdqi1e"]
+[gd_scene load_steps=2 format=4 uid="uid://yeyltvadqtfs"]
 
-[ext_resource type="PackedScene" uid="uid://cylg7g4xep1h6" path="res://scenes/base_sector/base_sector.tscn" id="1_x10it"]
+[ext_resource type="PackedScene" uid="uid://cylg7g4xep1h6" path="res://scenes/base_sector/base_sector.tscn" id="1_k865s"]
 
-[node name="StartingSector" instance=ExtResource("1_x10it")]
+[node name="Sector0" instance=ExtResource("1_k865s")]
 
 [node name="Forcefield" parent="." index="1"]
 tile_map_data = PackedByteArray()
