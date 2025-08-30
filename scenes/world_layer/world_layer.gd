@@ -53,3 +53,7 @@ func instantiate_sectors(available: Dictionary) -> void:
 		scene.position.x = i * SECTOR_WIDTH
 		random_sectors.call_deferred("add_child", scene)
 		i += 1
+
+
+func get_current_sector_name() -> String:
+	return 	active_sectors[0].name

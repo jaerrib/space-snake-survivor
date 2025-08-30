@@ -111,6 +111,10 @@ layout_mode = 2
 text = "FPS 60"
 vertical_alignment = 1
 
+[node name="SectorLabel" type="Label" parent="DebugInfo/VBoxContainer"]
+layout_mode = 2
+text = "Sector0"
+
 [node name="EnemyCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "Enemies: 000"

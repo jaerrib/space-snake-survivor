@@ -11,6 +11,7 @@ const LEVEL_LENGTH: int = 1800 #in seconds
 @onready var enemy_count_label: Label = $DebugInfo/VBoxContainer/EnemyCountLabel
 @onready var object_count_label: Label = $DebugInfo/VBoxContainer/ObjectCountLabel
 @onready var projectile_count_label: Label = $DebugInfo/VBoxContainer/ProjectileCountLabel
+@onready var sector_label: Label = $DebugInfo/VBoxContainer/SectorLabel
 
 
 var player_ref: Snake
@@ -64,3 +65,5 @@ func update_debug_labels() -> void:
 	enemy_count_label.text = "Enemies %d" % object_maker.get_enemy_count()
 	object_count_label.text = "Objects %d" % object_maker.get_object_count()
 	projectile_count_label.text = "Projectiles %d" % object_maker.get_projectile_count()
+	var world_layer: WorldLayer = get_tree().root.get_node("Main/Level/WorldLayer")
+	sector_label.text = world_layer.get_current_sector_name()
