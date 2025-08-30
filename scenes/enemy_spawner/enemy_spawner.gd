@@ -6,12 +6,14 @@ extends Node2D
 var spawn_list: Array[SpawnInfo] = []
 var difficulty_multiplier: float
 var sector_multiplier: int = 1
-
+var spawn_modifier: float
+var delay_modifier: float
 
 func _ready() -> void:
 	SignalManager.on_set_enemies.connect(on_set_enemies)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_set_difficulty.connect(on_set_difficulty)
+	on_set_modifiers()
 
 
 func on_set_enemies(sector: BaseSector) -> void:
@@ -24,17 +26,23 @@ func on_set_difficulty(difficulty: Constants.Difficulty) -> void:
 
 func on_advance_sector() -> void:
 	sector_multiplier += 1
+	on_set_modifiers()
+
+
+func on_set_modifiers() -> void:
+	spawn_modifier = log(1 + difficulty_multiplier * sector_multiplier)
+	delay_modifier = sqrt(sector_multiplier) * difficulty_multiplier
 
 
 func _on_timer_timeout() -> void:
 	time += 1
 	for spawn_info in spawn_list:
 		var base_spawn: int = spawn_info.enemy_num
-		var scaled_spawn: float = base_spawn * log(1 + difficulty_multiplier * sector_multiplier)
+		var scaled_spawn: float = base_spawn * spawn_modifier
 		var spawn_num: int = max(roundi(scaled_spawn), 1)
 		for i in spawn_num:
 			var modified_delay: float = clamp(
-				spawn_info.enemy_spawn_delay / (sqrt(sector_multiplier) * difficulty_multiplier),
+				spawn_info.enemy_spawn_delay / delay_modifier,
 				0.5,
 				spawn_info.enemy_spawn_delay
 			)
