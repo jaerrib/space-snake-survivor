@@ -1,13 +1,13 @@
 class_name Constants
 
 # Name new sectors in sequential order (1 through n) and increase this value when adding them
-const TOTAL_SECTOR_SCENES = 14
+const TOTAL_SECTOR_SCENES = 15
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
 	Constants.Difficulty.EASY: 0.75,
 	Constants.Difficulty.NORMAL: 1.0,
 	Constants.Difficulty.HARD: 1.5,
-}
+	}
 
 enum EnemyType {
 	ASTEROID_SMALL,
@@ -22,7 +22,7 @@ enum EnemyType {
 	ALIEN_5,
 	ALIEN_6,
 	UFO,
-	 }
+	}
 
 enum ProjectileType { SNAKE_PROJECTILE_1, BLAST_RADIUS, SNAKE_MISSILE }
 
