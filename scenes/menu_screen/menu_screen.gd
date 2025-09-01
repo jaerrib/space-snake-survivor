@@ -7,15 +7,15 @@ func _process(delta: float) -> void:
 
 
 func _on_easy_pressed() -> void:
-	GameManager.load_game_scene(Constants.Difficulty["EASY"])
+	GameManager.load_game_scene(Constants.Difficulty.EASY)
 
 
 func _on_normal_pressed() -> void:
-	GameManager.load_game_scene(Constants.Difficulty["NORMAL"])
+	GameManager.load_game_scene(Constants.Difficulty.NORMAL)
 
 
 func _on_hard_pressed() -> void:
-	GameManager.load_game_scene(Constants.Difficulty["HARD"])
+	GameManager.load_game_scene(Constants.Difficulty.HARD)
 
 
 func _on_quit_pressed() -> void:
