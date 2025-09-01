@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://d06qo5paubbni"]
+
+[ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="1_1olso"]
+[ext_resource type="Script" uid="uid://jj32w418qnur" path="res://scenes/menu_screen/menu_screen.gd" id="1_f65jf"]
+[ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_q8734"]
+[ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_46ee7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_46ee7"]
+font = ExtResource("1_q8734")
+font_size = 96
+
+[sub_resource type="Theme" id="Theme_f65jf"]
+default_font = ExtResource("1_q8734")
+default_font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_f65jf"]
+font = ExtResource("1_q8734")
+font_size = 24
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f65jf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Space Snake Survivor"
+label_settings = SubResource("LabelSettings_46ee7")
+horizontal_alignment = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_f65jf")
+
+[node name="VSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_override_font_sizes/font_size = 64
+text = "new Game"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+
+[node name="Easy" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "Easy"
+script = ExtResource("1_1olso")
+
+[node name="HSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Normal" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "Normal"
+
+[node name="HSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Hard" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "hard"
+
+[node name="VSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+
+[node name="VSpacer3" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Version 0.1"
+label_settings = SubResource("LabelSettings_f65jf")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/Quit" to="." method="_on_quit_pressed"]

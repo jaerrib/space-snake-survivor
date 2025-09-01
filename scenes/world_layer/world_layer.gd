@@ -14,13 +14,14 @@ var active_sectors: Array = []
 
 func _ready() -> void:
 	instantiate_sectors(select_random_sectors())
-	call_deferred("_finalize_setup")
 	SignalManager.on_snake_grow.connect(on_snake_grow)
+	call_deferred("_finalize_setup")
 
 
 func _finalize_setup() -> void:
 	active_sectors = random_sectors.get_children()
 	sector_0.position = STARTING_LOC
+	difficulty = GameManager.get_difficulty()
 	SignalManager.on_set_enemies.emit(active_sectors[0])
 	SignalManager.on_set_difficulty.emit(difficulty)
 
@@ -56,4 +57,4 @@ func instantiate_sectors(available: Dictionary) -> void:
 
 
 func get_current_sector_name() -> String:
-	return 	active_sectors[0].name
+	return active_sectors[0].name
