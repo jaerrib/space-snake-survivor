@@ -30,7 +30,7 @@ _data = {
 &"damaged": SubResource("Animation_1va46")
 }
 
-[node name="Segment" type="Node2D"]
+[node name="Segment" type="Node2D" groups=["movables"]]
 z_index = 100
 script = ExtResource("1_1va46")
 

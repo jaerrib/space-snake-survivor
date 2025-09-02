@@ -48,7 +48,7 @@ _data = {
 &"damaged": SubResource("Animation_reko3")
 }
 
-[node name="Snake" type="CharacterBody2D" groups=["player"]]
+[node name="Snake" type="CharacterBody2D" groups=["movables", "player"]]
 z_index = 100
 motion_mode = 1
 script = ExtResource("1_4ska3")

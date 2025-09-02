@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://va4rui72ofxa" path="res://scenes/base_projectile/base_projectile.gd" id="1_aa5rf"]
 
-[node name="BaseProjectile" type="Area2D"]
+[node name="BaseProjectile" type="Area2D" groups=["movables"]]
 script = ExtResource("1_aa5rf")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
