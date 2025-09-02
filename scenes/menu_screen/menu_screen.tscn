@@ -18,6 +18,21 @@ default_font_size = 48
 font = ExtResource("1_q8734")
 font_size = 24
 
+[sub_resource type="Animation" id="Animation_f6bca"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_bka6l"]
 resource_name = "title_pulse"
 length = 1.5
@@ -34,21 +49,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.211765, 0.576471, 0.431373, 1), Color(0.411765, 0.741176, 0.184314, 1), Color(0.6, 0.894118, 0.313726, 1), Color(0.984314, 0.94902, 0.211765, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_f6bca"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k7h71"]
@@ -119,7 +119,6 @@ layout_mode = 2
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 text = "Easy"
-script = ExtResource("1_1olso")
 
 [node name="HSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
@@ -131,6 +130,7 @@ layout_mode = 2
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 text = "Normal"
+script = ExtResource("1_1olso")
 
 [node name="HSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
 custom_minimum_size = Vector2(16, 0)
