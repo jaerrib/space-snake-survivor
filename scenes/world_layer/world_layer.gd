@@ -14,7 +14,7 @@ var active_sectors: Array = []
 
 func _ready() -> void:
 	instantiate_sectors(select_random_sectors())
-	SignalManager.on_snake_grow.connect(on_snake_grow)
+	SignalManager.on_advance_sector.connect(on_advance_sector)
 	call_deferred("_finalize_setup")
 
 
@@ -26,13 +26,12 @@ func _finalize_setup() -> void:
 	SignalManager.on_set_difficulty.emit(difficulty)
 
 
-func on_snake_grow() -> void:
+func on_advance_sector() -> void:
 	if active_sectors.size() > 1:
 		var forcefield: TileMapLayer = active_sectors[0].get_node("Forcefield")
 		forcefield.enabled = false
 		active_sectors.pop_front()
 		SignalManager.on_set_enemies.emit(active_sectors[0])
-		SignalManager.on_advance_sector.emit()
 
 
 func select_random_sectors()  -> Dictionary:
@@ -58,3 +57,7 @@ func instantiate_sectors(available: Dictionary) -> void:
 
 func get_current_sector_name() -> String:
 	return active_sectors[0].name
+
+
+func get_total_sectors() -> int:
+	return total_sectors

@@ -21,8 +21,9 @@ var time_elapsed: int
 var debug: bool = false
 var object_maker: ObjectMaker
 var world_layer: WorldLayer
+var sector_interval: int
 var sector_tracker: int = 1
-
+var next_sector_time: float
 
 func _ready() -> void:
 	var player: Snake = get_tree().get_first_node_in_group("player")
@@ -30,6 +31,8 @@ func _ready() -> void:
 	xp_level_label.text = str(player_ref.get_level())
 	object_maker = get_tree().root.get_node("Main/Level/ObjectMaker")
 	world_layer = get_tree().root.get_node("Main/Level/WorldLayer")
+	sector_interval = float(LEVEL_LENGTH) / world_layer.get_total_sectors()
+	next_sector_time = sector_interval
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_player_died.connect(on_player_died)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
@@ -53,8 +56,11 @@ func update_timer_label() -> void:
 
 func _on_level_timer_timeout() -> void:
 	time_elapsed += 1
+	if time_elapsed >= next_sector_time:
+		SignalManager.on_advance_sector.emit()
+		next_sector_time += sector_interval
 	update_timer_label()
-	if time_elapsed == LEVEL_LENGTH:
+	if time_elapsed >= LEVEL_LENGTH:
 		SignalManager.on_level_complete.emit()
 
 
