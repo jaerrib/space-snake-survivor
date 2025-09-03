@@ -14,7 +14,6 @@ const LEVEL_LENGTH: int = 1800 #in seconds
 @onready var sector_label: Label = $DebugInfo/VBoxContainer/SectorLabel
 @onready var difficulty_label: Label = $DebugInfo/VBoxContainer/DifficultyLabel
 
-
 var player_ref: Snake
 var time_elapsed: int
 var debug: bool = false
@@ -57,7 +56,7 @@ func on_level_up() -> void:
 
 
 func on_player_died() -> void:
-	print("DEAD")
+	level_timer.stop()
 
 
 func update_debug_labels() -> void:
