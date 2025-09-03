@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://b1lplrwpbqcsk" path="res://scenes/xp_bar/xp_bar.tscn" id="2_c45xl"]
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="3_0bx4p"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
+[sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
 font = ExtResource("3_0bx4p")
 font_size = 24
 
-[sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
+[sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
 font = ExtResource("3_0bx4p")
 font_size = 24
 
@@ -54,19 +54,45 @@ custom_minimum_size = Vector2(200, 16)
 layout_mode = 2
 size_flags_horizontal = 6
 
+[node name="SmallSpacer1" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="SectorLevelLabel" type="Label" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sector 1"
+label_settings = SubResource("LabelSettings_c45xl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer1" type="Control" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="TimeLabel" type="Label" parent="MC/MC2/HB"]
 layout_mode = 2
 size_flags_horizontal = 6
 text = "00:00"
 label_settings = SubResource("LabelSettings_48c2t")
 
+[node name="Spacer2" type="Control" parent="MC/MC2/HB"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="XPLevelLabel" type="Label" parent="MC/MC2/HB"]
 layout_mode = 2
-size_flags_horizontal = 6
+size_flags_horizontal = 4
 text = "1"
 label_settings = SubResource("LabelSettings_c45xl")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SmallSpacer2" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
