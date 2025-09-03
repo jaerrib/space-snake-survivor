@@ -19,6 +19,11 @@ func _ready() -> void:
 	player_ref = player
 	cooldown_timer.wait_time = delay_time
 	SignalManager.on_level_up.connect(on_level_up)
+	SignalManager.on_player_died.connect(on_player_died)
+
+
+func on_player_died() -> void:
+	cooldown_timer.stop()
 
 
 func _on_cooldown_timer_timeout() -> void:
