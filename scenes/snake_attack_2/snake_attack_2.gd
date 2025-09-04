@@ -51,7 +51,7 @@ func on_level_up() -> void:
 
 func get_weapon_stats() -> Dictionary:
 	var weapon_stats: Dictionary = {
-		"Weapon": get_class(),
+		"Weapon": "Radial Blast",
 		"Weapon Level": weapon_level,
 		"Damage": damage,
 		"Speed": "N/A",
