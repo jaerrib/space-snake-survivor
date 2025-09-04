@@ -57,3 +57,37 @@ layout_mode = 2
 text = "Placeholder Text"
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
+
+[node name="WeaponStats" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="WeaponLabel1" type="Label" parent="VBoxContainer/WeaponStats"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1
+
+[node name="WeaponLabel2" type="Label" parent="VBoxContainer/WeaponStats"]
+layout_mode = 2
+text = "          "
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1
+
+[node name="WeaponLabel3" type="Label" parent="VBoxContainer/WeaponStats"]
+layout_mode = 2
+text = "          "
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1
+
+[node name="WeaponLabel4" type="Label" parent="VBoxContainer/WeaponStats"]
+layout_mode = 2
+text = "          "
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1
+
+[node name="WeaponLabel5" type="Label" parent="VBoxContainer/WeaponStats"]
+layout_mode = 2
+text = "          "
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1

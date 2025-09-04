@@ -18,3 +18,12 @@ func on_add_weapon(weapon: Constants.PlayerWeapons) -> void:
 		return
 	var new_weapon = WEAPON_SCENES[weapon].instantiate()
 	call_deferred("add_child", new_weapon)
+
+
+func get_weapon_stats() -> Dictionary:
+	var weapon_list = get_children()
+	var weapon_stats: Dictionary = {}
+	for weapon in weapon_list:
+		var stats: Dictionary = weapon.get_weapon_stats()
+		weapon_stats[stats["Weapon"]] = stats
+	return weapon_stats
