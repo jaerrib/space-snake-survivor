@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8t776dyqvfyk"]
+[gd_scene load_steps=5 format=3 uid="uid://c8t776dyqvfyk"]
 
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_5bgjm"]
 [ext_resource type="Script" uid="uid://bhdrqdmrgygvc" path="res://scenes/pause_menu/pause_menu.gd" id="1_qcmsd"]
@@ -6,6 +6,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_qcmsd"]
 font = ExtResource("1_5bgjm")
 font_size = 96
+
+[sub_resource type="LabelSettings" id="LabelSettings_10tpt"]
+font = ExtResource("1_5bgjm")
+font_size = 24
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -47,3 +51,9 @@ text = "PAUSED"
 label_settings = SubResource("LabelSettings_qcmsd")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="SnakeStatsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Placeholder Text"
+label_settings = SubResource("LabelSettings_10tpt")
+horizontal_alignment = 1

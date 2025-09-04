@@ -151,6 +151,18 @@ func get_xp_required_for_next_level() -> int:
 	return xp_required_for(xp_level)
 
 
+func get_snake_stats() -> Dictionary:
+	var snake_stats = {
+	"Current HP": hp,
+	"Max HP": max_hp,
+	"HP Regen Rate": str(HP_REGEN_AMOUNT) + "/sec",
+	"Speed": speed,
+	"Current XP": xp_points,
+	"Next XP Level": get_xp_required_for_next_level()
+	}
+	return snake_stats
+	
+
 func _on_damage_animation_timer_timeout() -> void:
 	animation_player.stop()
 
