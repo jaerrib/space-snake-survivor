@@ -48,3 +48,15 @@ func on_level_up() -> void:
 		speed_modifier += (damage * MULTIPLIER)
 		delay_time *= (1 - MULTIPLIER)
 		penetration += 1
+
+
+func get_weapon_stats() -> Dictionary:
+	var weapon_stats: Dictionary = {
+		"Weapon": get_class(),
+		"Weapon Level": weapon_level,
+		"Damage": damage,
+		"Speed": speed_modifier,
+		"Cooldown": delay_time,
+		"Penetration": penetration,
+		}
+	return weapon_stats
