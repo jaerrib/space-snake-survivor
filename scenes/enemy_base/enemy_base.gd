@@ -37,6 +37,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if hp <= 0:
 		var spawn_pos: Vector2 = global_position
 		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"], xp_val)
+		SignalManager.on_enemy_killed.emit()
 		queue_free()
 	else:
 		knockback()

@@ -24,6 +24,7 @@ var world_layer: WorldLayer
 var sector_interval: int
 var sector_tracker: int = 1
 var next_sector_time: float
+var enemies_killed: int = 0
 
 func _ready() -> void:
 	var player: Snake = get_tree().get_first_node_in_group("player")
@@ -36,6 +37,7 @@ func _ready() -> void:
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_player_died.connect(on_player_died)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
+	SignalManager.on_enemy_killed.connect(on_enemy_killed)
 	debug_info.visible = debug
 
 
@@ -90,3 +92,6 @@ func on_advance_sector() -> void:
 	sector_tracker += 1
 	sector_level_label.text = "Sector " + str(sector_tracker)
 	
+
+func on_enemy_killed() -> void:
+	enemies_killed += 1

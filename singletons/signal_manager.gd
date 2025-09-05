@@ -29,3 +29,4 @@ signal on_snake_grow
 signal on_set_enemies(sector: BaseSector)
 signal on_advance_sector
 signal on_set_difficulty(difficulty: Constants.Difficulty)
+signal on_enemy_killed
