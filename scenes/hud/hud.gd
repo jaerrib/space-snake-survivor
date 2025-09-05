@@ -51,9 +51,7 @@ func _process(delta: float) -> void:
 
 
 func update_timer_label() -> void:
-	var minutes: int = time_elapsed / 60
-	var seconds: int = time_elapsed % 60
-	time_label.text = str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+	time_label.text = get_formated_elapsed_time()
 
 
 func _on_level_timer_timeout() -> void:
@@ -101,8 +99,14 @@ func on_enemy_killed() -> void:
 
 func get_game_stats() -> Dictionary:
 	var game_stats: Dictionary = {
-		"enemies_killed": enemies_killed,
-		"sectors_unlocked": sector_tracker,
-		"time_elapsed": time_elapsed,
+		"Enemies Killed": enemies_killed,
+		"Sectors Unlocked": sector_tracker,
+		"Time Survived": get_formated_elapsed_time(),
 	}
 	return game_stats
+
+
+func get_formated_elapsed_time() -> String:
+	var minutes: int = time_elapsed / 60
+	var seconds: int = time_elapsed % 60
+	return str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
