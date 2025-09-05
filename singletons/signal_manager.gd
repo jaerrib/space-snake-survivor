@@ -30,3 +30,4 @@ signal on_set_enemies(sector: BaseSector)
 signal on_advance_sector
 signal on_set_difficulty(difficulty: Constants.Difficulty)
 signal on_enemy_killed
+signal on_send_game_stats(game_stats: Dictionary)

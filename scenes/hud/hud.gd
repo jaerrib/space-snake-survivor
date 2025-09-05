@@ -64,6 +64,7 @@ func _on_level_timer_timeout() -> void:
 	update_timer_label()
 	if time_elapsed >= LEVEL_LENGTH:
 		SignalManager.on_level_complete.emit()
+		SignalManager.on_send_game_stats.emit(get_game_stats())
 
 
 func on_level_up() -> void:
@@ -72,6 +73,7 @@ func on_level_up() -> void:
 
 func on_player_died() -> void:
 	level_timer.stop()
+	SignalManager.on_send_game_stats.emit(get_game_stats())
 
 
 func update_debug_labels() -> void:
@@ -95,3 +97,12 @@ func on_advance_sector() -> void:
 
 func on_enemy_killed() -> void:
 	enemies_killed += 1
+
+
+func get_game_stats() -> Dictionary:
+	var game_stats: Dictionary = {
+		"enemies_killed": enemies_killed,
+		"sectors_unlocked": sector_tracker,
+		"time_elapsed": time_elapsed,
+	}
+	return game_stats
