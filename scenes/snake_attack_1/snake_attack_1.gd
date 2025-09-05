@@ -16,10 +16,11 @@ var level_increases: int = 0
 func _ready() -> void:
 	timer.wait_time = delay_time
 	SignalManager.on_level_up.connect(on_level_up)
-	SignalManager.on_player_died.connect(on_player_died)
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 
 
-func on_player_died() -> void:
+func on_player_died_or_level_complete() -> void:
 	timer.stop()
 
 
