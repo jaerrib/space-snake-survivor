@@ -4,7 +4,8 @@ extends Node2D
 
 
 func _ready() -> void:
-	SignalManager.on_player_died.connect(on_player_died)
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 
 
 func _process(delta: float) -> void:
@@ -14,5 +15,5 @@ func _process(delta: float) -> void:
 		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"])
 
 
-func on_player_died() -> void:
+func on_player_died_or_level_complete() -> void:
 	music.stop()

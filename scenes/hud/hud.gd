@@ -35,7 +35,8 @@ func _ready() -> void:
 	sector_interval = float(LEVEL_LENGTH) / world_layer.get_total_sectors()
 	next_sector_time = sector_interval
 	SignalManager.on_level_up.connect(on_level_up)
-	SignalManager.on_player_died.connect(on_player_died)
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_enemy_killed.connect(on_enemy_killed)
 	debug_info.visible = debug
@@ -69,7 +70,7 @@ func on_level_up() -> void:
 	xp_level_label.text = str(player_ref.get_level())
 
 
-func on_player_died() -> void:
+func on_player_died_or_level_complete() -> void:
 	level_timer.stop()
 	SignalManager.on_send_game_stats.emit(get_game_stats())
 

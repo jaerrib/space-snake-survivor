@@ -1,15 +1,26 @@
 extends Control
 
+@onready var game_stats: Label = $VBoxContainer/GameStats
+
 
 func _ready() -> void:
 	set_process(false)
 	hide()
+	SignalManager.on_send_game_stats.connect(on_send_game_stats)
 	SignalManager.on_level_complete.connect(on_level_complete)
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		GameManager.load_main_menu()
+
+
+func on_send_game_stats(stats: Dictionary) -> void:
+	var stats_text: String
+	for key in stats.keys():
+		var value: String = str(stats[key])
+		stats_text += key + ": " + value + "\n"
+	game_stats.text = stats_text
 
 
 func on_level_complete() -> void:

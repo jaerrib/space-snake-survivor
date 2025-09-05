@@ -16,11 +16,12 @@ func _ready() -> void:
 	SignalManager.on_set_enemies.connect(on_set_enemies)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_set_difficulty.connect(on_set_difficulty)
-	SignalManager.on_player_died.connect(on_player_died)
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
 	on_set_modifiers()
 
 
-func on_player_died() -> void:
+func on_player_died_or_level_complete() -> void:
 	timer.stop()
 
 
