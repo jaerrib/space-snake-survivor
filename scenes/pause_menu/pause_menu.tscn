@@ -54,40 +54,59 @@ vertical_alignment = 1
 
 [node name="SnakeStatsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "Placeholder Text"
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
 [node name="WeaponStats" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 0
 alignment = 1
 
 [node name="WeaponLabel1" type="Label" parent="VBoxContainer/WeaponStats"]
+visible = false
 layout_mode = 2
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="VBoxContainer/WeaponStats"]
+visible = false
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
 
 [node name="WeaponLabel2" type="Label" parent="VBoxContainer/WeaponStats"]
+visible = false
 layout_mode = 2
-text = "          "
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBoxContainer/WeaponStats"]
+visible = false
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
 
 [node name="WeaponLabel3" type="Label" parent="VBoxContainer/WeaponStats"]
+visible = false
 layout_mode = 2
-text = "          "
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
+
+[node name="Spacer3" type="Control" parent="VBoxContainer/WeaponStats"]
+visible = false
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
 
 [node name="WeaponLabel4" type="Label" parent="VBoxContainer/WeaponStats"]
+visible = false
 layout_mode = 2
-text = "          "
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
-[node name="WeaponLabel5" type="Label" parent="VBoxContainer/WeaponStats"]
+[node name="Spacer4" type="Control" parent="VBoxContainer/WeaponStats"]
+visible = false
+custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
-text = "          "
+
+[node name="WeaponLabel5" type="Label" parent="VBoxContainer/WeaponStats"]
+visible = false
+layout_mode = 2
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1

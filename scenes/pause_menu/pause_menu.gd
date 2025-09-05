@@ -41,5 +41,15 @@ func update_weapons_stats() -> void:
 		for key in weapon_stats.keys():
 			var value: String = str(weapon_stats[key])
 			stats_text += key + ": " + value + "\n"
-		var label_node = $VBoxContainer/WeaponStats.get_node("WeaponLabel" + str(index))
-		label_node.text = stats_text
+		var label_node = $VBoxContainer/WeaponStats.get_node_or_null("WeaponLabel" + str(index))
+		if label_node:
+			label_node.text = stats_text
+			label_node.show()
+	set_weapon_label_spacers(index)
+
+
+func set_weapon_label_spacers(val: int) -> void:
+	for num in range(1, val):
+		var spacer_node = $VBoxContainer/WeaponStats.get_node_or_null("Spacer" + str(num))
+		if spacer_node:
+			spacer_node.show()
