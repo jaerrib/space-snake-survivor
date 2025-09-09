@@ -24,9 +24,9 @@ enum EnemyType {
 	UFO,
 	}
 
-enum ProjectileType { SNAKE_PROJECTILE_1, BLAST_RADIUS, SNAKE_MISSILE }
+enum ProjectileType { SNAKE_PROJECTILE_1, BLAST_RADIUS, SNAKE_MISSILE, SNAKE_BOMB, BOMB_RADIUS }
 
-enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3 }
+enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4 }
 
 enum ObjectType { XP }
 

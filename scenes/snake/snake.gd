@@ -177,3 +177,8 @@ func on_station_entered(heal_val: float) -> void:
 	if hp > max_hp:
 		hp = max_hp
 	SignalManager.on_update_health.emit(hp)
+
+
+func get_last_segment() -> Segment:
+	var last_segment = segments[-1]
+	return last_segment
