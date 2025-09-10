@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxgaoq2w2xf7s"]
+
+[ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_fwmx3"]
+[ext_resource type="Texture2D" uid="uid://dn3uviugrn8ym" path="res://assets/player/fireball.png" id="2_0os2x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qegmv"]
+radius = 5.0
+height = 18.0
+
+[node name="SnakeFireball" instance=ExtResource("1_fwmx3")]
+collision_layer = 16
+collision_mask = 4
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_0os2x")
+
+[node name="CollisionShape2D" parent="." index="2"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qegmv")

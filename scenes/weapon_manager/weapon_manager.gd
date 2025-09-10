@@ -8,6 +8,7 @@ const WEAPON_SCENES: Dictionary = {
 	Constants.PlayerWeapons.ATTACK_2: preload("res://scenes/snake_attack_2/snake_attack_2.tscn"),
 	Constants.PlayerWeapons.ATTACK_3: preload("res://scenes/snake_attack_3/snake_attack_3.tscn"),
 	Constants.PlayerWeapons.ATTACK_4: preload("res://scenes/snake_attack_4/snake_attack_4.tscn"),
+	Constants.PlayerWeapons.ATTACK_5: preload("res://scenes/snake_attack_5/snake_attack_5.tscn"),
 }
 
 func _ready() -> void:
