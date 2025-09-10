@@ -126,6 +126,8 @@ func on_level_up() -> void:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_2)
 	if xp_level == 10:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_3)
+	if xp_level == 15:
+		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_4)
 
 
 func _on_heal_timer_timeout() -> void:
