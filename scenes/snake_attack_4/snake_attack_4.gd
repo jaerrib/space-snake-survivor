@@ -30,7 +30,6 @@ func on_player_died_or_level_complete() -> void:
 func _on_cooldown_timer_timeout() -> void:
 	var last_segment = player_ref.get_last_segment()
 	var segment_pos: Vector2 = Vector2(last_segment.global_position.x + 8, last_segment.global_position.y + 8)
-	print("BOMB ", last_segment, " ", segment_pos)
 	SignalManager.on_create_projectile.emit(
 		segment_pos,
 		Vector2.ZERO,
