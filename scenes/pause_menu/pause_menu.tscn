@@ -59,11 +59,13 @@ horizontal_alignment = 1
 
 [node name="WeaponStats" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 0
 alignment = 1
 
 [node name="WeaponLabel1" type="Label" parent="VBoxContainer/WeaponStats"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
@@ -75,6 +77,7 @@ layout_mode = 2
 [node name="WeaponLabel2" type="Label" parent="VBoxContainer/WeaponStats"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
@@ -86,6 +89,7 @@ layout_mode = 2
 [node name="WeaponLabel3" type="Label" parent="VBoxContainer/WeaponStats"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
@@ -97,6 +101,7 @@ layout_mode = 2
 [node name="WeaponLabel4" type="Label" parent="VBoxContainer/WeaponStats"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
 
@@ -108,5 +113,6 @@ layout_mode = 2
 [node name="WeaponLabel5" type="Label" parent="VBoxContainer/WeaponStats"]
 visible = false
 layout_mode = 2
+size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
