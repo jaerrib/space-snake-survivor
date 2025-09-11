@@ -1,6 +1,7 @@
 class_name SnakeAttack1 extends Node2D
 
 const MULTIPLIER: float = .1
+const MAX_LEVEL: int = 5
 
 @export var damage: float = 6.5
 @export var delay_time: float = 1.0
@@ -40,11 +41,11 @@ func _on_timer_timeout() -> void:
 
 
 func on_level_up() -> void:
-	if level_increases > 5:
+	if weapon_level >= MAX_LEVEL:
 		return
-	weapon_level += 1
-	if weapon_level % 10 == 0:
-		level_increases += 1
+	level_increases += 1
+	if level_increases % 10 == 0:
+		weapon_level += 1
 		damage += (damage * MULTIPLIER)
 		speed_modifier += (damage * MULTIPLIER)
 		delay_time *= (1 - MULTIPLIER)
