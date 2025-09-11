@@ -1,7 +1,7 @@
 class_name SnakeAttack3 extends Node2D
 
 const MULTIPLIER: float = .1
-const MAX_LEVEL: int = 5
+const MAX_LEVEL: int = 10
 
 @export var damage: float = 20
 @export var delay_time: float = 2.0
@@ -42,24 +42,29 @@ func _on_timer_timeout() -> void:
 
 
 func on_level_up() -> void:
+	level_increases += 1
+	var early_scaling: bool = weapon_level < 5 and level_increases % 5 == 0
+	var late_scaling: bool = weapon_level >= 5 and level_increases % 10 == 0
+	if not (early_scaling or late_scaling):
+		return
 	if weapon_level >= MAX_LEVEL:
 		return
-	level_increases += 1
-	if level_increases % 10 == 0:
-		weapon_level += 1
-		damage += (damage * MULTIPLIER)
-		speed_modifier += (damage * MULTIPLIER)
-		delay_time *= (1 - MULTIPLIER)
-		penetration += 1
+	weapon_level += 1
+	var scale: float = MULTIPLIER + weapon_level * 0.01
+	damage += damage * scale
+	speed_modifier += speed_modifier * scale
+	delay_time *= (1 - scale * 0.75)
+	timer.wait_time = delay_time
+	penetration += 1
 
 
 func get_weapon_stats() -> Dictionary:
 	var weapon_stats: Dictionary = {
 		"Weapon": "Missile",
 		"Level": weapon_level,
-		"Damage": damage,
-		"Speed": speed_modifier,
-		"Cooldown": delay_time,
+		"Damage": floor(damage * 100) / 100.0,
+		"Speed": floor(speed_modifier * 100) / 100,
+		"Cooldown": floor(delay_time * 100) / 100,
 		"Penetration": penetration,
 		}
 	return weapon_stats

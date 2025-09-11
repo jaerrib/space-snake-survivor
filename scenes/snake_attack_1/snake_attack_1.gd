@@ -53,6 +53,7 @@ func on_level_up() -> void:
 	damage += damage * scale
 	speed_modifier += speed_modifier * scale
 	delay_time *= (1 - scale * 0.75)
+	timer.wait_time = delay_time
 	penetration += 1
 
 
@@ -60,9 +61,9 @@ func get_weapon_stats() -> Dictionary:
 	var weapon_stats: Dictionary = {
 		"Weapon": "Tongue",
 		"Level": weapon_level,
-		"Damage": damage,
-		"Speed": speed_modifier,
-		"Cooldown": delay_time,
+		"Damage": floor(damage * 100) / 100,
+		"Speed": floor(speed_modifier * 100) / 100,
+		"Cooldown": floor(delay_time * 100) / 100,
 		"Penetration": penetration,
 		}
 	return weapon_stats
