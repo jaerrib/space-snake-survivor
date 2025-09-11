@@ -45,7 +45,7 @@ func on_level_up() -> void:
 		return
 	level_increases += 1
 	if level_increases % 10 == 0:
-		level_increases += 1
+		weapon_level += 1
 		damage += (damage * MULTIPLIER)
 		delay_time *= (1 - MULTIPLIER)
 
