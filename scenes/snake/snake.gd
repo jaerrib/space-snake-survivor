@@ -2,9 +2,11 @@ class_name Snake extends CharacterBody2D
 
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 24
-const HP_REGEN_AMOUNT: float = 0.1
 
+var current_sector: int = 1
+var dmg_reduction: float = 0.0
 var hp: float
+var hp_regen_amoung: float = 0.1
 var max_hp: float = 100
 var move_direction: Vector2 = Vector2.RIGHT
 var move_positions = []
@@ -12,6 +14,7 @@ var segments: Array[Segment] = []
 var speed: float = 40
 var xp_level: int = 1
 var xp_points: int = 0
+
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_animation_timer: Timer = $DamageAnimationTimer
@@ -29,6 +32,7 @@ func _ready() -> void:
 	SignalManager.on_snake_hit.connect(on_snake_hit)
 	SignalManager.on_station_entered.connect(on_station_entered)
 	SignalManager.on_snake_grow.connect(on_snake_grow)
+	SignalManager.on_advance_sector.connect(on_advance_sector)
 
 
 func _physics_process(delta: float) -> void:
@@ -102,7 +106,8 @@ func update_segments() -> void:
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var damage = area.get_parent().get_damage()
-	hp = max(hp - damage, 0)
+	var actual_damage = damage * (1.0 - dmg_reduction)
+	hp = max(hp - actual_damage, 0)
 	SignalManager.on_update_health.emit(hp)
 	SignalManager.on_snake_hit.emit()
 	if hp <= 0:
@@ -122,6 +127,10 @@ func get_level() -> int:
 
 
 func on_level_up() -> void:
+	update_max_hp()
+	update_regen()
+	update_damage_reduction()
+
 	if xp_level == 5:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_2)
 	if xp_level == 10:
@@ -132,8 +141,29 @@ func on_level_up() -> void:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_5)
 
 
+func on_advance_sector() -> void:
+	current_sector += 1
+	update_regen()
+
+
+func update_regen() -> void:
+	var base_regen = 0.05 * (current_sector - 1)   # sector scaling
+	var bonus_regen = 0.01 * xp_level              # level scaling
+	hp_regen_amoung = clamp(0.1 + base_regen + bonus_regen, 0.1, 1.5)
+
+
+func update_max_hp():
+	max_hp = 100 + (xp_level - 1) * 3  # +3 HP per level
+
+
+func update_damage_reduction():
+	var sector_bonus = 0.005 * (current_sector - 1)   # +0.5% per sector
+	var level_bonus = 0.001 * xp_level                # +0.1% per level
+	dmg_reduction = clamp(sector_bonus + level_bonus, 0.0, 0.25)  # max 25% reduction
+
+
 func _on_heal_timer_timeout() -> void:
-	hp += HP_REGEN_AMOUNT
+	hp += hp_regen_amoung
 	if hp > max_hp:
 		hp = max_hp
 	SignalManager.on_update_health.emit(hp)
@@ -159,7 +189,8 @@ func get_snake_stats() -> Dictionary:
 	var snake_stats: Dictionary = {
 	"Current HP": str(hp).pad_decimals(1),
 	"Max HP": max_hp,
-	"HP Regen Rate": str(HP_REGEN_AMOUNT) + "/sec",
+	"HP Regen Rate": str(hp_regen_amoung) + "/sec",
+	"Dmg Reduction": str(floor(dmg_reduction * 1000) / 1000) + "%",
 	"Speed": speed,
 	"Current XP": xp_points,
 	"Next XP Level": get_xp_required_for_next_level()
