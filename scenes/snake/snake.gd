@@ -127,6 +127,10 @@ func get_level() -> int:
 
 
 func on_level_up() -> void:
+	SignalManager.on_create_object.emit(
+		global_position,
+		Constants.ObjectType.LEVEL_UP,
+		0)
 	update_max_hp()
 	update_regen()
 	update_damage_reduction()

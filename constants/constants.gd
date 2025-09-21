@@ -35,6 +35,6 @@ enum ProjectileType {
 
 enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, ATTACK_5 }
 
-enum ObjectType { XP }
+enum ObjectType { XP, LEVEL_UP }
 
 enum Difficulty { EASY, NORMAL, HARD }

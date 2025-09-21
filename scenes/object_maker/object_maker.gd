@@ -20,7 +20,8 @@ const ENEMY_SCENE: Dictionary = {
 }
 
 const OBJECT_SCENES: Dictionary = {
-	Constants.ObjectType.XP: preload("res://scenes/xp/xp.tscn")
+	Constants.ObjectType.XP: preload("res://scenes/xp/xp.tscn"),
+	Constants.ObjectType.LEVEL_UP: preload("res://scenes/level_up/level_up.tscn"),
 }
 
 const PROJECTILE_SCENE: Dictionary = {
@@ -55,10 +56,11 @@ func on_create_object(position: Vector2, object_type: Constants.ObjectType, valu
 	if !OBJECT_SCENES.has(object_type):
 		return
 	var num_objects: int = object_holder.get_child_count()
-	if num_objects < MAX_OBJECTS:
+	if object_type == Constants.ObjectType.LEVEL_UP or num_objects < MAX_OBJECTS:
 		var new_object = OBJECT_SCENES[object_type].instantiate()
 		new_object.position = position
-		new_object.setup(value)
+		if object_type == Constants.ObjectType.XP:
+			new_object.setup(value)
 		object_holder.call_deferred("add_child", new_object)
 
 
