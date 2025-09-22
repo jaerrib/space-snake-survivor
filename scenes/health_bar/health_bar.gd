@@ -30,10 +30,10 @@ func set_color() -> void:
 	else:
 		tint_progress = COLOR_GOOD
 
-
 func on_update_health(hp: float) -> void:
 	value = hp
 	set_color()
+	SignalManager.on_toggle_visual_indicator.emit(value < level_low)
 
 
 func on_level_up() -> void:

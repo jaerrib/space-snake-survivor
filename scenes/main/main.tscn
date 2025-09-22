@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf8sagvh3beum"]
+[gd_scene load_steps=10 format=3 uid="uid://bf8sagvh3beum"]
 
 [ext_resource type="PackedScene" uid="uid://biiskars8k5vj" path="res://scenes/level/level.tscn" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://bm6ipr5efunpg" path="res://scenes/hud/hud.tscn" id="2_k2fmo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cjcnxkj146a2p" path="res://scenes/game_over/game_over.tscn" id="4_ow5a4"]
 [ext_resource type="PackedScene" uid="uid://bwj3v6wmh3ecs" path="res://scenes/game_play_manager/game_play_manager.tscn" id="5_6q06x"]
 [ext_resource type="PackedScene" uid="uid://bgcunhq75ap3b" path="res://scenes/level_complete/level_complete.tscn" id="5_hujxm"]
+[ext_resource type="PackedScene" uid="uid://b6dccfu65i247" path="res://scenes/visual_status/visual_status.tscn" id="7_yyfjg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l3cfh"]
 shader = ExtResource("3_k2fmo")
@@ -36,6 +37,8 @@ visible = false
 
 [node name="LevelComplete" parent="CanvasLayer" instance=ExtResource("5_hujxm")]
 visible = false
+
+[node name="VisualStatus" parent="CanvasLayer" instance=ExtResource("7_yyfjg")]
 
 [node name="ScanLines" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_l3cfh")
