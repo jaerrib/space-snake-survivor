@@ -4,6 +4,7 @@ class_name AsteroidLarge extends EnemyBase
 
 
 func _ready() -> void:
+	super._ready()
 	var frame_number: int = randi_range(4, 7)
 	sprite_2d.frame = frame_number
 

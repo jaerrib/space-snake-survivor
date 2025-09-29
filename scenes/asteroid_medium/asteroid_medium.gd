@@ -6,6 +6,7 @@ class_name AsteroidMedium extends EnemyBase
 
 
 func _ready() -> void:
+	super._ready()
 	sprite_2d.frame = sprite_frame
 
 

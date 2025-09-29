@@ -6,4 +6,5 @@ class_name AsteroidSmall extends EnemyBase
 
 
 func _ready() -> void:
+	super._ready()
 	sprite_2d.frame = sprite_frame
