@@ -9,6 +9,8 @@ const MENU_SCREEN = preload("res://scenes/menu_screen/menu_screen.tscn")
 
 @export var difficulty: Constants.Difficulty
 
+var scanlines: bool = true
+
 
 func load_main_menu() -> void:
 	get_tree().change_scene_to_packed(MENU_SCREEN)

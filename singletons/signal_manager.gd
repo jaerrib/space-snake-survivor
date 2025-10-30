@@ -32,3 +32,4 @@ signal on_set_difficulty(difficulty: Constants.Difficulty)
 signal on_enemy_killed
 signal on_send_game_stats(game_stats: Dictionary)
 signal on_toggle_visual_indicator(status: bool)
+signal on_toggle_scanlines

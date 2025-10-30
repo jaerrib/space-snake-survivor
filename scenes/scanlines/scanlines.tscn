@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://hamqe2bk3rgo"]
+
+[ext_resource type="Shader" uid="uid://cfsd6qqpqd3uq" path="res://scenes/scanlines/scanlines.gdshader" id="1_hxjsb"]
+[ext_resource type="Script" uid="uid://bkja0a3l6tpeq" path="res://scenes/scanlines/scanlines.gd" id="2_0ouk7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ouk7"]
+shader = ExtResource("1_hxjsb")
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/scan_line_amount = 0.5
+shader_parameter/warp_amount = 0.05
+shader_parameter/vignette_amount = 0.5
+shader_parameter/vignette_intensity = 0.3
+shader_parameter/grille_amount = 0.05
+shader_parameter/brightness_boost = 1.2
+
+[node name="Scanlines" type="ColorRect"]
+material = SubResource("ShaderMaterial_0ouk7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_0ouk7")

@@ -6,7 +6,6 @@ const DIFFICULTY_TEXT: Array = ["EASY", "NORMAL", "HARD"]
 @onready var level_timer: Timer = $LevelTimer
 @onready var time_label: Label = $MC/MC2/HB/TimeLabel
 @onready var xp_level_label: Label = $MC/MC2/HB/XPLevelLabel
-@onready var scan_lines: ColorRect = $"../ScanLines"
 @onready var debug_info: MarginContainer = $DebugInfo
 @onready var fps_label: Label = $DebugInfo/VBoxContainer/FPSLabel
 @onready var enemy_count_label: Label = $DebugInfo/VBoxContainer/EnemyCountLabel
@@ -43,8 +42,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("toggle-scanlines"):
-		scan_lines.visible = !scan_lines.visible
 	if Input.is_action_just_pressed("toggle-debug"):
 		toggle_debug()
 	if debug:

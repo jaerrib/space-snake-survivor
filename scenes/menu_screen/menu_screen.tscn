@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d06qo5paubbni"]
+[gd_scene load_steps=13 format=3 uid="uid://d06qo5paubbni"]
 
 [ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="1_1olso"]
 [ext_resource type="Script" uid="uid://jj32w418qnur" path="res://scenes/menu_screen/menu_screen.gd" id="1_f65jf"]
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_q8734"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_46ee7"]
 [ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="2_bka6l"]
+[ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="6_f6bca"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_46ee7"]
 font = ExtResource("2_bka6l")
@@ -173,11 +174,17 @@ text = "Version 0.1"
 label_settings = SubResource("LabelSettings_f65jf")
 horizontal_alignment = 1
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_k7h71")
 }
 autoplay = "title_pulse"
+
+[node name="Scanlines" parent="." instance=ExtResource("6_f6bca")]
+layout_mode = 0
+anchors_preset = 0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Easy" to="." method="_on_easy_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
