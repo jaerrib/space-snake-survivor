@@ -205,8 +205,7 @@ tile_map_data = PackedByteArray("AAAGAAwAAAATAAEAAAAHAAwAAAAEAAQAAAAIAAwAAAANAAE
 tile_set = ExtResource("7_k7h71")
 
 [node name="Scanlines" parent="." instance=ExtResource("6_f6bca")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
