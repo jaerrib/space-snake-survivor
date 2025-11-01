@@ -14,4 +14,3 @@ func _process(delta: float) -> void:
 func on_toggle_scanlines() -> void:
 	GameManager.scanlines = !GameManager.scanlines
 	visible = GameManager.scanlines
-	print("toggle to ", visible)
