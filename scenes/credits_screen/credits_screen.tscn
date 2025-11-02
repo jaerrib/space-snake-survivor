@@ -61,7 +61,6 @@ text = "Return to Menu"
 script = ExtResource("4_qs8jq")
 
 [node name="Scanlines" parent="." instance=ExtResource("2_520cl")]
-layout_mode = 0
-anchors_preset = 0
+layout_mode = 1
 
 [connection signal="pressed" from="MC/VBoxContainer/ReturnButton" to="." method="_on_button_pressed"]
