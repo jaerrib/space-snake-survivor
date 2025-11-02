@@ -17,6 +17,7 @@ func _notification(what: int) -> void:
 		Node.NOTIFICATION_PAUSED:
 			hide()
 		Node.NOTIFICATION_UNPAUSED:
+			sound.position = snake.global_position
 			sound.play()
 			update_snake_stats_label()
 			update_weapons_stats()
