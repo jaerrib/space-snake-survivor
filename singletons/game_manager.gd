@@ -5,7 +5,7 @@ const GROUP_MOVEABLES: String = "Moveables"
 const GROUP_ENEMIES: String = "Enemies"
 const MAIN = preload("res://scenes/main/main.tscn")
 const MENU_SCREEN = preload("res://scenes/menu_screen/menu_screen.tscn")
-#const CREDITS =preload("res://scenes/credits_screen/credits_screen.tscn")
+const CREDITS = preload("res://scenes/credits_screen/credits_screen.tscn")
 
 @export var difficulty: Constants.Difficulty
 
@@ -25,5 +25,5 @@ func get_difficulty() -> Constants.Difficulty:
 	return difficulty
 
 
-#func load_credits_screen() -> void:
-	#get_tree().change_scene_to_packed(CREDITS)
+func load_credits_screen() -> void:
+	get_tree().change_scene_to_packed(CREDITS)
