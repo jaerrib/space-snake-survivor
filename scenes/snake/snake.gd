@@ -2,7 +2,7 @@ class_name Snake extends CharacterBody2D
 
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 24
-const XP_DETECTION_MODIFIER: float = 0.1
+const XP_DETECTION_MODIFIER: float = 1.022
 
 var current_sector: int = 1
 var dmg_reduction: float = 0.0
@@ -23,7 +23,6 @@ var xp_points: int = 0
 @onready var player_cam: Camera2D = $PlayerCam
 @onready var segment_holder: Node = $SegmentHolder
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var xp_detection: Area2D = $XpDetection
 @onready var xp_collision_shape_2d: CollisionShape2D = $XpDetection/XPCollisionShape2D
 
 
@@ -174,9 +173,7 @@ func update_damage_reduction():
 
 
 func update_xp_detection() -> void:
-	var shape_offset: float = (xp_collision_shape_2d.position.x - (xp_collision_shape_2d.position.x * XP_DETECTION_MODIFIER)) / 2
-	xp_detection.scale *= XP_DETECTION_MODIFIER
-	xp_collision_shape_2d.position += Vector2(shape_offset, shape_offset)
+	xp_collision_shape_2d.scale *= XP_DETECTION_MODIFIER
 
 
 func _on_heal_timer_timeout() -> void:
