@@ -134,7 +134,10 @@ func on_level_up() -> void:
 	update_max_hp()
 	update_regen()
 	update_damage_reduction()
+	check_for_weapon_add()
 
+
+func check_for_weapon_add() -> void:
 	if xp_level == 5:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_2)
 	if xp_level == 10:
