@@ -173,7 +173,7 @@ func update_damage_reduction():
 
 
 func update_xp_detection() -> void:
-	xp_collision_shape_2d.scale *= XP_DETECTION_MODIFIER
+	xp_collision_shape_2d.shape.radius *= XP_DETECTION_MODIFIER
 
 
 func _on_heal_timer_timeout() -> void:
