@@ -1,7 +1,7 @@
 extends Control
 
 @onready var game_stats: Label = $VBoxContainer/GameStats
-@onready var sound: AudioStreamPlayer2D = $Sound
+@onready var sound: AudioStreamPlayer = $Sound
 
 
 func _ready() -> void:
