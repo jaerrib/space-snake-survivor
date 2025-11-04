@@ -1,14 +1,12 @@
 extends Control
 
 @onready var game_stats: Label = $VBoxContainer/GameStats
-@onready var sound: AudioStreamPlayer2D = $Sound
+@onready var sound: AudioStreamPlayer = $Sound
 
 
 func _ready() -> void:
 	set_process(false)
 	hide()
-	var snake =  get_tree().get_first_node_in_group("player")
-	sound.position = snake.global_position
 	SignalManager.on_send_game_stats.connect(on_send_game_stats)
 	SignalManager.on_player_died.connect(on_player_died)
 
