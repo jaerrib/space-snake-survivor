@@ -38,11 +38,3 @@ enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, ATTACK_5 }
 enum ObjectType { XP, LEVEL_UP }
 
 enum Difficulty { EASY, NORMAL, HARD }
-
-enum SoundType {
-	DIE01,
-	DIE02,
-	DIE03,
-	ENEMY_HIT,
-	STATION_HEAL
-}
