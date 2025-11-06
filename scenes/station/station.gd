@@ -23,5 +23,6 @@ func get_heal_amt() -> float:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	SoundManager.play_sound_at(SoundManager.SoundType.STATION_HEAL, global_position)
 	SignalManager.on_station_entered.emit(get_heal_amt())
 	station_heal_supply.on_update_supply(supply)

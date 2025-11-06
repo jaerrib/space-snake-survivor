@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://h0844cxyryli"]
+[gd_scene load_steps=10 format=3 uid="uid://h0844cxyryli"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_bcm52"]
+[ext_resource type="Script" uid="uid://ch2wg0pldrbox" path="res://scenes/ufo/ufo.gd" id="2_4t1i8"]
 [ext_resource type="Texture2D" uid="uid://37hkcog8xt7" path="res://assets/enemies/ufo.png" id="2_aqm62"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4t1i8"]
@@ -37,10 +38,7 @@ size = Vector2(32, 16)
 [node name="UFO" instance=ExtResource("1_bcm52")]
 collision_layer = 4
 collision_mask = 4
-movement_speed = 30.0
-hp = 15.0
-damage = 5.0
-xp_val = 10
+script = ExtResource("2_4t1i8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4u7g4")
