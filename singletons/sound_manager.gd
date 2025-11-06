@@ -26,8 +26,17 @@ const SOUND_TYPES = {
 	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg")
 	}
 
+const SOUND_VOLUMES = {
+	SoundType.DIE01: 0.8,
+	SoundType.DIE02: 0.8,
+	SoundType.DIE03: 0.8,
+	SoundType.ENEMY_HIT: 1.0,
+	SoundType.STATION_HEAL: 0.6
+	}
+
 var channels: Array = []
 var channel_meta: Dictionary = {}
+var global_volume: float = 1.0
 
 
 func _ready():
@@ -62,5 +71,6 @@ func play_sound_at(s_type: int, position: Vector2):
 func _use_channel(player: AudioStreamPlayer2D, stream: AudioStream, s_type: int, priority: int, position: Vector2):
 	player.global_position = position
 	player.stream = stream
+	player.volume_db = linear_to_db(SOUND_VOLUMES.get(s_type, 1.0) * global_volume)
 	player.play()
 	channel_meta[player] = {"priority": priority, "type": s_type}
