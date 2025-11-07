@@ -6,6 +6,7 @@ class_name Station extends CharacterBody2D
 
 @onready var station_heal_supply: StationHealSupply = $StationHealSupply
 
+
 func _ready() -> void:
 	supply = max_supply
 	station_heal_supply.on_update_supply(supply)
@@ -23,6 +24,6 @@ func get_heal_amt() -> float:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	SoundManager.play_sound_at(SoundManager.SoundType.STATION_HEAL, global_position)
+	SoundManager.play_sound_at(SoundDefs.SoundType.STATION_HEAL, global_position)
 	SignalManager.on_station_entered.emit(get_heal_amt())
 	station_heal_supply.on_update_supply(supply)
