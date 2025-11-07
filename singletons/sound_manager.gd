@@ -2,18 +2,33 @@ extends Node
 
 const MAX_CHANNELS = 16
 
-
 var channels: Array = []
 var channel_meta: Dictionary = {}
 var global_volume: float = 1.0
+var ui_player: AudioStreamPlayer = null
 
 
 func _ready():
+	ui_player = AudioStreamPlayer.new()
+	ui_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(ui_player)
 	for i in range(MAX_CHANNELS):
 		var player := AudioStreamPlayer2D.new()
 		add_child(player)
 		channels.append(player)
 		channel_meta[player] = {"priority": 0, "type": null}
+
+
+func play_ui_sound(s_type: int) -> void:
+	var stream: AudioStream = SoundDefs.UI_SOUND_TYPES.get(s_type, null)
+	if stream:
+		ui_player.stream = stream
+		ui_player.volume_db = linear_to_db(
+			SoundDefs.UI_SOUND_VOLUMES.get(s_type, 1.0) * global_volume
+			)
+
+		ui_player.play()
+
 
 
 func play_sound_at(s_type: int, position: Vector2):

@@ -9,6 +9,10 @@ enum SoundType {
 	SECTOR_OPEN,
 }
 
+enum UISoundType {
+	PAUSE,
+	}
+
 const SOUND_PRIORITIES = {
 	SoundType.DIE01: 5,
 	SoundType.DIE02: 5,
@@ -25,7 +29,11 @@ const SOUND_TYPES = {
 	SoundType.ENEMY_HIT: preload("res://assets/audio/enemy_hit.ogg"),
 	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg"),
 	SoundType.SECTOR_OPEN: preload("res://assets/audio/sector_open.ogg"),
-}
+	}
+
+const UI_SOUND_TYPES = {
+	UISoundType.PAUSE: preload("res://assets/audio/pause.ogg")
+	}
 
 const SOUND_VOLUMES = {
 	SoundType.DIE01: 0.8,
@@ -33,5 +41,9 @@ const SOUND_VOLUMES = {
 	SoundType.DIE03: 0.8,
 	SoundType.ENEMY_HIT: 1.0,
 	SoundType.STATION_HEAL: 0.6,
-	SoundType.SECTOR_OPEN: 1.0
+	SoundType.SECTOR_OPEN: 1.0,
+}
+
+const UI_SOUND_VOLUMES = {
+	UISoundType.PAUSE: 0.5,
 }
