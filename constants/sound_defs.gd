@@ -5,7 +5,8 @@ enum SoundType {
 	DIE02,
 	DIE03,
 	ENEMY_HIT,
-	STATION_HEAL
+	STATION_HEAL,
+	SECTOR_OPEN,
 }
 
 const SOUND_PRIORITIES = {
@@ -13,7 +14,8 @@ const SOUND_PRIORITIES = {
 	SoundType.DIE02: 5,
 	SoundType.DIE03: 5,
 	SoundType.ENEMY_HIT: 4,
-	SoundType.STATION_HEAL: 7
+	SoundType.STATION_HEAL: 7,
+	SoundType.SECTOR_OPEN: 10,
 }
 
 const SOUND_TYPES = {
@@ -21,7 +23,8 @@ const SOUND_TYPES = {
 	SoundType.DIE02: preload("res://assets/audio/die02.ogg"),
 	SoundType.DIE03: preload("res://assets/audio/die03.ogg"),
 	SoundType.ENEMY_HIT: preload("res://assets/audio/enemy_hit.ogg"),
-	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg")
+	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg"),
+	SoundType.SECTOR_OPEN: preload("res://assets/audio/sector_open.ogg"),
 }
 
 const SOUND_VOLUMES = {
@@ -29,5 +32,6 @@ const SOUND_VOLUMES = {
 	SoundType.DIE02: 0.8,
 	SoundType.DIE03: 0.8,
 	SoundType.ENEMY_HIT: 1.0,
-	SoundType.STATION_HEAL: 0.6
+	SoundType.STATION_HEAL: 0.6,
+	SoundType.SECTOR_OPEN: 1.0
 }
