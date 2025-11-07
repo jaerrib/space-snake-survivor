@@ -2,37 +2,6 @@ extends Node
 
 const MAX_CHANNELS = 16
 
-enum SoundType {
-	DIE01,
-	DIE02,
-	DIE03,
-	ENEMY_HIT,
-	STATION_HEAL
-	}
-
-const SOUND_PRIORITIES = {
-	SoundType.DIE01: 5,
-	SoundType.DIE02: 5,
-	SoundType.DIE03: 5,
-	SoundType.ENEMY_HIT: 4,
-	SoundType.STATION_HEAL: 7
-	}
-
-const SOUND_TYPES = {
-	SoundType.DIE01: preload("res://assets/audio/die01.ogg"),
-	SoundType.DIE02: preload("res://assets/audio/die02.ogg"),
-	SoundType.DIE03: preload("res://assets/audio/die03.ogg"),
-	SoundType.ENEMY_HIT: preload("res://assets/audio/enemy_hit.ogg"),
-	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg")
-	}
-
-const SOUND_VOLUMES = {
-	SoundType.DIE01: 0.8,
-	SoundType.DIE02: 0.8,
-	SoundType.DIE03: 0.8,
-	SoundType.ENEMY_HIT: 1.0,
-	SoundType.STATION_HEAL: 0.6
-	}
 
 var channels: Array = []
 var channel_meta: Dictionary = {}
@@ -48,10 +17,10 @@ func _ready():
 
 
 func play_sound_at(s_type: int, position: Vector2):
-	var stream: AudioStream = SOUND_TYPES.get(s_type, null)
+	var stream: AudioStream = SoundDefs.SOUND_TYPES.get(s_type, null)
 	if stream == null:
 		return
-	var priority: int = SOUND_PRIORITIES.get(s_type, 1)
+	var priority: int = SoundDefs.SOUND_PRIORITIES.get(s_type, 1)
 	for player in channels:
 		if not player.playing:
 			_use_channel(player, stream, s_type, priority, position)
@@ -71,6 +40,8 @@ func play_sound_at(s_type: int, position: Vector2):
 func _use_channel(player: AudioStreamPlayer2D, stream: AudioStream, s_type: int, priority: int, position: Vector2):
 	player.global_position = position
 	player.stream = stream
-	player.volume_db = linear_to_db(SOUND_VOLUMES.get(s_type, 1.0) * global_volume)
+	player.volume_db = linear_to_db(
+		SoundDefs.SOUND_VOLUMES.get(s_type, 1.0) * global_volume
+		)
 	player.play()
 	channel_meta[player] = {"priority": priority, "type": s_type}
