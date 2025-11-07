@@ -14,6 +14,7 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	match what:
 		Node.NOTIFICATION_PAUSED:
+			SoundManager.play_ui_sound(SoundDefs.UISoundType.UNPAUSE)
 			hide()
 		Node.NOTIFICATION_UNPAUSED:
 			SoundManager.play_ui_sound(SoundDefs.UISoundType.PAUSE)
