@@ -23,12 +23,10 @@ func play_ui_sound(s_type: int) -> void:
 	var stream: AudioStream = SoundDefs.UI_SOUND_TYPES.get(s_type, null)
 	if stream:
 		ui_player.stream = stream
-		ui_player.volume_db = linear_to_db(
-			SoundDefs.UI_SOUND_VOLUMES.get(s_type, 1.0) * global_volume
+		ui_player.volume_db = _calculate_volume(
+			SoundDefs.UI_SOUND_VOLUMES.get(s_type, 1.0)
 			)
-
 		ui_player.play()
-
 
 
 func play_sound_at(s_type: int, position: Vector2):
@@ -55,8 +53,12 @@ func play_sound_at(s_type: int, position: Vector2):
 func _use_channel(player: AudioStreamPlayer2D, stream: AudioStream, s_type: int, priority: int, position: Vector2):
 	player.global_position = position
 	player.stream = stream
-	player.volume_db = linear_to_db(
-		SoundDefs.SOUND_VOLUMES.get(s_type, 1.0) * global_volume
+	player.volume_db = _calculate_volume(
+		SoundDefs.SOUND_VOLUMES.get(s_type, 1.0)
 		)
 	player.play()
 	channel_meta[player] = {"priority": priority, "type": s_type}
+
+
+func _calculate_volume(base_volume: float) -> float:
+	return linear_to_db(base_volume * global_volume)
