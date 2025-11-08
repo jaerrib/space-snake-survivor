@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvhxspryf1smy"]
+[gd_scene load_steps=9 format=3 uid="uid://cvhxspryf1smy"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_hx42l"]
 [ext_resource type="Texture2D" uid="uid://b0rljm5vjep61" path="res://assets/player/missile.png" id="2_ejded"]
+[ext_resource type="Script" uid="uid://bufotq45yc2p0" path="res://scenes/snake_missile/snake_missile.gd" id="2_hny1t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d8qdy"]
 radius = 6.0
@@ -47,6 +48,7 @@ turbulence_noise_scale = 4.0
 [node name="SnakeMissile" instance=ExtResource("1_hx42l")]
 collision_layer = 16
 collision_mask = 4
+script = ExtResource("2_hny1t")
 
 [node name="CollisionShape2D" parent="." index="2"]
 rotation = 1.5708
