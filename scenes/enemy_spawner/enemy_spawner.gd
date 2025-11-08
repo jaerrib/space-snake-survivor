@@ -17,7 +17,6 @@ func _ready() -> void:
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_set_difficulty.connect(on_set_difficulty)
 	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
-	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
 	on_set_modifiers()
 
 

@@ -14,7 +14,6 @@ const DIFFICULTY_TEXT: Array = ["EASY", "NORMAL", "HARD"]
 @onready var sector_label: Label = $DebugInfo/VBoxContainer/SectorLabel
 @onready var difficulty_label: Label = $DebugInfo/VBoxContainer/DifficultyLabel
 @onready var sector_level_label: Label = $MC/MC2/HB/SectorLevelLabel
-@onready var sound: AudioStreamPlayer2D = $Sound
 
 var player_ref: Snake
 var time_elapsed: int
@@ -90,8 +89,10 @@ func toggle_debug() -> void:
 func on_advance_sector() -> void:
 	sector_tracker += 1
 	sector_level_label.text = "Sector " + str(sector_tracker)
-	sound.position = player_ref.global_position
-	sound.play()
+	SoundManager.play_sound_at(
+		SoundDefs.SoundType.SECTOR_OPEN,
+		player_ref.global_position
+		)
 	
 
 func on_enemy_killed() -> void:

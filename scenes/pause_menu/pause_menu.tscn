@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8t776dyqvfyk"]
+[gd_scene load_steps=5 format=3 uid="uid://c8t776dyqvfyk"]
 
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_5bgjm"]
 [ext_resource type="Script" uid="uid://bhdrqdmrgygvc" path="res://scenes/pause_menu/pause_menu.gd" id="1_qcmsd"]
-[ext_resource type="AudioStream" uid="uid://b7788ukujt0mp" path="res://assets/audio/pause.ogg" id="3_10tpt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcmsd"]
 font = ExtResource("1_5bgjm")
@@ -117,6 +116,3 @@ layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
 horizontal_alignment = 1
-
-[node name="Sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_10tpt")

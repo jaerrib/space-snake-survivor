@@ -2,7 +2,6 @@ class_name PauseMenu extends Control
 
 @onready var snake_stats_label: Label = $VBoxContainer/SnakeStatsLabel
 @onready var weapon_stats: HBoxContainer = $VBoxContainer/WeaponStats
-@onready var sound: AudioStreamPlayer = $Sound
 
 
 var weapon_stat_list: Dictionary = {}
@@ -15,9 +14,14 @@ func _ready() -> void:
 func _notification(what: int) -> void:
 	match what:
 		Node.NOTIFICATION_PAUSED:
+			SoundManager.play_ui_sound(SoundDefs.UISoundType.UNPAUSE)
+			SoundManager.resume_music()
+			SoundManager.resume_alert()
 			hide()
 		Node.NOTIFICATION_UNPAUSED:
-			sound.play()
+			SoundManager.pause_alert()
+			SoundManager.pause_music()
+			SoundManager.play_ui_sound(SoundDefs.UISoundType.PAUSE)
 			update_snake_stats_label()
 			update_weapons_stats()
 			show()

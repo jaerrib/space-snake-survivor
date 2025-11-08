@@ -4,9 +4,9 @@ class_name Constants
 const TOTAL_SECTOR_SCENES = 20
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
-	Constants.Difficulty.EASY: 0.75,
-	Constants.Difficulty.NORMAL: 1.0,
-	Constants.Difficulty.HARD: 1.5,
+	Constants.Difficulty.EASY: 1.0,
+	Constants.Difficulty.NORMAL: 1.5,
+	Constants.Difficulty.HARD: 2.0,
 	}
 
 enum EnemyType {
@@ -38,11 +38,3 @@ enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, ATTACK_5 }
 enum ObjectType { XP, LEVEL_UP }
 
 enum Difficulty { EASY, NORMAL, HARD }
-
-enum SoundType {
-	DIE01,
-	DIE02,
-	DIE03,
-	ENEMY_HIT,
-	STATION_HEAL
-}
