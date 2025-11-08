@@ -7,6 +7,8 @@ enum SoundType {
 	ENEMY_HIT,
 	STATION_HEAL,
 	SECTOR_OPEN,
+	SNAKE_BOMB,
+	SNAKE_MISSILE,
 }
 
 enum UISoundType {
@@ -23,6 +25,7 @@ const SOUND_PRIORITIES = {
 	SoundType.ENEMY_HIT: 4,
 	SoundType.STATION_HEAL: 7,
 	SoundType.SECTOR_OPEN: 10,
+	SoundType.SNAKE_BOMB: 6,
 }
 
 const SOUND_TYPES = {
@@ -32,6 +35,8 @@ const SOUND_TYPES = {
 	SoundType.ENEMY_HIT: preload("res://assets/audio/fx/enemy_hit.ogg"),
 	SoundType.STATION_HEAL: preload("res://assets/audio/fx/station_heal.ogg"),
 	SoundType.SECTOR_OPEN: preload("res://assets/audio/fx/sector_open.ogg"),
+	SoundType.SNAKE_BOMB: preload("res://assets/audio/fx/snake_bomb.ogg"),
+	SoundType.SNAKE_MISSILE: preload("res://assets/audio/fx/snake_missile.ogg"),
 	}
 
 const UI_SOUND_TYPES = {
@@ -45,9 +50,11 @@ const SOUND_VOLUMES = {
 	SoundType.DIE01: 0.8,
 	SoundType.DIE02: 0.8,
 	SoundType.DIE03: 0.8,
-	SoundType.ENEMY_HIT: 1.0,
+	SoundType.ENEMY_HIT: 0.8,
 	SoundType.STATION_HEAL: 0.6,
 	SoundType.SECTOR_OPEN: 1.0,
+	SoundType.SNAKE_BOMB: 1.0,
+	SoundType.SNAKE_MISSILE: 1.0,
 }
 
 const UI_SOUND_VOLUMES = {

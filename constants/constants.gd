@@ -6,7 +6,7 @@ const TOTAL_SECTOR_SCENES = 20
 const DIFFICULTY_MODIFIERS: Dictionary = {
 	Constants.Difficulty.EASY: 0.75,
 	Constants.Difficulty.NORMAL: 1.0,
-	Constants.Difficulty.HARD: 1.5,
+	Constants.Difficulty.HARD: 2.0,
 	}
 
 enum EnemyType {

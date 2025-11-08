@@ -9,6 +9,8 @@ var _penetration: int = 1
 @onready var removal_timer: Timer = $RemovalTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
+func _ready() -> void:
+	SoundManager.play_sound_at(SoundDefs.SoundType.SNAKE_MISSILE, global_position)
 
 func _process(delta: float) -> void:
 	position += _direction * _speed * delta
