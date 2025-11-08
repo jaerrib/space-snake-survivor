@@ -9,7 +9,7 @@ enum SoundType {
 	SECTOR_OPEN,
 	SNAKE_BOMB,
 	SNAKE_MISSILE,
-}
+	}
 
 enum UISoundType {
 	PAUSE,
@@ -17,6 +17,13 @@ enum UISoundType {
 	MENU_MOVE,
 	SELECT,
 	}
+
+
+enum LoopingSoundType {
+	LEVEL_MUSIC,
+	LOW_HEALTH,
+	}
+
 
 const SOUND_PRIORITIES = {
 	SoundType.DIE01: 5,
@@ -26,7 +33,7 @@ const SOUND_PRIORITIES = {
 	SoundType.STATION_HEAL: 7,
 	SoundType.SECTOR_OPEN: 10,
 	SoundType.SNAKE_BOMB: 6,
-}
+	}
 
 const SOUND_TYPES = {
 	SoundType.DIE01: preload("res://assets/audio/fx/die01.ogg"),
@@ -55,11 +62,22 @@ const SOUND_VOLUMES = {
 	SoundType.SECTOR_OPEN: 1.0,
 	SoundType.SNAKE_BOMB: 1.0,
 	SoundType.SNAKE_MISSILE: 1.0,
-}
+	}
 
 const UI_SOUND_VOLUMES = {
 	UISoundType.PAUSE: 0.5,
 	UISoundType.UNPAUSE: 0.5,
 	UISoundType.MENU_MOVE: 0.5,
 	UISoundType.SELECT: 0.5,
-}
+	}
+
+
+const LOOPING_SOUND_TYPES = {
+	LoopingSoundType.LEVEL_MUSIC: preload("res://assets/audio/looping/level_music.ogg"),
+	LoopingSoundType.LOW_HEALTH: preload("res://assets/audio/looping/low_health.ogg")
+	}
+
+const LOOPING_SOUND_VOLUMES = {
+	LoopingSoundType.LEVEL_MUSIC: 0.8,
+	LoopingSoundType.LOW_HEALTH: 0.7,
+	}

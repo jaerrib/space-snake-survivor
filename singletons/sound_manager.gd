@@ -6,12 +6,23 @@ var channels: Array = []
 var channel_meta: Dictionary = {}
 var global_volume: float = 1.0
 var ui_player: AudioStreamPlayer = null
+var music_player: AudioStreamPlayer = null
+var alert_player: AudioStreamPlayer = null
 
 
 func _ready():
 	ui_player = AudioStreamPlayer.new()
 	ui_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(ui_player)
+	
+	music_player = AudioStreamPlayer.new()
+	music_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(music_player)
+
+	alert_player = AudioStreamPlayer.new()
+	alert_player.process_mode = Node.PROCESS_MODE_ALWAYS
+	add_child(alert_player)
+	
 	for i in range(MAX_CHANNELS):
 		var player := AudioStreamPlayer2D.new()
 		add_child(player)
@@ -27,6 +38,42 @@ func play_ui_sound(s_type: int) -> void:
 			SoundDefs.UI_SOUND_VOLUMES.get(s_type, 1.0)
 			)
 		ui_player.play()
+
+
+func play_music(s_type: int):
+	var stream: AudioStream = SoundDefs.LOOPING_SOUND_TYPES.get(s_type, null)
+	if stream:
+		music_player.stream = stream
+		music_player.volume_db = _calculate_volume(
+			SoundDefs.LOOPING_SOUND_VOLUMES.get(s_type, 1.0)
+		)
+		music_player.play()
+
+
+func stop_music():
+	music_player.stop()
+
+
+func pause_music():
+	music_player.stream_paused = true
+
+
+func resume_music():
+	music_player.stream_paused = false
+
+
+func play_alert(s_type: AudioStream):
+	var stream: AudioStream = SoundDefs.LOOPING_SOUND_TYPES.get(s_type, null)
+	if stream:
+		alert_player.stream = stream
+		alert_player.volume_db = _calculate_volume(
+			SoundDefs.LOOPING_SOUND_VOLUMES.get(s_type, 1.0)
+			)
+		alert_player.play()
+
+
+func stop_alert():
+	alert_player.stop()
 
 
 func play_sound_at(s_type: int, position: Vector2):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://biiskars8k5vj"]
+[gd_scene load_steps=7 format=3 uid="uid://biiskars8k5vj"]
 
 [ext_resource type="PackedScene" uid="uid://6minmj4552sw" path="res://scenes/scrolling_background/scrolling_background.tscn" id="1_h3e3j"]
 [ext_resource type="Script" uid="uid://e48mvc850soi" path="res://scenes/level/level.gd" id="1_vpf64"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://4omcptgsxete" path="res://scenes/world_layer/world_layer.tscn" id="3_xv074"]
 [ext_resource type="PackedScene" uid="uid://cnb7mxv8umpi6" path="res://scenes/object_maker/object_maker.tscn" id="4_hnne4"]
 [ext_resource type="PackedScene" uid="uid://dcm3d821asbyw" path="res://scenes/enemy_spawner/enemy_spawner.tscn" id="4_qkmgm"]
-[ext_resource type="AudioStream" uid="uid://cesh4ds6to7ey" path="res://assets/audio/level_music.ogg" id="6_vpf64"]
 
 [node name="Level" type="Node2D"]
 process_mode = 1
@@ -22,8 +21,3 @@ script = ExtResource("1_vpf64")
 
 [node name="Snake" parent="." instance=ExtResource("2_nbgty")]
 position = Vector2(-256, 344)
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_vpf64")
-volume_db = -6.0
-autoplay = true
