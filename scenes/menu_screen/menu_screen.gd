@@ -4,6 +4,15 @@ extends Control
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit"):
 		_on_quit_pressed()
+	if (
+		Input.is_action_just_pressed("ui_down") or
+		Input.is_action_just_pressed("ui_up") or
+		Input.is_action_just_pressed("ui_left") or
+		Input.is_action_just_pressed("ui_right")
+		):
+		SoundManager.play_ui_sound(SoundDefs.UISoundType.MENU_MOVE)
+	if Input.is_action_just_pressed("ui_accept"):
+		SoundManager.play_ui_sound(SoundDefs.UISoundType.SELECT)
 
 
 func _on_easy_pressed() -> void:

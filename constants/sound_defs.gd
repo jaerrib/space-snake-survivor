@@ -12,6 +12,8 @@ enum SoundType {
 enum UISoundType {
 	PAUSE,
 	UNPAUSE,
+	MENU_MOVE,
+	SELECT,
 	}
 
 const SOUND_PRIORITIES = {
@@ -35,6 +37,8 @@ const SOUND_TYPES = {
 const UI_SOUND_TYPES = {
 	UISoundType.PAUSE: preload("res://assets/audio/pause.ogg"),
 	UISoundType.UNPAUSE: preload("res://assets/audio/unpause.ogg"),
+	UISoundType.MENU_MOVE: preload("res://assets/audio/menu_move.ogg"),
+	UISoundType.SELECT: preload("res://assets/audio/select.ogg")
 	}
 
 const SOUND_VOLUMES = {
@@ -49,4 +53,6 @@ const SOUND_VOLUMES = {
 const UI_SOUND_VOLUMES = {
 	UISoundType.PAUSE: 0.5,
 	UISoundType.UNPAUSE: 0.5,
+	UISoundType.MENU_MOVE: 0.5,
+	UISoundType.SELECT: 0.5,
 }

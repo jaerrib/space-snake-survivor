@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
+		SoundManager.play_ui_sound(SoundDefs.UISoundType.SELECT)
 		GameManager.load_main_menu()
 
 
