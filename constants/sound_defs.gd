@@ -26,19 +26,19 @@ const SOUND_PRIORITIES = {
 }
 
 const SOUND_TYPES = {
-	SoundType.DIE01: preload("res://assets/audio/die01.ogg"),
-	SoundType.DIE02: preload("res://assets/audio/die02.ogg"),
-	SoundType.DIE03: preload("res://assets/audio/die03.ogg"),
-	SoundType.ENEMY_HIT: preload("res://assets/audio/enemy_hit.ogg"),
-	SoundType.STATION_HEAL: preload("res://assets/audio/station_heal.ogg"),
-	SoundType.SECTOR_OPEN: preload("res://assets/audio/sector_open.ogg"),
+	SoundType.DIE01: preload("res://assets/audio/fx/die01.ogg"),
+	SoundType.DIE02: preload("res://assets/audio/fx/die02.ogg"),
+	SoundType.DIE03: preload("res://assets/audio/fx/die03.ogg"),
+	SoundType.ENEMY_HIT: preload("res://assets/audio/fx/enemy_hit.ogg"),
+	SoundType.STATION_HEAL: preload("res://assets/audio/fx/station_heal.ogg"),
+	SoundType.SECTOR_OPEN: preload("res://assets/audio/fx/sector_open.ogg"),
 	}
 
 const UI_SOUND_TYPES = {
-	UISoundType.PAUSE: preload("res://assets/audio/pause.ogg"),
-	UISoundType.UNPAUSE: preload("res://assets/audio/unpause.ogg"),
-	UISoundType.MENU_MOVE: preload("res://assets/audio/menu_move.ogg"),
-	UISoundType.SELECT: preload("res://assets/audio/select.ogg")
+	UISoundType.PAUSE: preload("res://assets/audio/ui/pause.ogg"),
+	UISoundType.UNPAUSE: preload("res://assets/audio/ui/unpause.ogg"),
+	UISoundType.MENU_MOVE: preload("res://assets/audio/ui/menu_move.ogg"),
+	UISoundType.SELECT: preload("res://assets/audio/ui/select.ogg")
 	}
 
 const SOUND_VOLUMES = {
