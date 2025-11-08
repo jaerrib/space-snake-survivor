@@ -16,14 +16,14 @@ enum UISoundType {
 	UNPAUSE,
 	MENU_MOVE,
 	SELECT,
+	GAME_OVER,
+	LEVEL_COMPLETE,
 	}
-
 
 enum LoopingSoundType {
 	LEVEL_MUSIC,
 	LOW_HEALTH,
 	}
-
 
 const SOUND_PRIORITIES = {
 	SoundType.DIE01: 5,
@@ -50,7 +50,9 @@ const UI_SOUND_TYPES = {
 	UISoundType.PAUSE: preload("res://assets/audio/ui/pause.ogg"),
 	UISoundType.UNPAUSE: preload("res://assets/audio/ui/unpause.ogg"),
 	UISoundType.MENU_MOVE: preload("res://assets/audio/ui/menu_move.ogg"),
-	UISoundType.SELECT: preload("res://assets/audio/ui/select.ogg")
+	UISoundType.SELECT: preload("res://assets/audio/ui/select.ogg"),
+	UISoundType.GAME_OVER: preload("res://assets/audio/fx/player_death.ogg"),
+	UISoundType.LEVEL_COMPLETE: preload("res://assets/audio/fx/player_death.ogg"),
 	}
 
 const SOUND_VOLUMES = {
@@ -69,6 +71,8 @@ const UI_SOUND_VOLUMES = {
 	UISoundType.UNPAUSE: 0.5,
 	UISoundType.MENU_MOVE: 0.5,
 	UISoundType.SELECT: 0.5,
+	UISoundType.GAME_OVER: 0.5,
+	UISoundType.LEVEL_COMPLETE: 0.5,
 	}
 
 

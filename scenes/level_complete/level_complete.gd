@@ -1,7 +1,6 @@
 extends Control
 
 @onready var game_stats: Label = $VBoxContainer/GameStats
-@onready var sound: AudioStreamPlayer = $Sound
 
 
 func _ready() -> void:
@@ -26,7 +25,9 @@ func on_send_game_stats(stats: Dictionary) -> void:
 
 
 func on_level_complete() -> void:
-	sound.play()
+	SoundManager.stop_music()
+	SoundManager.stop_alert()
+	SoundManager.play_ui_sound(SoundDefs.UISoundType.LEVEL_COMPLETE)
 	stop_movables()
 	set_process(true)
 	show()

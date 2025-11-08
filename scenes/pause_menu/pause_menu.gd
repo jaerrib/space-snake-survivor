@@ -16,8 +16,10 @@ func _notification(what: int) -> void:
 		Node.NOTIFICATION_PAUSED:
 			SoundManager.play_ui_sound(SoundDefs.UISoundType.UNPAUSE)
 			SoundManager.resume_music()
+			SoundManager.resume_alert()
 			hide()
 		Node.NOTIFICATION_UNPAUSED:
+			SoundManager.pause_alert()
 			SoundManager.pause_music()
 			SoundManager.play_ui_sound(SoundDefs.UISoundType.PAUSE)
 			update_snake_stats_label()

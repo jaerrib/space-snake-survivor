@@ -62,18 +62,29 @@ func resume_music():
 	music_player.stream_paused = false
 
 
-func play_alert(s_type: AudioStream):
+func play_alert(s_type: int, volume: float = 1.0):
 	var stream: AudioStream = SoundDefs.LOOPING_SOUND_TYPES.get(s_type, null)
 	if stream:
 		alert_player.stream = stream
 		alert_player.volume_db = _calculate_volume(
-			SoundDefs.LOOPING_SOUND_VOLUMES.get(s_type, 1.0)
+			SoundDefs.LOOPING_SOUND_VOLUMES.get(s_type, volume)
 			)
 		alert_player.play()
 
 
+
 func stop_alert():
 	alert_player.stop()
+
+
+func pause_alert():
+	if alert_player.playing:
+		alert_player.stream_paused = true
+
+
+func resume_alert():
+	if alert_player.stream_paused:
+		alert_player.stream_paused = false
 
 
 func play_sound_at(s_type: int, position: Vector2):
