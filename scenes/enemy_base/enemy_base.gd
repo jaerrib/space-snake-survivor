@@ -20,6 +20,7 @@ func _ready() -> void:
 	var sector_multiplier: int = enemy_spawner.get_sector_multipler()
 	adjust_stats_for_sector(sector_multiplier)
 	death_timer.wait_time = clamp(90 / sqrt(sector_multiplier), 30, 90)
+	SignalManager.on_snake_position_update.connect(on_snake_position_update)
 
 
 func _physics_process(delta: float) -> void:
@@ -39,9 +40,9 @@ func adjust_stats_for_sector(sector_multiplier: int) -> void:
 	damage *= (1.0 + GameManager.difficulty * 0.3) * pow(1.12, sector_multiplier - 1)
 
 
-func _on_direction_timer_timeout() -> void:
-	if not _knocked_back and player and player.is_inside_tree():
-		var direction = global_position.direction_to(player.global_position)
+func on_snake_position_update(pos: Vector2) -> void:
+	if not _knocked_back:
+		var direction = global_position.direction_to(pos)
 		velocity = direction * movement_speed
 
 

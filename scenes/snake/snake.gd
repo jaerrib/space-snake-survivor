@@ -21,6 +21,7 @@ var xp_points: int = 0
 @onready var damage_animation_timer: Timer = $DamageAnimationTimer
 @onready var heal_timer: Timer = $HealTimer
 @onready var player_cam: Camera2D = $PlayerCam
+@onready var position_broadcast_timer: Timer = $PositionBroadcastTimer
 @onready var segment_holder: Node = $SegmentHolder
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var xp_collision_shape_2d: CollisionShape2D = $XpDetection/XPCollisionShape2D
@@ -231,3 +232,7 @@ func on_station_entered(heal_val: float) -> void:
 func get_last_segment() -> Segment:
 	var last_segment = segments[-1]
 	return last_segment
+
+
+func _on_position_broadcast_timer_timeout() -> void:
+	SignalManager.on_snake_position_update.emit(global_position)

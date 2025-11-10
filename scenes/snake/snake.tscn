@@ -97,6 +97,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_fkoge")
 }
 
+[node name="PositionBroadcastTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
 [connection signal="timeout" from="DamageAnimationTimer" to="." method="_on_damage_animation_timer_timeout"]
+[connection signal="timeout" from="PositionBroadcastTimer" to="." method="_on_position_broadcast_timer_timeout"]
