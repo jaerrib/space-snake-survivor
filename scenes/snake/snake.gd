@@ -218,6 +218,7 @@ func _on_damage_animation_timer_timeout() -> void:
 
 
 func on_snake_hit() -> void:
+	SoundManager.play_sound_at(SoundDefs.SoundType.PLAYER_HIT, global_position)
 	damage_animation_timer.start()
 	animation_player.play("damaged")
 
