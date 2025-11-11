@@ -13,6 +13,8 @@ var scanlines: bool = true
 
 
 func load_main_menu() -> void:
+	SoundManager.stop_music()
+	SoundManager.stop_alert()
 	get_tree().change_scene_to_packed(MENU_SCREEN)
 
 
