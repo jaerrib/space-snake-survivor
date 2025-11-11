@@ -38,6 +38,7 @@ func _ready() -> void:
 	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_enemy_killed.connect(on_enemy_killed)
+	SoundManager.play_music(SoundDefs.LoopingSoundType.LEVEL_MUSIC)
 	debug_info.visible = debug
 
 
