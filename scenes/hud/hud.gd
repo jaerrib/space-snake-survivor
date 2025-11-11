@@ -24,15 +24,14 @@ var sector_interval: int
 var sector_tracker: int = 1
 var next_sector_time: float
 var enemies_killed: int = 0
+var first_level: int
 
 func _ready() -> void:
-	debug_info.visible = debug
-	_set_up_references()
 	_connect_signals()
-	SoundManager.play_music(SoundDefs.LoopingSoundType.LEVEL_MUSIC)
+	call_deferred("on_level_ready")
 
 
-func _set_up_references() -> void:
+func on_level_ready() -> void:
 	var player: Snake = get_tree().get_first_node_in_group("player")
 	player_ref = player
 	xp_level_label.text = str(player_ref.get_level())
@@ -40,6 +39,9 @@ func _set_up_references() -> void:
 	world_layer = get_tree().root.get_node("Main/Level/WorldLayer")
 	sector_interval = float(LEVEL_LENGTH) / world_layer.get_total_sectors()
 	next_sector_time = sector_interval
+	debug_info.visible = debug
+	first_level = world_layer.get_first_level_num()
+	SoundManager.play_music(first_level)
 
 
 func _connect_signals() -> void:

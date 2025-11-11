@@ -61,3 +61,11 @@ func get_current_sector_name() -> String:
 
 func get_total_sectors() -> int:
 	return total_sectors
+
+
+func get_first_level_num() -> int:
+	var name: String = get_current_sector_name()
+	var parts = name.split("_")
+	var number_str = parts[-1]
+	var level_number = int(number_str)
+	return level_number
