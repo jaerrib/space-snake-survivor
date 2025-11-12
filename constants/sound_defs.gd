@@ -23,11 +23,14 @@ enum UISoundType {
 	}
 
 enum LoopingSoundType {
+	LOW_HEALTH,
+	}
+
+enum MusicType {
 	LEVEL_MUSIC01,
 	LEVEL_MUSIC02,
 	LEVEL_MUSIC03,
 	LEVEL_MUSIC04,
-	LOW_HEALTH,
 	}
 
 const SOUND_PRIORITIES = {
@@ -86,20 +89,24 @@ const UI_SOUND_VOLUMES = {
 	UISoundType.LEVEL_COMPLETE: 0.5,
 	}
 
-const TOTAL_MUSIC_TRACKS: int = 4
-
 const LOOPING_SOUND_TYPES = {
-	LoopingSoundType.LEVEL_MUSIC01: preload("res://assets/audio/looping/crisis.ogg"),
-	LoopingSoundType.LEVEL_MUSIC02: preload("res://assets/audio/looping/jester_battle.ogg"),
-	LoopingSoundType.LEVEL_MUSIC03: preload("res://assets/audio/looping/last_mission.ogg"),
-	LoopingSoundType.LEVEL_MUSIC04: preload("res://assets/audio/looping/rush_point.ogg"),
 	LoopingSoundType.LOW_HEALTH: preload("res://assets/audio/looping/low_health.ogg")
 	}
 
+const MUSIC_TYPES = {
+	MusicType.LEVEL_MUSIC01: preload("res://assets/audio/looping/crisis.ogg"),
+	MusicType.LEVEL_MUSIC02: preload("res://assets/audio/looping/jester_battle.ogg"),
+	MusicType.LEVEL_MUSIC03: preload("res://assets/audio/looping/last_mission.ogg"),
+	MusicType.LEVEL_MUSIC04: preload("res://assets/audio/looping/rush_point.ogg"),
+	}
+
 const LOOPING_SOUND_VOLUMES = {
-	LoopingSoundType.LEVEL_MUSIC01: 0.4,
-	LoopingSoundType.LEVEL_MUSIC02: 0.4,
-	LoopingSoundType.LEVEL_MUSIC03: 0.4,
-	LoopingSoundType.LEVEL_MUSIC04: 0.4,
 	LoopingSoundType.LOW_HEALTH: 0.7,
+	}
+
+const MUSIC_VOLUMES = {
+	MusicType.LEVEL_MUSIC01: 0.4,
+	MusicType.LEVEL_MUSIC02: 0.4,
+	MusicType.LEVEL_MUSIC03: 0.4,
+	MusicType.LEVEL_MUSIC04: 0.4,
 	}

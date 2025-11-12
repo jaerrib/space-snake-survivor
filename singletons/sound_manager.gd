@@ -41,12 +41,12 @@ func play_ui_sound(s_type: int) -> void:
 
 
 func play_music(level: int):
-	var s_type: int = level % SoundDefs.TOTAL_MUSIC_TRACKS
-	var stream: AudioStream = SoundDefs.LOOPING_SOUND_TYPES.get(s_type, null)
+	var s_type: int = level % len(SoundDefs.MUSIC_TYPES)
+	var stream: AudioStream = SoundDefs.MUSIC_TYPES.get(s_type, null)
 	if stream:
 		music_player.stream = stream
 		music_player.volume_db = _calculate_volume(
-			SoundDefs.LOOPING_SOUND_VOLUMES.get(s_type, 0.4)
+			SoundDefs.MUSIC_VOLUMES.get(s_type, 0.4)
 		)
 		music_player.play()
 
