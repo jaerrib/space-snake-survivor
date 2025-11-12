@@ -26,11 +26,14 @@ enum LoopingSoundType {
 	LOW_HEALTH,
 	}
 
+# Menu music must always be the last reference
+# due to the how level music is selected
 enum MusicType {
 	LEVEL_MUSIC01,
 	LEVEL_MUSIC02,
 	LEVEL_MUSIC03,
 	LEVEL_MUSIC04,
+	MENU_MUSIC,
 	}
 
 const SOUND_PRIORITIES = {
@@ -98,6 +101,7 @@ const MUSIC_TYPES = {
 	MusicType.LEVEL_MUSIC02: preload("res://assets/audio/looping/jester_battle.ogg"),
 	MusicType.LEVEL_MUSIC03: preload("res://assets/audio/looping/last_mission.ogg"),
 	MusicType.LEVEL_MUSIC04: preload("res://assets/audio/looping/rush_point.ogg"),
+	MusicType.MENU_MUSIC: preload("res://assets/audio/looping/menu_music.ogg"),
 	}
 
 const LOOPING_SOUND_VOLUMES = {
@@ -109,4 +113,5 @@ const MUSIC_VOLUMES = {
 	MusicType.LEVEL_MUSIC02: 0.4,
 	MusicType.LEVEL_MUSIC03: 0.4,
 	MusicType.LEVEL_MUSIC04: 0.4,
+	MusicType.MENU_MUSIC: 0.4,
 	}
