@@ -134,6 +134,7 @@ func on_level_up() -> void:
 		global_position,
 		Constants.ObjectType.LEVEL_UP,
 		0)
+	SoundManager.play_ui_sound(SoundDefs.UISoundType.HISS)
 	update_max_hp()
 	update_regen()
 	update_damage_reduction()

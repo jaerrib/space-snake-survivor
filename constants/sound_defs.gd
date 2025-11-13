@@ -21,6 +21,7 @@ enum UISoundType {
 	SELECT,
 	GAME_OVER,
 	LEVEL_COMPLETE,
+	HISS,
 	}
 
 enum LoopingSoundType {
@@ -71,6 +72,7 @@ const UI_SOUND_TYPES = {
 	UISoundType.SELECT: preload("res://assets/audio/ui/select.ogg"),
 	UISoundType.GAME_OVER: preload("res://assets/audio/fx/player_death.ogg"),
 	UISoundType.LEVEL_COMPLETE: preload("res://assets/audio/fx/player_death.ogg"),
+	UISoundType.HISS: preload("res://assets/audio/ui/hiss.ogg"),
 	}
 
 const SOUND_VOLUMES = {
@@ -94,6 +96,7 @@ const UI_SOUND_VOLUMES = {
 	UISoundType.SELECT: 0.5,
 	UISoundType.GAME_OVER: 0.5,
 	UISoundType.LEVEL_COMPLETE: 0.5,
+	UISoundType.HISS: 0.5,
 	}
 
 const LOOPING_SOUND_TYPES = {
