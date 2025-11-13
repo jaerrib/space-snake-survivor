@@ -11,6 +11,7 @@ enum SoundType {
 	SNAKE_MISSILE,
 	FIREBALL,
 	PLAYER_HIT,
+	BLAST_RADIUS,
 	}
 
 enum UISoundType {
@@ -45,7 +46,8 @@ const SOUND_PRIORITIES = {
 	SoundType.SECTOR_OPEN: 10,
 	SoundType.SNAKE_BOMB: 6,
 	SoundType.FIREBALL: 6,
-	SoundType.PLAYER_HIT: 7
+	SoundType.PLAYER_HIT: 7,
+	SoundType.BLAST_RADIUS: 7,
 	}
 
 const SOUND_TYPES = {
@@ -59,6 +61,7 @@ const SOUND_TYPES = {
 	SoundType.SNAKE_MISSILE: preload("res://assets/audio/fx/snake_missile.ogg"),
 	SoundType.FIREBALL: preload("res://assets/audio/fx/fireball.ogg"),
 	SoundType.PLAYER_HIT: preload("res://assets/audio/fx/player_hit.ogg"),
+	SoundType.BLAST_RADIUS: preload("res://assets/audio/fx/blast_radius.ogg"),
 	}
 
 const UI_SOUND_TYPES = {
@@ -81,6 +84,7 @@ const SOUND_VOLUMES = {
 	SoundType.SNAKE_MISSILE: 1.0,
 	SoundType.FIREBALL: 0.8,
 	SoundType.PLAYER_HIT: 1.0,
+	SoundType.BLAST_RADIUS: 1.0,
 	}
 
 const UI_SOUND_VOLUMES = {

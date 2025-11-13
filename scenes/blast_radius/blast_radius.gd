@@ -13,3 +13,8 @@ func _process(delta: float) -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	queue_free()
+
+
+func play_blast_sound() -> void:
+	SoundManager.play_sound_at(SoundDefs.SoundType.BLAST_RADIUS, global_position)
+	
