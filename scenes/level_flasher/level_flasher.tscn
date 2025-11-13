@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://cblhljmyj8or3"]
+
+[ext_resource type="Script" uid="uid://da3gjuedmn7dt" path="res://scenes/level_flasher/level_flasher.gd" id="1_ktrhm"]
+
+[sub_resource type="Animation" id="Animation_3lfhb"]
+resource_name = "sector_open"
+length = 0.2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 1, 0.501961, 0), Color(0, 1, 0.501961, 0.752941), Color(0, 1, 0.501961, 0), Color(0, 1, 0.501961, 0.752941), Color(0, 1, 0.501961, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g464f"]
+_data = {
+&"sector_open": SubResource("Animation_3lfhb")
+}
+
+[node name="LevelFlasher" type="Node2D"]
+script = ExtResource("1_ktrhm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 960.0
+offset_bottom = 720.0
+color = Color(0, 1, 0.501961, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_g464f")
+}

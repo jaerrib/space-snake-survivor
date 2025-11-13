@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://6minmj4552sw"]
+[gd_scene load_steps=5 format=3 uid="uid://6minmj4552sw"]
 
 [ext_resource type="Texture2D" uid="uid://bgq51kp663k6w" path="res://assets/background/bg-back.png" id="1_nlsme"]
 [ext_resource type="Texture2D" uid="uid://dt2f401fmxaih" path="res://assets/background/bg-mid.png" id="2_nlsme"]
 [ext_resource type="Texture2D" uid="uid://dwu4cjto37q6i" path="res://assets/background/bg-front.png" id="3_qsem6"]
+[ext_resource type="PackedScene" uid="uid://cblhljmyj8or3" path="res://scenes/level_flasher/level_flasher.tscn" id="4_yyle5"]
 
 [node name="ScrollingBackground" type="ParallaxBackground"]
 
@@ -34,3 +35,5 @@ motion_mirroring = Vector2(1920, 1440)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 texture = ExtResource("3_qsem6")
+
+[node name="LevelFlasher" parent="." instance=ExtResource("4_yyle5")]
