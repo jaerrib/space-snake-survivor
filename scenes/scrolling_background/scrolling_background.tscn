@@ -1,39 +1,47 @@
 [gd_scene load_steps=5 format=3 uid="uid://6minmj4552sw"]
 
-[ext_resource type="Texture2D" uid="uid://bgq51kp663k6w" path="res://assets/background/bg-back.png" id="1_nlsme"]
-[ext_resource type="Texture2D" uid="uid://dt2f401fmxaih" path="res://assets/background/bg-mid.png" id="2_nlsme"]
-[ext_resource type="Texture2D" uid="uid://dwu4cjto37q6i" path="res://assets/background/bg-front.png" id="3_qsem6"]
+[ext_resource type="Texture2D" uid="uid://3aoig6qkm8uq" path="res://assets/background/bg-back.png" id="1_nlsme"]
+[ext_resource type="Texture2D" uid="uid://buwh3n6b0xhn3" path="res://assets/background/bg-mid.png" id="2_nlsme"]
+[ext_resource type="Texture2D" uid="uid://cp4i5j4ffhxf8" path="res://assets/background/bg-front.png" id="3_qsem6"]
 [ext_resource type="PackedScene" uid="uid://cblhljmyj8or3" path="res://scenes/level_flasher/level_flasher.tscn" id="4_yyle5"]
 
-[node name="ScrollingBackground" type="ParallaxBackground"]
+[node name="ScrollingBackground" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 960.0
+offset_bottom = 720.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.25, 0.25)
-motion_mirroring = Vector2(1920, 1440)
+[node name="Back" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.1, 0.1)
+repeat_size = Vector2(960, 720)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Back"]
 texture = ExtResource("1_nlsme")
+centered = false
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.5, 0.5)
-motion_mirroring = Vector2(1920, 1440)
+[node name="Mid" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.3, 0.3)
+repeat_size = Vector2(960, 720)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Sprite2D" type="Sprite2D" parent="Mid"]
 texture = ExtResource("2_nlsme")
+centered = false
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.75, 0.75)
-motion_mirroring = Vector2(1920, 1440)
+[node name="Front" type="Parallax2D" parent="."]
+scroll_scale = Vector2(0.5, 0.5)
+repeat_size = Vector2(960, 720)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="Front"]
 texture = ExtResource("3_qsem6")
+centered = false
 
 [node name="LevelFlasher" parent="." instance=ExtResource("4_yyle5")]
