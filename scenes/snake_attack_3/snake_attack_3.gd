@@ -10,11 +10,14 @@ const MAX_LEVEL: int = 10
 
 var weapon_level: int = 1
 var level_increases: int = 0
+var player_ref: Snake
 
 @onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
+	var player: Snake = get_tree().get_first_node_in_group("player")
+	player_ref = player
 	timer.wait_time = delay_time
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
@@ -26,11 +29,10 @@ func on_player_died_or_level_complete() -> void:
 
 
 func _on_timer_timeout() -> void:
-	var player: Snake = get_tree().get_first_node_in_group("player")
-	var player_pos: Vector2 = Vector2(player.global_position.x + 8, player.global_position.y + 8)
+	var player_pos: Vector2 = Vector2(player_ref.global_position.x + 8, player_ref.global_position.y + 8)
 	var angle: float = randf_range(0, TAU)
 	var random_direction: Vector2 = Vector2.RIGHT.rotated(angle).normalized()
-	var projectile_speed: float = player.speed + speed_modifier
+	var projectile_speed: float = player_ref.speed + speed_modifier
 	SignalManager.on_create_projectile.emit(
 		player_pos,
 		random_direction,
