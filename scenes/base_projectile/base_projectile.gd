@@ -54,3 +54,7 @@ func critical() -> int:
 		return 3
 	else:
 		return 1
+
+
+func _on_removal_timer_timeout() -> void:
+	queue_free()
