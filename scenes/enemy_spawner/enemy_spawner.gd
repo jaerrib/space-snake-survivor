@@ -9,6 +9,7 @@ var sector_multiplier: int = 1
 var spawn_modifier: float
 var delay_modifier: float
 
+@onready var player: Snake =  get_tree().get_first_node_in_group("player")
 @onready var timer: Timer = $Timer
 
 
@@ -63,7 +64,6 @@ func _on_timer_timeout() -> void:
 
 
 func get_random_position() -> Vector2:
-	var player: Snake = get_tree().get_first_node_in_group("player")
 	var view_size: Vector2 = get_viewport_rect().size
 	var base_distance: float = max(view_size.x, view_size.y) / 4
 	var spawn_distance: float = randf_range(base_distance * 1.1, base_distance * 1.4)
