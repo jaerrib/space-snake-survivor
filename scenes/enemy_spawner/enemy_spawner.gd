@@ -49,12 +49,12 @@ func _on_timer_timeout() -> void:
 		var base_spawn: int = spawn_info.enemy_num
 		var scaled_spawn: float = base_spawn * spawn_modifier
 		var spawn_num: int = max(roundi(scaled_spawn), 1)
+		var modified_delay: float = clamp(
+			spawn_info.enemy_spawn_delay / delay_modifier,
+			0.5,
+			spawn_info.enemy_spawn_delay
+		)
 		for i in spawn_num:
-			var modified_delay: float = clamp(
-				spawn_info.enemy_spawn_delay / delay_modifier,
-				0.5,
-				spawn_info.enemy_spawn_delay
-			)
 			if spawn_info.spawn_delay_counter < modified_delay:
 				spawn_info.spawn_delay_counter += 1
 			else:
