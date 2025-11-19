@@ -46,6 +46,7 @@ xp_val = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_564qj")
+autoplay = "default"
 frame_progress = 0.711841
 
 [node name="CollisionShape2D" parent="." index="2"]
