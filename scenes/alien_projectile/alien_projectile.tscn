@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=3 uid="uid://0gb6a3v4w84o"]
+
+[ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_rfdhi"]
+[ext_resource type="Texture2D" uid="uid://dft1tobenmukg" path="res://assets/enemies/alien_projectile.png" id="2_q3ft7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_akxsw"]
+radius = 4.12311
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24a74"]
+atlas = ExtResource("2_q3ft7")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rke7"]
+atlas = ExtResource("2_q3ft7")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vua2i"]
+atlas = ExtResource("2_q3ft7")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqiw6"]
+atlas = ExtResource("2_q3ft7")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_trkag"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24a74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rke7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vua2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqiw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vua2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rke7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="AlienProjectile" instance=ExtResource("1_rfdhi")]
+collision_layer = 32
+collision_mask = 2
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="0"]
+scale = Vector2(0.4, 0.4)
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("CircleShape2D_akxsw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="4"]
+sprite_frames = SubResource("SpriteFrames_trkag")
+autoplay = "default"
+frame_progress = 0.421201

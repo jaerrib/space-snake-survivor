@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://csmpvups8hnse"]
+
+[ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_w2kmx"]
+[ext_resource type="Texture2D" uid="uid://csdgrxdt3tw5u" path="res://assets/enemies/aliens.png" id="2_jlq6a"]
+[ext_resource type="Script" uid="uid://cs7kiu8utwxt2" path="res://scenes/alien_7/alien_7.gd" id="2_vjss0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjss0"]
+atlas = ExtResource("2_jlq6a")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxdt1"]
+atlas = ExtResource("2_jlq6a")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_564qj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjss0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxdt1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2kmx"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jlq6a"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjss0"]
+size = Vector2(14, 14)
+
+[node name="Alien7" instance=ExtResource("1_w2kmx")]
+script = ExtResource("2_vjss0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_564qj")
+frame_progress = 0.711841
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_w2kmx")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_jlq6a")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_vjss0")
+
+[node name="ShootTimer" type="Timer" parent="." index="8"]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]
