@@ -64,7 +64,7 @@ knockback_amount = 2
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_aagf1")
 hframes = 8
-frame = 2
+frame = 6
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_7vdy8")
