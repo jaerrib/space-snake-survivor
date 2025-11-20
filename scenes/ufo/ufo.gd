@@ -20,6 +20,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 
 func _on_death_timer_timeout() -> void:
 	animated_sprite_2d.play("open")
+	SoundManager.play_sound_at(SoundDefs.SoundType.UFO_OPEN, global_position)
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

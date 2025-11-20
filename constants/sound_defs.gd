@@ -12,6 +12,7 @@ enum SoundType {
 	FIREBALL,
 	PLAYER_HIT,
 	BLAST_RADIUS,
+	UFO_OPEN,
 	}
 
 enum UISoundType {
@@ -49,6 +50,7 @@ const SOUND_PRIORITIES = {
 	SoundType.FIREBALL: 6,
 	SoundType.PLAYER_HIT: 7,
 	SoundType.BLAST_RADIUS: 7,
+	SoundType.UFO_OPEN: 9,
 	}
 
 const SOUND_TYPES = {
@@ -63,6 +65,7 @@ const SOUND_TYPES = {
 	SoundType.FIREBALL: preload("res://assets/audio/fx/fireball.ogg"),
 	SoundType.PLAYER_HIT: preload("res://assets/audio/fx/player_hit.ogg"),
 	SoundType.BLAST_RADIUS: preload("res://assets/audio/fx/blast_radius.ogg"),
+	SoundType.UFO_OPEN: preload("res://assets/audio/fx/ufo_open.ogg"),
 	}
 
 const UI_SOUND_TYPES = {
@@ -87,6 +90,7 @@ const SOUND_VOLUMES = {
 	SoundType.FIREBALL: 0.8,
 	SoundType.PLAYER_HIT: 1.0,
 	SoundType.BLAST_RADIUS: 1.0,
+	SoundType.UFO_OPEN: 0.8,
 	}
 
 const UI_SOUND_VOLUMES = {
