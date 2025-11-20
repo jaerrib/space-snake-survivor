@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://h0844cxyryli"]
+[gd_scene load_steps=16 format=3 uid="uid://h0844cxyryli"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_bcm52"]
 [ext_resource type="Script" uid="uid://ch2wg0pldrbox" path="res://scenes/ufo/ufo.gd" id="2_4t1i8"]
@@ -12,6 +12,30 @@ region = Rect2(0, 0, 32, 32)
 atlas = ExtResource("2_aqm62")
 region = Rect2(32, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4u7g4"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5vj0"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvcbq"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwpo1"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xw38"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6mra"]
+atlas = ExtResource("2_aqm62")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_4u7g4"]
 animations = [{
 "frames": [{
@@ -23,6 +47,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4u7g4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5vj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xvcbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwpo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xw38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6mra")
+}],
+"loop": false,
+"name": &"open",
 "speed": 8.0
 }]
 
@@ -45,7 +92,9 @@ xp_val = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_4u7g4")
+animation = &"open"
 autoplay = "default"
+frame_progress = 0.754957
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_aqm62")
@@ -55,3 +104,8 @@ shape = SubResource("RectangleShape2D_4t1i8")
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("RectangleShape2D_4nenq")
+
+[node name="DeathTimer" parent="." index="6"]
+wait_time = 10.0
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
