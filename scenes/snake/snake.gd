@@ -108,8 +108,14 @@ func update_segments() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var damage = area.get_parent().get_damage()
-	var actual_damage = damage * (1.0 - dmg_reduction)
+	var damage: float = 0.0
+	if area.has_method("get_damage"):
+		damage = area.get_damage()
+	elif area.get_parent().has_method("get_damage"):
+		damage = area.get_parent().get_damage()
+	if damage == 0.0:
+		return
+	var actual_damage: float = damage * (1.0 - dmg_reduction)
 	hp = max(hp - actual_damage, 0)
 	SignalManager.on_update_health.emit(hp)
 	SignalManager.on_snake_hit.emit()
