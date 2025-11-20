@@ -1,6 +1,7 @@
 class_name Alien7 extends EnemyBase
 
-var _projectile_speed: float = 50.0
+var _projectile_speed: float = 70.0
+var _projectile_dmg: float = 10.0
 var _attack_penetration: float = 5.0
 
 func _on_shoot_timer_timeout() -> void:
@@ -11,7 +12,7 @@ func _on_shoot_timer_timeout() -> void:
 		shoot_position,
 		direction,
 		_projectile_speed,
-		damage,
+		_projectile_dmg,
 		_attack_penetration,
 		Constants.ProjectileType.ALIEN_PROJECTILE
 	)
