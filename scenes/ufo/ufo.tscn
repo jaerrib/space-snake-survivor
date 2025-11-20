@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://h0844cxyryli"]
+[gd_scene load_steps=14 format=3 uid="uid://h0844cxyryli"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_bcm52"]
 [ext_resource type="Script" uid="uid://ch2wg0pldrbox" path="res://scenes/ufo/ufo.gd" id="2_4t1i8"]
@@ -9,14 +9,6 @@ atlas = ExtResource("2_aqm62")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4nenq"]
-atlas = ExtResource("2_aqm62")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4u7g4"]
-atlas = ExtResource("2_aqm62")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_h5vj0"]
 atlas = ExtResource("2_aqm62")
 region = Rect2(32, 0, 32, 32)
 
@@ -50,12 +42,6 @@ animations = [{
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4u7g4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h5vj0")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xvcbq")
 }, {
@@ -94,7 +80,8 @@ xp_val = 20
 sprite_frames = SubResource("SpriteFrames_4u7g4")
 animation = &"open"
 autoplay = "default"
-frame_progress = 0.754957
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("RectangleShape2D_aqm62")
