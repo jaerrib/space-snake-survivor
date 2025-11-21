@@ -14,6 +14,7 @@ func _ready() -> void:
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
+	base_animation_player.play("Flash")
 	var damage = area.get_damage()
 	hp -= damage
 	if hp <= 0:	

@@ -14,6 +14,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		SignalManager.on_enemy_killed.emit()
 		queue_free()
 	else:
+		base_animation_player.play("Flash")
 		SoundManager.play_sound_at(SoundDefs.SoundType.ENEMY_HIT, global_position)
 		knockback()
 
