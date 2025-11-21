@@ -11,7 +11,7 @@ var _knockback_direction: Vector2 = Vector2.ZERO
 
 @onready var player: Snake =  get_tree().get_first_node_in_group("player")
 @onready var knockback_timer: Timer = $KnockbackTimer
-@onready var fade_animation_player: AnimationPlayer = $FadeAnimationPlayer
+@onready var base_animation_player: AnimationPlayer = $BaseAnimationPlayer
 @onready var death_timer: Timer = $DeathTimer
 
 
@@ -56,6 +56,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		SignalManager.on_enemy_killed.emit()
 		queue_free()
 	else:
+		base_animation_player.play("Flash")
 		SoundManager.play_sound_at(SoundDefs.SoundType.ENEMY_HIT, global_position)
 		knockback()
 
@@ -76,8 +77,9 @@ func _on_knockback_timer_timeout() -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	fade_animation_player.play("Fade")
+	base_animation_player.play("Fade")
 
 
-func _on_fade_animation_player_animation_finished(anim_name: StringName) -> void:
-	queue_free()
+func _on_base_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "Fade":
+		queue_free()
