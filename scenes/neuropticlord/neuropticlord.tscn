@@ -1,0 +1,126 @@
+[gd_scene load_steps=17 format=3 uid="uid://cwkrk6qcbl876"]
+
+[ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_275on"]
+[ext_resource type="Texture2D" uid="uid://vtj08lna4ibq" path="res://assets/enemies/neuropticlord-stalks.png" id="2_n6oio"]
+[ext_resource type="Script" uid="uid://cbxrm0ys2isck" path="res://scenes/neuropticlord/neuropticlord.gd" id="2_r5xhj"]
+[ext_resource type="Texture2D" uid="uid://dsgtvai4opth1" path="res://assets/enemies/neuropticlord-body.png" id="3_rjw33"]
+[ext_resource type="Texture2D" uid="uid://codh3y48ylp3k" path="res://assets/enemies/neuropticlord-eyelid.png" id="4_rjw33"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5xhj"]
+atlas = ExtResource("2_n6oio")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1xb5w"]
+atlas = ExtResource("2_n6oio")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xk1mj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5xhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1xb5w")
+}],
+"loop": true,
+"name": &"flail",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk1mj"]
+atlas = ExtResource("4_rjw33")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7ins"]
+atlas = ExtResource("4_rjw33")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwt37"]
+atlas = ExtResource("4_rjw33")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu7no"]
+atlas = ExtResource("4_rjw33")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jric"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk1mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ins")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwt37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu7no")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwt37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7ins")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk1mj")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xb5w"]
+size = Vector2(112, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5xhj"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xb5w"]
+radius = 120.0
+
+[node name="Neuropticlord" instance=ExtResource("1_275on")]
+script = ExtResource("2_r5xhj")
+movement_speed = 10.0
+hp = 300.0
+damage = 10.0
+xp_val = 500
+knockback_amount = 0
+
+[node name="Stalks" type="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_xk1mj")
+animation = &"flail"
+autoplay = "flail"
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("3_rjw33")
+
+[node name="Eyelid" type="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_2jric")
+animation = &"blink"
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("RectangleShape2D_1xb5w")
+
+[node name="HitBox" parent="." index="4"]
+monitoring = false
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_r5xhj")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_1xb5w")
+
+[node name="DeathTimer" parent="." index="7"]
+autostart = false
+
+[node name="ShootTimer" type="Timer" parent="." index="9"]
+wait_time = 10.0
+autostart = true
+
+[connection signal="animation_finished" from="Eyelid" to="." method="_on_eyelid_animation_finished"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

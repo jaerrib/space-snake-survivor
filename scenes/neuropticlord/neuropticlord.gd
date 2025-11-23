@@ -1,0 +1,51 @@
+class_name Neuropticlord extends EnemyBase
+
+var _projectile_speed: float = 70.0
+var _projectile_dmg: float = 20.0
+var _attack_penetration: float = 5.0
+@onready var eyelid: AnimatedSprite2D = $Eyelid
+@onready var stalks: AnimatedSprite2D = $Stalks
+@onready var hit_box: Area2D = $HitBox
+
+
+func _ready() -> void:
+	super._ready()
+	hit_box.monitoring = false
+
+
+func _on_shoot_timer_timeout() -> void:
+	hit_box.monitoring = true
+	stalks.stop()
+	eyelid.play("blink")
+
+
+func _on_eyelid_animation_finished() -> void:
+	var direction = global_position.direction_to(player.global_position)
+	var shoot_position: Vector2 = Vector2(global_position.x, global_position.y)
+	velocity = direction * movement_speed
+	SignalManager.on_create_projectile.emit(
+		shoot_position,
+		direction,
+		_projectile_speed,
+		_projectile_dmg,
+		_attack_penetration,
+		Constants.ProjectileType.CYBERBALL
+	)
+	stalks.play("flail")
+	hit_box.monitoring = false
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	var incoming_damage = area.get_damage()
+	hp -= incoming_damage
+	if hp <= 0:
+		SoundManager.play_sound_at(SoundDefs.SoundType.DIE01, global_position)
+		var spawn_pos: Vector2 = global_position
+		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"], xp_val)
+		SignalManager.on_enemy_killed.emit()
+		queue_free()
+		SignalManager.on_level_complete.emit()
+	else:
+		base_animation_player.play("Flash")
+		SoundManager.play_sound_at(SoundDefs.SoundType.ENEMY_HIT, global_position)
+		knockback()

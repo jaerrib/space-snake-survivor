@@ -23,6 +23,7 @@ enum EnemyType {
 	ALIEN_6,
 	UFO,
 	ALIEN_7,
+	NEUROPTICLORD,
 	}
 
 enum ProjectileType {
@@ -33,6 +34,7 @@ enum ProjectileType {
 	BOMB_RADIUS,
 	SNAKE_FIREBALL,
 	ALIEN_PROJECTILE,
+	CYBERBALL,
 	}
 
 enum PlayerWeapons { ATTACK_1, ATTACK_2, ATTACK_3, ATTACK_4, ATTACK_5 }

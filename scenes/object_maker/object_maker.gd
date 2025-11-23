@@ -18,6 +18,7 @@ const ENEMY_SCENE: Dictionary = {
 	Constants.EnemyType.ALIEN_6: preload("res://scenes/alien_6/alien_6.tscn"),
 	Constants.EnemyType.UFO: preload("res://scenes/ufo/ufo.tscn"),
 	Constants.EnemyType.ALIEN_7: preload("res://scenes/alien_7/alien_7.tscn"),
+	Constants.EnemyType.NEUROPTICLORD: preload("res://scenes/neuropticlord/neuropticlord.tscn"),
 }
 
 const OBJECT_SCENES: Dictionary = {
@@ -33,6 +34,7 @@ const PROJECTILE_SCENE: Dictionary = {
 	Constants.ProjectileType.BOMB_RADIUS: preload("res://scenes/bomb_radius/bomb_radius.tscn"),
 	Constants.ProjectileType.SNAKE_FIREBALL: preload("res://scenes/snake_fireball/snake_fireball.tscn"),
 	Constants.ProjectileType.ALIEN_PROJECTILE: preload("res://scenes/alien_projectile/alien_projectile.tscn"),
+	Constants.ProjectileType.CYBERBALL: preload("res://scenes/cyber_ball/cyber_ball.tscn"),
 }
 
 @onready var enemy_holder: Node = $EnemyHolder
