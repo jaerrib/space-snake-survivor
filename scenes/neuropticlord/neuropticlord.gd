@@ -5,8 +5,16 @@ var _projectile_dmg: float = 20.0
 var _attack_penetration: float = 5.0
 @onready var eyelid: AnimatedSprite2D = $Eyelid
 @onready var stalks: AnimatedSprite2D = $Stalks
+@onready var hit_box: Area2D = $HitBox
+
+
+func _ready() -> void:
+	super._ready()
+	hit_box.monitoring = false
+
 
 func _on_shoot_timer_timeout() -> void:
+	hit_box.monitoring = true
 	stalks.stop()
 	eyelid.play("blink")
 
@@ -24,6 +32,7 @@ func _on_eyelid_animation_finished() -> void:
 		Constants.ProjectileType.CYBERBALL
 	)
 	stalks.play("flail")
+	hit_box.monitoring = false
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:

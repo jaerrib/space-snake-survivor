@@ -105,6 +105,9 @@ animation = &"blink"
 [node name="CollisionShape2D" parent="." index="3"]
 shape = SubResource("RectangleShape2D_1xb5w")
 
+[node name="HitBox" parent="." index="4"]
+monitoring = false
+
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("RectangleShape2D_r5xhj")
 
