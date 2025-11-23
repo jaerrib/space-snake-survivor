@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwkrk6qcbl876"]
+[gd_scene load_steps=17 format=3 uid="uid://cwkrk6qcbl876"]
 
 [ext_resource type="PackedScene" uid="uid://b2vo66dk2nrqa" path="res://scenes/enemy_base/enemy_base.tscn" id="1_275on"]
 [ext_resource type="Texture2D" uid="uid://vtj08lna4ibq" path="res://assets/enemies/neuropticlord-stalks.png" id="2_n6oio"]
@@ -73,6 +73,15 @@ animations = [{
 "speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xb5w"]
+size = Vector2(112, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r5xhj"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1xb5w"]
+radius = 120.0
+
 [node name="Neuropticlord" instance=ExtResource("1_275on")]
 script = ExtResource("2_r5xhj")
 movement_speed = 10.0
@@ -85,8 +94,6 @@ knockback_amount = 0
 sprite_frames = SubResource("SpriteFrames_xk1mj")
 animation = &"flail"
 autoplay = "flail"
-frame = 1
-frame_progress = 0.240371
 
 [node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("3_rjw33")
@@ -94,6 +101,16 @@ texture = ExtResource("3_rjw33")
 [node name="Eyelid" type="AnimatedSprite2D" parent="." index="2"]
 sprite_frames = SubResource("SpriteFrames_2jric")
 animation = &"blink"
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("RectangleShape2D_1xb5w")
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("RectangleShape2D_r5xhj")
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_1xb5w")
 
 [node name="DeathTimer" parent="." index="7"]
 autostart = false
