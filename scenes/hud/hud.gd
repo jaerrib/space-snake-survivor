@@ -25,6 +25,7 @@ var sector_tracker: int = 1
 var next_sector_time: float
 var enemies_killed: int = 0
 var first_level: int
+var _boss_spawned: bool = false
 
 func _ready() -> void:
 	_connect_signals()
@@ -65,13 +66,25 @@ func update_timer_label() -> void:
 
 func _on_level_timer_timeout() -> void:
 	time_elapsed += 1
-	if time_elapsed >= next_sector_time:
-		SignalManager.on_advance_sector.emit()
-		next_sector_time += sector_interval
 	update_timer_label()
-	if time_elapsed >= LEVEL_LENGTH:
-		SignalManager.on_level_complete.emit()
-		SignalManager.on_send_game_stats.emit(get_game_stats())
+	if !_boss_spawned:
+		if time_elapsed >= LEVEL_LENGTH:
+			var boss_spawn_pos: Vector2 = get_random_position()
+			SignalManager.on_create_enemy.emit(boss_spawn_pos, Constants.EnemyType.NEUROPTICLORD)
+			_boss_spawned = true
+		if time_elapsed >= next_sector_time:
+			SignalManager.on_advance_sector.emit()
+			next_sector_time += sector_interval
+
+
+func get_random_position() -> Vector2:
+	var player: Snake =  get_tree().get_first_node_in_group("player")
+	var view_size: Vector2 = get_viewport_rect().size
+	var base_distance: float = max(view_size.x, view_size.y) / 4
+	var spawn_distance: float = randf_range(base_distance * 1.1, base_distance * 1.4)
+	var angle: float = randf_range(0, TAU)
+	var offset: Vector2 = Vector2.RIGHT.rotated(angle) * spawn_distance
+	return player.global_position + offset
 
 
 func on_level_up() -> void:
