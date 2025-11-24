@@ -3,14 +3,18 @@ class_name Neuropticlord extends EnemyBase
 var _projectile_speed: float = 70.0
 var _projectile_dmg: float = 20.0
 var _attack_penetration: float = 5.0
+var _is_dead: bool = false
+
 @onready var eyelid: AnimatedSprite2D = $Eyelid
 @onready var stalks: AnimatedSprite2D = $Stalks
 @onready var hit_box: Area2D = $HitBox
+@onready var hurt_box: Area2D = $HurtBox
 
 
 func _ready() -> void:
 	super._ready()
 	hit_box.monitoring = false
+	hurt_box.monitoring = true
 
 
 func _on_shoot_timer_timeout() -> void:
@@ -39,13 +43,35 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	var incoming_damage = area.get_damage()
 	hp -= incoming_damage
 	if hp <= 0:
-		SoundManager.play_sound_at(SoundDefs.SoundType.DIE01, global_position)
-		var spawn_pos: Vector2 = global_position
-		SignalManager.on_create_object.emit(spawn_pos, Constants.ObjectType["XP"], xp_val)
-		SignalManager.on_enemy_killed.emit()
-		queue_free()
-		SignalManager.on_level_complete.emit()
+		die()
 	else:
 		base_animation_player.play("Flash")
 		SoundManager.play_sound_at(SoundDefs.SoundType.ENEMY_HIT, global_position)
 		knockback()
+
+
+func die() -> void:
+	_is_dead = true
+	stalks.stop()
+	hit_box.monitoring = false
+	hurt_box.monitoring = false
+	SoundManager.play_sound_at(SoundDefs.SoundType.DIE01, global_position)
+	SignalManager.on_create_object.emit(
+		global_position,
+		Constants.ObjectType["XP"],
+		xp_val
+		)
+	SignalManager.on_enemy_killed.emit()
+	death_timer.start()
+
+
+func _on_base_animation_player_animation_finished(anim_name: StringName) -> void:
+	super._on_base_animation_player_animation_finished(anim_name)
+	SignalManager.on_level_complete.emit()
+
+
+func on_snake_position_update(pos: Vector2) -> void:
+	if _is_dead:
+		velocity = Vector2(0, 0)
+		return
+	super.on_snake_position_update(pos)
