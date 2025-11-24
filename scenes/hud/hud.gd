@@ -69,6 +69,7 @@ func _on_level_timer_timeout() -> void:
 	update_timer_label()
 	if !_boss_spawned:
 		if time_elapsed >= LEVEL_LENGTH:
+			SoundManager.play_music(-2)
 			var boss_spawn_pos: Vector2 = get_random_position()
 			SignalManager.on_create_enemy.emit(boss_spawn_pos, Constants.EnemyType.NEUROPTICLORD)
 			_boss_spawned = true
