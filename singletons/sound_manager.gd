@@ -41,10 +41,12 @@ func play_ui_sound(s_type: int) -> void:
 
 
 func play_music(level: int):
-	var s_type: int = level % (len(SoundDefs.MUSIC_TYPES) - 1) # exclude menu music
+	var s_type: int = level % (len(SoundDefs.MUSIC_TYPES) - 2) # exclude menu music
 	var stream: AudioStream
 	if level == -1:
 		stream = SoundDefs.MUSIC_TYPES.get(len(SoundDefs.MUSIC_TYPES) - 1, null)
+	elif level == -2:
+		stream = SoundDefs.MUSIC_TYPES.get(len(SoundDefs.MUSIC_TYPES) - 2, null)
 	else:
 		stream = SoundDefs.MUSIC_TYPES.get(s_type, null)
 	if stream:
