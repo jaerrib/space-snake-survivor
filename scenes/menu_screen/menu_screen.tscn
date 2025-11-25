@@ -212,9 +212,12 @@ alignment = 1
 
 [node name="CopyrightText" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 text = "© 2025 John Beers"
 label_settings = SubResource("LabelSettings_df1yq")
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
