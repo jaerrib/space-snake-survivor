@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d06qo5paubbni"]
+[gd_scene load_steps=16 format=4 uid="uid://d06qo5paubbni"]
 
 [ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="1_1olso"]
 [ext_resource type="Script" uid="uid://jj32w418qnur" path="res://scenes/menu_screen/menu_screen.gd" id="1_f65jf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c0o7degwuwgqw" path="res://assets/background/menu-bg.png" id="2_qq4bh"]
 [ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="6_f6bca"]
 [ext_resource type="TileSet" uid="uid://dssym2ve4l5ck" path="res://assets/tilemap.tres" id="7_k7h71"]
+[ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="7_u3bdl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_46ee7"]
 font = ExtResource("2_bka6l")
@@ -17,16 +18,16 @@ font_size = 48
 default_font = ExtResource("1_q8734")
 default_font_size = 48
 
-[sub_resource type="LabelSettings" id="LabelSettings_f65jf"]
-font = ExtResource("1_q8734")
-font_size = 24
+[sub_resource type="LabelSettings" id="LabelSettings_df1yq"]
+font = ExtResource("7_u3bdl")
+font_size = 32
 
 [sub_resource type="Animation" id="Animation_f6bca"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/TitleLabel:self_modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +39,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TileMapLayer:self_modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/TileMapLayer:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -56,7 +57,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxContainer/TitleLabel:self_modulate")
+tracks/0/path = NodePath("MarginContainer/VBoxContainer/TitleLabel:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TileMapLayer:self_modulate")
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/TileMapLayer:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -102,99 +103,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qq4bh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 2
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 928.0
-offset_bottom = 688.0
-alignment = 1
-
-[node name="TitleLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Space Snake Survivor"
-label_settings = SubResource("LabelSettings_46ee7")
-horizontal_alignment = 1
-
-[node name="MenuContainer" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme = SubResource("Theme_f65jf")
-
-[node name="VSpacer1" type="Control" parent="VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="VBoxContainer/MenuContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_override_font_sizes/font_size = 64
-text = "new Game"
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/MenuContainer"]
-layout_mode = 2
-
-[node name="Easy" type="Button" parent="VBoxContainer/MenuContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_type_variation = &"FlatButton"
-text = "Easy"
-
-[node name="HSpacer1" type="Control" parent="VBoxContainer/MenuContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Normal" type="Button" parent="VBoxContainer/MenuContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_type_variation = &"FlatButton"
-text = "Normal"
-script = ExtResource("1_1olso")
-
-[node name="HSpacer2" type="Control" parent="VBoxContainer/MenuContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Hard" type="Button" parent="VBoxContainer/MenuContainer/HBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_type_variation = &"FlatButton"
-text = "hard"
-
-[node name="VSpacer2" type="Control" parent="VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Quit" type="Button" parent="VBoxContainer/MenuContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 64
-text = "Quit"
-
-[node name="Credits" type="Button" parent="VBoxContainer/MenuContainer"]
-layout_mode = 2
-theme = ExtResource("2_46ee7")
-theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 64
-text = "Credits"
-
-[node name="VSpacer3" type="Control" parent="VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 48)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="VersionLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Version 0.1"
-label_settings = SubResource("LabelSettings_f65jf")
-horizontal_alignment = 1
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -207,9 +115,112 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Space Snake Survivor"
+label_settings = SubResource("LabelSettings_46ee7")
+horizontal_alignment = 1
+
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_f65jf")
+
+[node name="VSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 68)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_override_font_sizes/font_size = 64
+text = "New Game"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+
+[node name="Easy" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "Easy"
+
+[node name="HSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Normal" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "Normal"
+script = ExtResource("1_1olso")
+
+[node name="HSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Hard" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+text = "Hard"
+
+[node name="VSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 64
+text = "Quit"
+
+[node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_46ee7")
+theme_type_variation = &"FlatButton"
+theme_override_font_sizes/font_size = 64
+text = "Credits"
+
+[node name="VSpacer3" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TileMapLayer" type="TileMapLayer" parent="MarginContainer/VBoxContainer"]
+position = Vector2(-32, -32)
 tile_map_data = PackedByteArray("AAAGAAwAAAATAAEAAAAHAAwAAAATAAEAAAAIAAwAAAATAAEAAAAJAAwAAAATAAEAAAAKAAwAAAATAAEAAAALAAwAAAATAAEAAAAMAAwAAAATAAEAAAANAAwAAAATAAEAAAAOAAwAAAATAAEAAAAPAAwAAAATAAEAAAAQAAwAAAATAAEAAAARAAwAAAATAAEAAAASAAwAAAATAAEAAAATAAwAAAATAAEAAAAUAAwAAAATAAEAAAAVAAwAAAATAAEAAAAWAAwAAAATAAEAAAAXAAwAAAATAAEAAAAYAAwAAAATAAEAAAAZAAwAAAATAAEAAAAaAAwAAAATAAEAAAAbAAwAAAATAAEAAAAcAAwAAAATAAEAAAAdAAwAAAATAAEAAAAeAAwAAAATAAEAAAAfAAwAAAATAAEAAAAgAAwAAAATAAEAAAAhAAwAAAATAAEAAAAiAAwAAAATAAEAAAAjAAwAAAATAAEAAAAkAAwAAAATAAEAAAAlAAwAAAATAAEAAAAmAAwAAAATAAEAAAAnAAwAAAATAAEAAAAoAAwAAAATAAEAAAApAAwAAAATAAEAAAAqAAwAAAATAAEAAAArAAwAAAATAAEAAAAsAAwAAAATAAEAAAAtAAwAAAATAAEAAAAuAAwAAAATAAEAAAAvAAwAAAATAAEAAAAwAAwAAAATAAEAAAAxAAwAAAATAAEAAAAyAAwAAAATAAEAAAAzAAwAAAATAAEAAAA0AAwAAAATAAEAAAA1AAwAAAATAAEAAAAGAAcAAAATAAEAAAAHAAcAAAATAAEAAAAIAAcAAAATAAEAAAAJAAcAAAATAAEAAAAKAAcAAAATAAEAAAALAAcAAAATAAEAAAAMAAcAAAATAAEAAAANAAcAAAATAAEAAAAOAAcAAAATAAEAAAAPAAcAAAATAAEAAAAQAAcAAAATAAEAAAARAAcAAAATAAEAAAASAAcAAAATAAEAAAATAAcAAAATAAEAAAAUAAcAAAATAAEAAAAVAAcAAAATAAEAAAAWAAcAAAATAAEAAAAXAAcAAAATAAEAAAAYAAcAAAATAAEAAAAZAAcAAAATAAEAAAAaAAcAAAATAAEAAAAbAAcAAAATAAEAAAAcAAcAAAATAAEAAAAdAAcAAAATAAEAAAAeAAcAAAATAAEAAAAfAAcAAAATAAEAAAAgAAcAAAATAAEAAAAhAAcAAAATAAEAAAAiAAcAAAATAAEAAAAjAAcAAAATAAEAAAAkAAcAAAATAAEAAAAlAAcAAAATAAEAAAAmAAcAAAATAAEAAAAnAAcAAAATAAEAAAAoAAcAAAATAAEAAAApAAcAAAATAAEAAAAqAAcAAAATAAEAAAArAAcAAAATAAEAAAAsAAcAAAATAAEAAAAtAAcAAAATAAEAAAAuAAcAAAATAAEAAAAvAAcAAAATAAEAAAAwAAcAAAATAAEAAAAxAAcAAAATAAEAAAAyAAcAAAATAAEAAAAzAAcAAAATAAEAAAA0AAcAAAATAAEAAAA1AAcAAAATAAEAAAA=")
 tile_set = ExtResource("7_k7h71")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="CopyrightText" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "© 2025 John Beers"
+label_settings = SubResource("LabelSettings_df1yq")
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Version 0.1"
+label_settings = SubResource("LabelSettings_df1yq")
+horizontal_alignment = 2
 
 [node name="Scanlines" parent="." instance=ExtResource("6_f6bca")]
 layout_mode = 1
@@ -220,8 +231,8 @@ libraries = {
 }
 autoplay = "title_pulse"
 
-[connection signal="pressed" from="VBoxContainer/MenuContainer/HBoxContainer/Easy" to="." method="_on_easy_pressed"]
-[connection signal="pressed" from="VBoxContainer/MenuContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
-[connection signal="pressed" from="VBoxContainer/MenuContainer/HBoxContainer/Hard" to="." method="_on_hard_pressed"]
-[connection signal="pressed" from="VBoxContainer/MenuContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="VBoxContainer/MenuContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/MenuContainer/Credits" to="." method="_on_credits_pressed"]
