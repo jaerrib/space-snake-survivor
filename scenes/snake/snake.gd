@@ -144,8 +144,8 @@ func on_level_up() -> void:
 	update_max_hp()
 	update_regen()
 	update_damage_reduction()
-	update_xp_detection()
 	check_for_weapon_add()
+	update_xp_detection()
 
 
 func check_for_weapon_add() -> void:
@@ -182,6 +182,8 @@ func update_damage_reduction():
 
 func update_xp_detection() -> void:
 	xp_collision_shape_2d.shape.radius *= XP_DETECTION_MODIFIER
+	for segment in segments:
+		segment.xp_collision_shape_2d.shape.radius = xp_collision_shape_2d.shape.radius
 
 
 func _on_heal_timer_timeout() -> void:

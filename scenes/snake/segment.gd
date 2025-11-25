@@ -3,6 +3,7 @@ class_name Segment extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_animation_timer: Timer = $DamageAnimationTimer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var xp_collision_shape_2d: CollisionShape2D = $XpDetection/CollisionShape2D
 
 
 func _ready() -> void:
