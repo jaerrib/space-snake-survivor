@@ -9,7 +9,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_gw660"]
 font = ExtResource("3_43wdk")
-font_size = 56
+font_size = 48
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
@@ -46,24 +46,39 @@ layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="CreditLabel" type="Label" parent="MC/VBoxContainer"]
+[node name="HeaderLabel" type="Label" parent="MC/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 1
-text = "CREDITS
+theme = ExtResource("2_vwmq1")
+text = "CREDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-Programming and pixel art by
+[node name="TopSpacer" type="Control" parent="MC/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreditsLabel" type="Label" parent="MC/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Programming and pixel art by
 John Beers
 
 Backgrounds made with
 Space Pixel Background Generator by Deep-Fold
 
 Level and boss music by HydroGene
-Menu music by Sudocolon"
+Menu music by Sudocolon
+
+This game is made available under an AGPLv3+ license
+Source code is available at:
+https://codeberg.org/jaerrib/space-snake-survivor"
 label_settings = SubResource("LabelSettings_gw660")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Spacer" type="Control" parent="MC/VBoxContainer"]
+[node name="BottomSpacer" type="Control" parent="MC/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 3
