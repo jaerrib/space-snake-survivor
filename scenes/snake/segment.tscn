@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://bjk4deu5te083" path="res://scenes/snake/segment.gd" id="1_1va46"]
 [ext_resource type="Texture2D" uid="uid://mx3estf5ra65" path="res://assets/player/snake.png" id="1_277yi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_277yi"]
-size = Vector2(16, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_1va46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1va46"]
 size = Vector2(16, 16)
@@ -46,7 +45,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="XpDetection"]
 position = Vector2(8, 8)
-shape = SubResource("RectangleShape2D_277yi")
+shape = SubResource("CircleShape2D_1va46")
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 0
