@@ -31,6 +31,7 @@ func _on_eyelid_animation_finished() -> void:
 	var direction = global_position.direction_to(player.global_position)
 	var shoot_position: Vector2 = Vector2(global_position.x, global_position.y)
 	velocity = direction * movement_speed
+	SoundManager.play_sound_at(SoundDefs.SoundType.BOSS_SHOOT, global_position)
 	SignalManager.on_create_projectile.emit(
 		shoot_position,
 		direction,
@@ -61,7 +62,7 @@ func die() -> void:
 	hit_box.set_deferred("monitoring", false)
 	hurt_box.set_deferred("monitorable", false)
 	hurt_collision_shape_2d.set_deferred("disabled", true)
-	SoundManager.play_sound_at(SoundDefs.SoundType.DIE01, global_position)
+	SoundManager.play_sound_at(SoundDefs.SoundType.BOSS_DIE, global_position)
 	#SignalManager.on_create_object.emit(
 		#global_position,
 		#Constants.ObjectType["XP"],
