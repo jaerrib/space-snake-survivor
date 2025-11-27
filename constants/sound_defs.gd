@@ -99,6 +99,8 @@ const SOUND_VOLUMES = {
 	SoundType.PLAYER_HIT: 1.0,
 	SoundType.BLAST_RADIUS: 1.0,
 	SoundType.UFO_OPEN: 0.8,
+	SoundType.BOSS_SHOOT: 0.9,
+	SoundType.BOSS_DIE: 1.0,
 	}
 
 const UI_SOUND_VOLUMES = {
