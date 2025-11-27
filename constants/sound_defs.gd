@@ -13,6 +13,8 @@ enum SoundType {
 	PLAYER_HIT,
 	BLAST_RADIUS,
 	UFO_OPEN,
+	BOSS_SHOOT,
+	BOSS_DIE,
 	}
 
 enum UISoundType {
@@ -53,6 +55,8 @@ const SOUND_PRIORITIES = {
 	SoundType.PLAYER_HIT: 7,
 	SoundType.BLAST_RADIUS: 7,
 	SoundType.UFO_OPEN: 9,
+	SoundType.BOSS_SHOOT: 9,
+	SoundType.BOSS_DIE: 10,
 	}
 
 const SOUND_TYPES = {
@@ -68,6 +72,8 @@ const SOUND_TYPES = {
 	SoundType.PLAYER_HIT: preload("res://assets/audio/fx/player_hit.ogg"),
 	SoundType.BLAST_RADIUS: preload("res://assets/audio/fx/blast_radius.ogg"),
 	SoundType.UFO_OPEN: preload("res://assets/audio/fx/ufo_open.ogg"),
+	SoundType.BOSS_SHOOT: preload("res://assets/audio/fx/boss_shoot.ogg"),
+	SoundType.BOSS_DIE: preload("res://assets/audio/fx/boss_die.ogg"),
 	}
 
 const UI_SOUND_TYPES = {
