@@ -1,4 +1,4 @@
-extends Node2D
+extends Parallax2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

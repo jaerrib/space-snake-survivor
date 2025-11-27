@@ -24,7 +24,7 @@ _data = {
 &"sector_open": SubResource("Animation_3lfhb")
 }
 
-[node name="LevelFlasher" type="Node2D"]
+[node name="LevelFlasher" type="Parallax2D"]
 script = ExtResource("1_ktrhm")
 
 [node name="ColorRect" type="ColorRect" parent="."]

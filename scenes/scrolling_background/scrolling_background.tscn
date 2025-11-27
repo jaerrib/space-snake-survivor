@@ -45,3 +45,4 @@ texture = ExtResource("3_qsem6")
 centered = false
 
 [node name="LevelFlasher" parent="." instance=ExtResource("4_yyle5")]
+scroll_scale = Vector2(0, 0)
