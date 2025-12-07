@@ -80,13 +80,13 @@ size = Vector2(112, 112)
 size = Vector2(64, 64)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1xb5w"]
-radius = 120.0
+radius = 112.0
 
 [node name="Neuropticlord" instance=ExtResource("1_275on")]
 script = ExtResource("2_r5xhj")
 movement_speed = 10.0
 hp = 200.0
-damage = 20.0
+damage = 5.0
 xp_val = 100
 knockback_amount = 0
 

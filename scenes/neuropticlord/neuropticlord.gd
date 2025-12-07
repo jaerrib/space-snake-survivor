@@ -1,7 +1,7 @@
 class_name Neuropticlord extends EnemyBase
 
-var _projectile_speed: float = 70.0
-var _projectile_dmg: float = 20.0
+var _projectile_speed: float = 50.0
+var _projectile_dmg: float = 10.0
 var _attack_penetration: float = 1.0
 var _is_dead: bool = false
 
@@ -18,6 +18,7 @@ func _ready() -> void:
 	hit_box.set_deferred("monitoring", true)
 	hurt_box.set_deferred("monitorable", true)
 	death_timer.wait_time = 2.0
+	print(damage)
 
 
 func _on_shoot_timer_timeout() -> void:
