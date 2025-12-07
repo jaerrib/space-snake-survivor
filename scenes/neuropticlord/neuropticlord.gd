@@ -17,7 +17,6 @@ func _ready() -> void:
 	super._ready()
 	hit_box.set_deferred("monitoring", true)
 	hurt_box.set_deferred("monitorable", true)
-	print("HP: ", hp)
 	death_timer.wait_time = 2.0
 
 
@@ -47,7 +46,6 @@ func _on_eyelid_animation_finished() -> void:
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var incoming_damage = area.get_damage()
 	hp -= incoming_damage
-	print("HP: ", hp)
 	if hp <= 0:
 		die()
 	else:
