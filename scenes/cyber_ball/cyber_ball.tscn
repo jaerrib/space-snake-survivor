@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://7yo5ttnrrbib"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_fc54k"]
-[ext_resource type="Script" uid="uid://xqrbueh4yoaj" path="res://scenes/cyber_ball/cyber_ball.gd" id="2_5w404"]
+[ext_resource type="Script" uid="uid://c1ou73eg7f7mu" path="res://scenes/base_projectile/enemy_projectile.gd" id="2_5w404"]
 [ext_resource type="Texture2D" uid="uid://cqm38hmqssnf4" path="res://assets/enemies/cyberball.png" id="2_wkvj6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5w404"]
