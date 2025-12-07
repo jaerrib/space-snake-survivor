@@ -82,7 +82,7 @@ const UI_SOUND_TYPES = {
 	UISoundType.MENU_MOVE: preload("res://assets/audio/ui/menu_move.ogg"),
 	UISoundType.SELECT: preload("res://assets/audio/ui/select.ogg"),
 	UISoundType.GAME_OVER: preload("res://assets/audio/fx/player_death.ogg"),
-	UISoundType.LEVEL_COMPLETE: preload("res://constants/constants.gd"),
+	UISoundType.LEVEL_COMPLETE: preload("res://assets/audio/ui/level_complete.ogg"),
 	UISoundType.HISS: preload("res://assets/audio/ui/hiss.ogg"),
 	}
 
