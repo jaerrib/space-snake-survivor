@@ -62,11 +62,7 @@ func die() -> void:
 	hurt_box.set_deferred("monitorable", false)
 	hurt_collision_shape_2d.set_deferred("disabled", true)
 	SoundManager.play_sound_at(SoundDefs.SoundType.BOSS_DIE, global_position)
-	#SignalManager.on_create_object.emit(
-		#global_position,
-		#Constants.ObjectType["XP"],
-		#xp_val
-		#)
+	SignalManager.on_xp_touched.emit(xp_val)
 	SignalManager.on_enemy_killed.emit()
 	death_timer.start()
 
