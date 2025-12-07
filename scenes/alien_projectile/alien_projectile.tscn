@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://0gb6a3v4w84o"]
+[gd_scene load_steps=11 format=3 uid="uid://0gb6a3v4w84o"]
 
 [ext_resource type="PackedScene" uid="uid://bhfu5ipauvtoc" path="res://scenes/base_projectile/base_projectile.tscn" id="1_rfdhi"]
+[ext_resource type="Script" uid="uid://c1ou73eg7f7mu" path="res://scenes/base_projectile/enemy_projectile.gd" id="2_akxsw"]
 [ext_resource type="Texture2D" uid="uid://dft1tobenmukg" path="res://assets/enemies/alien_projectile.png" id="2_q3ft7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_akxsw"]
-radius = 4.12311
+radius = 4.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24a74"]
 atlas = ExtResource("2_q3ft7")
@@ -48,9 +49,13 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_rfdhi"]
+radius = 4.0
+
 [node name="AlienProjectile" instance=ExtResource("1_rfdhi")]
 collision_layer = 32
 collision_mask = 2
+script = ExtResource("2_akxsw")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0"]
 scale = Vector2(0.4, 0.4)
@@ -62,3 +67,12 @@ shape = SubResource("CircleShape2D_akxsw")
 sprite_frames = SubResource("SpriteFrames_trkag")
 autoplay = "default"
 frame_progress = 0.421201
+
+[node name="HurtBox" type="Area2D" parent="." index="5"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_rfdhi")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
