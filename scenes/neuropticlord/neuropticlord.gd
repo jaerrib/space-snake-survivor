@@ -2,7 +2,7 @@ class_name Neuropticlord extends EnemyBase
 
 var _projectile_speed: float = 70.0
 var _projectile_dmg: float = 20.0
-var _attack_penetration: float = 5.0
+var _attack_penetration: float = 1.0
 var _is_dead: bool = false
 
 @onready var eyelid: AnimatedSprite2D = $Eyelid
