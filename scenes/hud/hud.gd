@@ -73,6 +73,7 @@ func _on_level_timer_timeout() -> void:
 			var boss_spawn_pos: Vector2 = get_random_position()
 			SignalManager.on_create_enemy.emit(boss_spawn_pos, Constants.EnemyType.NEUROPTICLORD)
 			_boss_spawned = true
+			on_advance_sector()
 		if time_elapsed >= next_sector_time:
 			SignalManager.on_advance_sector.emit()
 			next_sector_time += sector_interval
@@ -112,13 +113,16 @@ func toggle_debug() -> void:
 
 
 func on_advance_sector() -> void:
-	sector_tracker += 1
-	sector_level_label.text = "Sector " + str(sector_tracker)
 	SoundManager.play_sound_at(
 		SoundDefs.SoundType.SECTOR_OPEN,
 		player_ref.global_position
 		)
-	
+	if _boss_spawned:
+		sector_level_label.text = "Neuropticlord Summoned !"
+	else:
+		sector_tracker += 1
+		sector_level_label.text = "Sector " + str(sector_tracker)
+
 
 func on_enemy_killed() -> void:
 	enemies_killed += 1
