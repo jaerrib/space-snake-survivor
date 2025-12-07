@@ -29,7 +29,7 @@ _data = {
 &"damaged": SubResource("Animation_1va46")
 }
 
-[node name="Segment" type="Node2D" groups=["movables"]]
+[node name="Segment" type="Node2D" groups=["movables", "player"]]
 z_index = 100
 script = ExtResource("1_1va46")
 
@@ -40,7 +40,7 @@ hframes = 2
 frame = 1
 
 [node name="XpDetection" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 128
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="XpDetection"]
@@ -48,7 +48,7 @@ position = Vector2(8, 8)
 shape = SubResource("CircleShape2D_1va46")
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

@@ -69,7 +69,7 @@ hframes = 2
 [node name="SegmentHolder" type="Node" parent="."]
 
 [node name="XpDetection" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 128
 collision_mask = 8
 
 [node name="XPCollisionShape2D" type="CollisionShape2D" parent="XpDetection"]
@@ -77,7 +77,7 @@ position = Vector2(8, 8)
 shape = SubResource("CircleShape2D_reko3")
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 2
 collision_mask = 36
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
