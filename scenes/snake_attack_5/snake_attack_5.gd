@@ -1,4 +1,5 @@
-class_name SnakeAttack5 extends Node2D
+class_name SnakeAttack5
+extends Node2D
 
 const MULTIPLIER: float = .1
 const MAX_LEVEL: int = 10

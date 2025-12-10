@@ -1,4 +1,5 @@
-class_name BaseProjectile extends Area2D
+class_name BaseProjectile
+extends Area2D
 
 var _damage: int = 1
 var _direction: Vector2 = Vector2.ZERO

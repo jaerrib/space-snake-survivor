@@ -1,7 +1,7 @@
-class_name WeaponManager extends Node2D
+class_name WeaponManager
+extends Node2D
 
 const ADD_WEAPON: String = "add_weapon"
-
 
 const WEAPON_SCENES: Dictionary = {
 	Constants.PlayerWeapons.ATTACK_1: preload("res://scenes/snake_attack_1/snake_attack_1.tscn"),
@@ -9,7 +9,8 @@ const WEAPON_SCENES: Dictionary = {
 	Constants.PlayerWeapons.ATTACK_3: preload("res://scenes/snake_attack_3/snake_attack_3.tscn"),
 	Constants.PlayerWeapons.ATTACK_4: preload("res://scenes/snake_attack_4/snake_attack_4.tscn"),
 	Constants.PlayerWeapons.ATTACK_5: preload("res://scenes/snake_attack_5/snake_attack_5.tscn"),
-}
+	}
+
 
 func _ready() -> void:
 	SignalManager.on_add_weapon.connect(on_add_weapon)

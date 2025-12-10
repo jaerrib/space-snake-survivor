@@ -1,4 +1,5 @@
-class_name StationHealSupply extends TextureProgressBar
+class_name StationHealSupply
+extends TextureProgressBar
 
 @export var full: float = 100.0
 

@@ -1,4 +1,5 @@
-class_name Station extends CharacterBody2D
+class_name Station
+extends CharacterBody2D
 
 @export var heal_percentage: float = .20
 @export var max_supply: float = 100.0
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 
 func get_heal_amt() -> float:
-	heal_amt = (player_ref.get_max_health() - player_ref.get_health()) #* heal_percentage
+	heal_amt = (player_ref.get_max_health() - player_ref.get_health())
 	if supply - heal_amt > 0:
 		supply -= heal_amt
 	else:

@@ -1,4 +1,5 @@
-class_name WorldLayer extends Node2D
+class_name WorldLayer
+extends Node2D
 
 const STARTING_LOC: Vector2 = Vector2(-384.0, 176.0)
 const SECTOR_WIDTH: int = 960

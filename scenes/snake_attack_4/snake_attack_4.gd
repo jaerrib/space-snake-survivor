@@ -1,4 +1,5 @@
-class_name SnakeAttack4 extends Node2D
+class_name SnakeAttack4
+extends Node2D
 
 const MULTIPLIER: float = .2
 const PROJECT_SPEED: float = 0.0
@@ -30,7 +31,9 @@ func on_player_died_or_level_complete() -> void:
 
 func _on_cooldown_timer_timeout() -> void:
 	var last_segment = player_ref.get_last_segment()
-	var segment_pos: Vector2 = Vector2(last_segment.global_position.x + 8, last_segment.global_position.y + 8)
+	var segment_pos: Vector2 = Vector2(
+		last_segment.global_position.x + 8, last_segment.global_position.y + 8
+		)
 	SignalManager.on_create_projectile.emit(
 		segment_pos,
 		Vector2.ZERO,
@@ -38,7 +41,7 @@ func _on_cooldown_timer_timeout() -> void:
 		damage,
 		penetration,
 		Constants.ProjectileType.SNAKE_BOMB
-	)
+		)
 
 
 func on_level_up() -> void:

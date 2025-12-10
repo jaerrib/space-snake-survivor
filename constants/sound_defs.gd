@@ -1,4 +1,5 @@
-class_name SoundDefs extends Resource
+class_name SoundDefs
+extends Resource
 
 enum SoundType {
 	DIE01,

@@ -1,11 +1,12 @@
-class_name PauseMenu extends Control
+class_name PauseMenu
+extends Control
+
+var weapon_stat_list: Dictionary = {}
+var snake: Snake
 
 @onready var snake_stats_label: Label = $VBoxContainer/SnakeStatsLabel
 @onready var weapon_stats: HBoxContainer = $VBoxContainer/WeaponStats
 
-
-var weapon_stat_list: Dictionary = {}
-var snake: Snake
 
 func _ready() -> void:
 	snake =  get_tree().get_first_node_in_group("player")

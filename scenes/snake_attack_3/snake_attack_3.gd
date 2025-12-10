@@ -1,4 +1,5 @@
-class_name SnakeAttack3 extends Node2D
+class_name SnakeAttack3
+extends Node2D
 
 const MULTIPLIER: float = .1
 const MAX_LEVEL: int = 10
@@ -29,7 +30,9 @@ func on_player_died_or_level_complete() -> void:
 
 
 func _on_timer_timeout() -> void:
-	var player_pos: Vector2 = Vector2(player_ref.global_position.x + 8, player_ref.global_position.y + 8)
+	var player_pos: Vector2 = Vector2(
+		player_ref.global_position.x + 8, player_ref.global_position.y + 8
+		)
 	var angle: float = randf_range(0, TAU)
 	var random_direction: Vector2 = Vector2.RIGHT.rotated(angle).normalized()
 	var projectile_speed: float = player_ref.speed + speed_modifier
@@ -40,7 +43,7 @@ func _on_timer_timeout() -> void:
 		damage,
 		penetration,
 		Constants.ProjectileType.SNAKE_MISSILE
-	)
+		)
 
 
 func on_level_up() -> void:

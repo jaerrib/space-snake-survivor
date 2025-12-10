@@ -1,4 +1,5 @@
-class_name XP extends Node2D
+class_name XP
+extends Node2D
 
 var _xp_val: int = 1
 

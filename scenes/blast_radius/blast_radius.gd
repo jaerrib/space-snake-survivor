@@ -1,6 +1,8 @@
-class_name BlastRadius extends BaseProjectile
+class_name BlastRadius
+extends BaseProjectile
 
 var player_ref: Snake
+
 
 func _ready() -> void:
 	var player: Snake = get_tree().get_first_node_in_group("player")
@@ -17,4 +19,3 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 
 func play_blast_sound() -> void:
 	SoundManager.play_sound_at(SoundDefs.SoundType.BLAST_RADIUS, global_position)
-	

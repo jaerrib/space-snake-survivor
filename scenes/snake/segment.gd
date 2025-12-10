@@ -1,4 +1,5 @@
-class_name Segment extends Node2D
+class_name Segment
+extends Node2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_animation_timer: Timer = $DamageAnimationTimer

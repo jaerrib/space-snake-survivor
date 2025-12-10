@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c0o7degwuwgqw" path="res://assets/background/menu-bg.png" id="2_qs8jq"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_vwmq1"]
 [ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="3_43wdk"]
-[ext_resource type="Script" uid="uid://crik1eb4qh3af" path="res://scenes/credits_screen/return_button.gd" id="4_qs8jq"]
+[ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="5_43wdk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gw660"]
 font = ExtResource("3_43wdk")
@@ -89,7 +89,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 theme = ExtResource("2_vwmq1")
 text = "Return to Menu"
-script = ExtResource("4_qs8jq")
+script = ExtResource("5_43wdk")
 
 [node name="Scanlines" parent="." instance=ExtResource("2_520cl")]
 layout_mode = 1

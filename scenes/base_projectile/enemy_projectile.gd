@@ -1,4 +1,5 @@
-class_name EnemyProjectile extends BaseProjectile
+class_name EnemyProjectile
+extends BaseProjectile
 
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:

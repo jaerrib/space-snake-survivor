@@ -1,4 +1,5 @@
-class_name SnakeAttack1 extends Node2D
+class_name SnakeAttack1
+extends Node2D
 
 const MULTIPLIER: float = .1
 const MAX_LEVEL: int = 10
@@ -37,7 +38,7 @@ func _on_timer_timeout() -> void:
 		damage,
 		penetration,
 		Constants.ProjectileType.SNAKE_PROJECTILE_1
-	)
+		)
 
 
 func on_level_up() -> void:

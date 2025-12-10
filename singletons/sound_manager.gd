@@ -53,7 +53,7 @@ func play_music(level: int):
 		music_player.stream = stream
 		music_player.volume_db = _calculate_volume(
 			SoundDefs.MUSIC_VOLUMES.get(s_type, 0.4)
-		)
+			)
 		music_player.play()
 
 

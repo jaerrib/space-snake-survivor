@@ -1,4 +1,5 @@
-class_name ScanLines extends ColorRect
+class_name ScanLines
+extends ColorRect
 
 
 func _ready() -> void:

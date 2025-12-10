@@ -1,4 +1,5 @@
-class_name ObjectMaker extends Node2D
+class_name ObjectMaker
+extends Node2D
 
 const MAX_ENEMIES: int = 200
 const MAX_OBJECTS: int = 200
@@ -19,12 +20,12 @@ const ENEMY_SCENE: Dictionary = {
 	Constants.EnemyType.UFO: preload("res://scenes/ufo/ufo.tscn"),
 	Constants.EnemyType.ALIEN_7: preload("res://scenes/alien_7/alien_7.tscn"),
 	Constants.EnemyType.NEUROPTICLORD: preload("res://scenes/neuropticlord/neuropticlord.tscn"),
-}
+	}
 
 const OBJECT_SCENES: Dictionary = {
 	Constants.ObjectType.XP: preload("res://scenes/xp/xp.tscn"),
 	Constants.ObjectType.LEVEL_UP: preload("res://scenes/level_up/level_up.tscn"),
-}
+	}
 
 const PROJECTILE_SCENE: Dictionary = {
 	Constants.ProjectileType.SNAKE_PROJECTILE_1: preload("res://scenes/snake_projectile_1/snake_projectile_1.tscn"),
@@ -35,7 +36,7 @@ const PROJECTILE_SCENE: Dictionary = {
 	Constants.ProjectileType.SNAKE_FIREBALL: preload("res://scenes/snake_fireball/snake_fireball.tscn"),
 	Constants.ProjectileType.ALIEN_PROJECTILE: preload("res://scenes/alien_projectile/alien_projectile.tscn"),
 	Constants.ProjectileType.CYBERBALL: preload("res://scenes/cyber_ball/cyber_ball.tscn"),
-}
+	}
 
 @onready var enemy_holder: Node = $EnemyHolder
 @onready var object_holder: Node = $ObjectHolder

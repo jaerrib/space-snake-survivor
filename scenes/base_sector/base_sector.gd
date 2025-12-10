@@ -1,4 +1,5 @@
-class_name BaseSector extends Node2D
+class_name BaseSector
+extends Node2D
 
 @export var spawns: Array[SpawnInfo] = []
 

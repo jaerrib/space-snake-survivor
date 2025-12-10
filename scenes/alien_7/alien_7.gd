@@ -1,8 +1,10 @@
-class_name Alien7 extends EnemyBase
+class_name Alien7
+extends EnemyBase
 
 var _projectile_speed: float = 70.0
 var _projectile_dmg: float = 10.0
 var _attack_penetration: float = 1.0
+
 
 func _on_shoot_timer_timeout() -> void:
 	var direction = global_position.direction_to(player.global_position)

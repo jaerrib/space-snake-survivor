@@ -1,4 +1,5 @@
-class_name Snake extends CharacterBody2D
+class_name Snake
+extends CharacterBody2D
 
 const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 24
@@ -15,7 +16,6 @@ var segments: Array[Segment] = []
 var speed: float = 40
 var xp_level: int = 1
 var xp_points: int = 0
-
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_animation_timer: Timer = $DamageAnimationTimer

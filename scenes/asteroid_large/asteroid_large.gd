@@ -1,4 +1,5 @@
-class_name AsteroidLarge extends EnemyBase
+class_name AsteroidLarge
+extends EnemyBase
 
 var medium_asteroid_type = Constants.EnemyType
 

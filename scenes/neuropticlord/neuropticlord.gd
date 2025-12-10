@@ -1,4 +1,5 @@
-class_name Neuropticlord extends EnemyBase
+class_name Neuropticlord
+extends EnemyBase
 
 var _projectile_speed: float = 50.0
 var _projectile_dmg: float = 10.0
@@ -39,7 +40,7 @@ func _on_eyelid_animation_finished() -> void:
 		_projectile_dmg,
 		_attack_penetration,
 		Constants.ProjectileType.CYBERBALL
-	)
+		)
 	stalks.play("flail")
 	hit_box.set_deferred("monitoring", false)
 

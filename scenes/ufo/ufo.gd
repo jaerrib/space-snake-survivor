@@ -1,5 +1,5 @@
-class_name UFO extends EnemyBase
-
+class_name UFO
+extends EnemyBase
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 

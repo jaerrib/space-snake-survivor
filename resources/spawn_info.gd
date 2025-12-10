@@ -1,5 +1,5 @@
-class_name SpawnInfo extends Resource
-
+class_name SpawnInfo
+extends Resource
 
 @export var enemy: Constants.EnemyType
 @export var enemy_num: int

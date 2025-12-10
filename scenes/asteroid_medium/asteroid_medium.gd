@@ -1,4 +1,5 @@
-class_name AsteroidMedium extends EnemyBase
+class_name AsteroidMedium
+extends EnemyBase
 
 @export var sprite_frame: int
 

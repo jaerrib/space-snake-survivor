@@ -1,4 +1,5 @@
-class_name XPBar extends TextureProgressBar
+class_name XPBar
+extends TextureProgressBar
 
 const XP_COLOR: Color = Color("#3584e4")
 
