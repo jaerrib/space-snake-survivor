@@ -11,7 +11,7 @@ func _ready() -> void:
 	select_sprite()
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	SignalManager.on_xp_touched.emit(_xp_val)
 	queue_free()
 
@@ -34,5 +34,5 @@ func _on_fade_timer_timeout() -> void:
 	fade_animation_player.play("Fade")
 
 
-func _on_fade_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_fade_animation_player_animation_finished(_anim_name: StringName) -> void:
 	queue_free()

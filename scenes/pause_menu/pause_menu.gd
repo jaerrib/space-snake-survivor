@@ -33,20 +33,20 @@ func update_snake_stats_label() -> void:
 	var stats_text: String
 	for key in snake_stats.keys():
 		var value: String = str(snake_stats[key])
-		stats_text += key + ": " + value + "\n"
+		stats_text = key + ": " + value + "\n"
 	snake_stats_label.text = stats_text
 
 
 func update_weapons_stats() -> void:
 	var weapon_manager: WeaponManager = snake.get_node("WeaponManager")
-	var weapon_stat_list = weapon_manager.get_weapon_stats()
+	var w_stat_list = weapon_manager.get_weapon_stats()
 	var index: int = 0
-	for weapon_key in weapon_stat_list.keys():
+	for weapon_key in w_stat_list.keys():
 		index += 1
-		var weapon_stats: Dictionary = weapon_stat_list[weapon_key]
+		var w_stats: Dictionary = w_stat_list[weapon_key]
 		var stats_text: String = ""
-		for key in weapon_stats.keys():
-			var value: String = str(weapon_stats[key])
+		for key in w_stats.keys():
+			var value: String = str(w_stats[key])
 			stats_text += key + ": " + value + "\n"
 		var label_node = $VBoxContainer/WeaponStats.get_node_or_null("WeaponLabel" + str(index))
 		if label_node:

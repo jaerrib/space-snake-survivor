@@ -30,9 +30,9 @@ func on_player_died_or_level_complete() -> void:
 func _on_cooldown_timer_timeout() -> void:
 	var direction: Vector2 = Vector2(-1, 1).normalized()
 	for i in range(num_projectiles):
-		var position: Vector2 = get_random_position()
+		var rand_pos: Vector2 = get_random_position()
 		SignalManager.on_create_projectile.emit(
-			position,
+			rand_pos,
 			direction,
 			speed,
 			damage,
@@ -70,9 +70,9 @@ func on_level_up() -> void:
 	if weapon_level >= MAX_LEVEL:
 		return
 	weapon_level += 1
-	var scale: float = MULTIPLIER + weapon_level * 0.01
-	damage += damage * scale
-	delay_time *= (1 - scale * 0.75)
+	var adjustment: float = MULTIPLIER + weapon_level * 0.01
+	damage += damage * adjustment
+	delay_time *= (1 - adjustment * 0.75)
 	cooldown_timer.wait_time = delay_time
 	penetration += 1
 

@@ -49,21 +49,21 @@ func _ready() -> void:
 	SignalManager.on_create_projectile.connect(on_create_projectile)
 
 
-func on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType):
+func on_create_enemy(pos: Vector2, enemy_type: Constants.EnemyType):
 	var num_enemies: int = enemy_holder.get_child_count()
 	if num_enemies < MAX_ENEMIES:
 		var scene = ENEMY_SCENE[enemy_type].instantiate()
-		scene.position = position
+		scene.position = pos
 		enemy_holder.call_deferred("add_child", scene)
 
 
-func on_create_object(position: Vector2, object_type: Constants.ObjectType, value: int) -> void:
+func on_create_object(pos: Vector2, object_type: Constants.ObjectType, value: int) -> void:
 	if !OBJECT_SCENES.has(object_type):
 		return
 	var num_objects: int = object_holder.get_child_count()
 	if object_type == Constants.ObjectType.LEVEL_UP or num_objects < MAX_OBJECTS:
 		var new_object = OBJECT_SCENES[object_type].instantiate()
-		new_object.position = position
+		new_object.position = pos
 		if object_type == Constants.ObjectType.XP:
 			new_object.setup(value)
 		object_holder.call_deferred("add_child", new_object)

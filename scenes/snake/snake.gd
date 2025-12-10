@@ -38,7 +38,7 @@ func _ready() -> void:
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	get_input()
 	velocity = move_direction * speed
 	move_positions.insert(0, position)

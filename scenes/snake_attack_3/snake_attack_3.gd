@@ -55,10 +55,10 @@ func on_level_up() -> void:
 	if weapon_level >= MAX_LEVEL:
 		return
 	weapon_level += 1
-	var scale: float = MULTIPLIER + weapon_level * 0.01
-	damage += damage * scale
-	speed_modifier += speed_modifier * scale
-	delay_time *= (1 - scale * 0.75)
+	var adustment: float = MULTIPLIER + weapon_level * 0.01
+	damage += damage * adustment
+	speed_modifier += speed_modifier * adustment
+	delay_time *= (1 - adustment * 0.75)
 	timer.wait_time = delay_time
 	penetration += 1
 

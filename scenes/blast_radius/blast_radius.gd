@@ -9,11 +9,11 @@ func _ready() -> void:
 	player_ref = player
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	position = Vector2(player_ref.global_position.x + 8, player_ref.global_position.y + 8)
 
 
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	queue_free()
 
 

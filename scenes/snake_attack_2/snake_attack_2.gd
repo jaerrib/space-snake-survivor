@@ -52,9 +52,9 @@ func on_level_up() -> void:
 	if weapon_level >= MAX_LEVEL:
 		return
 	weapon_level += 1
-	var scale: float = MULTIPLIER + weapon_level * 0.01
-	damage += damage * scale
-	delay_time *= (1 - scale * 0.75)
+	var adjustment: float = MULTIPLIER + weapon_level * 0.01
+	damage += damage * adjustment
+	delay_time *= (1 - adjustment * 0.75)
 	cooldown_timer.wait_time = delay_time
 	penetration += 1
 

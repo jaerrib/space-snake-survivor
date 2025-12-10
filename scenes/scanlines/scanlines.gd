@@ -7,7 +7,7 @@ func _ready() -> void:
 	visible = GameManager.scanlines
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle-scanlines"):
 		SignalManager.on_toggle_scanlines.emit()
 

@@ -5,8 +5,8 @@ extends EnemyBase
 
 
 func _on_hit_box_area_entered(area: Area2D) -> void:
-	var damage = area.get_damage()
-	hp -= damage
+	var dmg = area.get_damage()
+	hp -= dmg
 	if hp <= 0:
 		SoundManager.play_sound_at(SoundDefs.SoundType.DIE03, global_position)
 		var spawn_pos: Vector2 = global_position

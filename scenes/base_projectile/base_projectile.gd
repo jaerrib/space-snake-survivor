@@ -42,7 +42,7 @@ func check_max_penetation() -> void:
 		queue_free()
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	_penetration -= 1
 	check_max_penetation()
 

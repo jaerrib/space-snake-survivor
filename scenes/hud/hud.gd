@@ -53,7 +53,7 @@ func _connect_signals() -> void:
 	SignalManager.on_enemy_killed.connect(on_enemy_killed)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("toggle-debug"):
 		toggle_debug()
 	if debug:

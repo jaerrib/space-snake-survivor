@@ -61,7 +61,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		knockback()
 
 
-func get_damage() -> int:
+func get_damage() -> float:
 	return damage
 
 
