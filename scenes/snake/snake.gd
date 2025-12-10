@@ -151,11 +151,11 @@ func on_level_up() -> void:
 func check_for_weapon_add() -> void:
 	if xp_level == 5:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_2)
-	if xp_level == 10:
+	elif xp_level == 10:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_3)
-	if xp_level == 15:
+	elif xp_level == 15:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_4)
-	if xp_level == 20:
+	elif xp_level == 20:
 		SignalManager.on_add_weapon.emit(Constants.PlayerWeapons.ATTACK_5)
 
 
