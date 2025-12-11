@@ -7,8 +7,8 @@
 [sub_resource type="Resource" id="Resource_k3trm"]
 script = ExtResource("2_k3trm")
 enemy = 2
-enemy_num = 2
-enemy_spawn_delay = 6
+enemy_num = 1
+enemy_spawn_delay = 5
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [sub_resource type="Resource" id="Resource_x0sii"]

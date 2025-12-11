@@ -8,21 +8,21 @@
 script = ExtResource("2_6lpq8")
 enemy = 1
 enemy_num = 1
-enemy_spawn_delay = 5
+enemy_spawn_delay = 4
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [sub_resource type="Resource" id="Resource_x0sii"]
 script = ExtResource("2_6lpq8")
 enemy = 3
 enemy_num = 2
-enemy_spawn_delay = 20
+enemy_spawn_delay = 15
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [sub_resource type="Resource" id="Resource_6lpq8"]
 script = ExtResource("2_6lpq8")
 enemy = 11
 enemy_num = 1
-enemy_spawn_delay = 180
+enemy_spawn_delay = 60
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [node name="Sector15" instance=ExtResource("1_rcbrr")]

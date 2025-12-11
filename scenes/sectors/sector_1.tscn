@@ -14,7 +14,7 @@ metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 script = ExtResource("2_5twaw")
 enemy = 1
 enemy_num = 1
-enemy_spawn_delay = 5
+enemy_spawn_delay = 3
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [node name="Sector1" instance=ExtResource("1_14xn3")]

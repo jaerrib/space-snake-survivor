@@ -7,14 +7,14 @@
 script = ExtResource("2_ijle2")
 enemy = 4
 enemy_num = 2
-enemy_spawn_delay = 18
+enemy_spawn_delay = 15
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [sub_resource type="Resource" id="Resource_ijle2"]
 script = ExtResource("2_ijle2")
 enemy = 5
 enemy_num = 2
-enemy_spawn_delay = 30
+enemy_spawn_delay = 20
 metadata/_custom_type_script = "uid://bdo7p2djb1o70"
 
 [node name="Sector17" instance=ExtResource("1_kjasg")]
