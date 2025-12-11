@@ -17,10 +17,10 @@ func _process(_delta: float) -> void:
 
 
 func on_send_game_stats(stats: Dictionary) -> void:
-	var stats_text: String
+	var stats_text: String = ""
 	for key in stats.keys():
 		var value: String = str(stats[key])
-		stats_text = key + ": " + value + "\n"
+		stats_text += key + ": " + value + "\n"
 	game_stats.text = stats_text
 
 
