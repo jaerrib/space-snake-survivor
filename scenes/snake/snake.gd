@@ -116,6 +116,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	if damage == 0.0:
 		return
 	var actual_damage: float = damage * (1.0 - dmg_reduction)
+	SignalManager.on_damage_received.emit(actual_damage)
 	hp = max(hp - actual_damage, 0)
 	SignalManager.on_update_health.emit(hp)
 	SignalManager.on_snake_hit.emit()

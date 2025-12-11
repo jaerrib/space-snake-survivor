@@ -36,3 +36,4 @@ signal on_toggle_scanlines
 signal on_snake_position_update(pos: Vector2)
 signal on_level_ready
 signal on_damage_caused(dmg: float)
+signal on_damage_received(dmg: float)
