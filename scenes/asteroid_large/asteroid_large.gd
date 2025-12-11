@@ -17,6 +17,7 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 	base_animation_player.play("Flash")
 	var incoming_damage = area.get_damage()
 	hp -= incoming_damage
+	SignalManager.on_damage_caused.emit(incoming_damage)
 	if hp <= 0:
 		SoundManager.play_sound_at(SoundDefs.SoundType.DIE02, global_position)
 		SignalManager.on_create_object.emit(global_position, Constants.ObjectType["XP"], xp_val)
@@ -26,7 +27,6 @@ func _on_hit_box_area_entered(area: Area2D) -> void:
 		SignalManager.on_create_enemy.emit(spawn_pos_2, medium_asteroid_type)
 		queue_free()
 	else:
-		base_animation_player.play("Flash")
 		SoundManager.play_sound_at(SoundDefs.SoundType.ENEMY_HIT, global_position)
 		knockback()
 
