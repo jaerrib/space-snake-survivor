@@ -24,6 +24,7 @@ var sector_interval: int
 var sector_tracker: int = 1
 var next_sector_time: float
 var enemies_killed: int = 0
+var dmg_caused: float = 0.0
 var first_level: int
 var _boss_spawned: bool = false
 
@@ -51,6 +52,7 @@ func _connect_signals() -> void:
 	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
 	SignalManager.on_enemy_killed.connect(on_enemy_killed)
+	SignalManager.on_damage_caused.connect(on_damage_caused)
 
 
 func _process(_delta: float) -> void:
@@ -133,6 +135,7 @@ func get_game_stats() -> Dictionary:
 		"Enemies Killed": enemies_killed,
 		"Sectors Unlocked": sector_tracker,
 		"Time Survived": get_formated_elapsed_time(),
+		"Damage Caused": dmg_caused,
 	}
 	return game_stats
 
@@ -141,3 +144,7 @@ func get_formated_elapsed_time() -> String:
 	var minutes: int = time_elapsed / 60
 	var seconds: int = time_elapsed % 60
 	return str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
+
+
+func on_damage_caused(dmg: float) -> void:
+	dmg_caused += dmg
