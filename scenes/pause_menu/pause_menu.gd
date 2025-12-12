@@ -30,10 +30,10 @@ func _notification(what: int) -> void:
 
 func update_snake_stats_label() -> void:
 	var snake_stats: Dictionary = snake.get_snake_stats()
-	var stats_text: String
+	var stats_text: String = ""
 	for key in snake_stats.keys():
 		var value: String = str(snake_stats[key])
-		stats_text = key + ": " + value + "\n"
+		stats_text += key + ": " + value + "\n"
 	snake_stats_label.text = stats_text
 
 
