@@ -1,3 +1,4 @@
+class_name HUD
 extends Control
 
 const LEVEL_LENGTH: int = 1800 #in seconds
