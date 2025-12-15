@@ -185,21 +185,21 @@ func calculate_rating() -> Dictionary:
 		0.3 * damage_ratio
 		) * difficulty_bonus
 	var rating: float = raw_score * 100.0
-	var grade: String = ""
-	if rating >= 95: grade = "A+"
-	elif rating >= 90: grade = "A"
-	elif rating >= 85: grade = "A-"
-	elif rating >= 80: grade = "B+"
-	elif rating >= 75: grade = "B"
-	elif rating >= 70: grade = "B-"
-	elif rating >= 65: grade = "C+"
-	elif rating >= 60: grade = "C"
-	elif rating >= 55: grade = "C-"
-	elif rating >= 50: grade = "D+"
-	elif rating >= 45: grade = "D"
-	elif rating >= 40: grade = "D-"
-	else: grade = "F"
+	var grade: String = get_grade(rating)
 	return {
 		"score": snapped(rating, 0.1),
 		"grade": grade
 		}
+
+
+func get_grade(rating: float) -> String:
+	var grade_thresholds: Dictionary = {
+		95: "A+", 90: "A", 85: "A-",
+		80: "B+", 75: "B", 70: "B-",
+		65: "C+", 60: "C", 55: "C-",
+		50: "D+", 45: "D", 40: "D-"
+		}
+	for threshold in grade_thresholds.keys():
+		if rating >= threshold:
+			return grade_thresholds[threshold]
+	return "F"
