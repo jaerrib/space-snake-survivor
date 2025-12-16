@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds3nox3ujrl06"]
+[gd_scene load_steps=12 format=3 uid="uid://ds3nox3ujrl06"]
 
 [ext_resource type="Script" uid="uid://b6bpemm7mt8t6" path="res://scenes/end_game_screen/end_game_screen.gd" id="1_214ef"]
 [ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="2_n3ur5"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="3_83yby"]
 [ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="4_214ef"]
+[ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="5_n3ur5"]
 [ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="5_riq3t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_214ef"]
@@ -98,11 +99,13 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 
-[node name="Message" type="Label" parent="VBoxContainer"]
+[node name="ReturnButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("3_83yby")
-text = "Press Enter to Return to Menu"
-horizontal_alignment = 1
+theme_type_variation = &"FlatButton"
+text = "Return to Main Menu"
+script = ExtResource("5_n3ur5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -112,3 +115,5 @@ autoplay = "pulse_text"
 
 [node name="Scanlines" parent="." instance=ExtResource("5_riq3t")]
 layout_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]

@@ -4,20 +4,14 @@ extends Control
 @onready var game_stats: Label = $VBoxContainer/GameStats
 @onready var rating_label: Label = $VBoxContainer/RatingLabel
 @onready var status_label: Label = $VBoxContainer/StatusLabel
+@onready var return_button: Button = $VBoxContainer/ReturnButton
 
 
 func _ready() -> void:
-	set_process(false)
 	hide()
 	SignalManager.on_send_game_stats.connect(on_send_game_stats)
 	SignalManager.on_level_complete.connect(on_level_complete)
 	SignalManager.on_player_died.connect(on_player_died)
-
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		SoundManager.play_ui_sound(SoundDefs.UISoundType.SELECT)
-		GameManager.load_main_menu()
 
 
 func on_send_game_stats(stats: Dictionary) -> void:
@@ -47,7 +41,7 @@ func handle_end_game() -> void:
 	SoundManager.stop_music()
 	SoundManager.stop_alert()
 	stop_movables()
-	set_process(true)
+	return_button.grab_focus()
 	show()
 
 
@@ -55,3 +49,8 @@ func stop_movables():
 	for node in get_tree().get_nodes_in_group("movables"):
 		node.set_process(false)
 		node.set_physics_process(false)
+
+
+func _on_return_button_pressed() -> void:
+	SoundManager.play_ui_sound(SoundDefs.UISoundType.SELECT)
+	GameManager.load_main_menu()
