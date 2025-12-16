@@ -1,6 +1,7 @@
 extends Control
 
 @onready var game_stats: Label = $VBoxContainer/GameStats
+@onready var rating_label: Label = $VBoxContainer/RatingLabel
 
 
 func _ready() -> void:
@@ -20,7 +21,10 @@ func on_send_game_stats(stats: Dictionary) -> void:
 	var stats_text: String = ""
 	for key in stats.keys():
 		var value: String = str(stats[key])
-		stats_text += key + ": " + value + "\n"
+		if key == "Rating":
+			rating_label.text = key + ": " + value + "\n"
+		else:
+			stats_text += key + ": " + value + "\n"
 	game_stats.text = stats_text
 
 

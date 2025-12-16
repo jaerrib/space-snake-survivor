@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgcunhq75ap3b"]
+[gd_scene load_steps=8 format=3 uid="uid://bgcunhq75ap3b"]
 
 [ext_resource type="Script" uid="uid://dgaewdckfa533" path="res://scenes/level_complete/level_complete.gd" id="1_8oea0"]
 [ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="1_oyggg"]
@@ -9,6 +9,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_6cprg"]
 font = ExtResource("4_k0a82")
 font_size = 36
+
+[sub_resource type="LabelSettings" id="LabelSettings_dybuw"]
+font = ExtResource("1_oyggg")
+font_size = 48
 
 [node name="LevelComplete" type="Control"]
 layout_mode = 3
@@ -57,6 +61,11 @@ layout_mode = 2
 layout_mode = 2
 theme = ExtResource("2_8oea0")
 label_settings = SubResource("LabelSettings_6cprg")
+horizontal_alignment = 1
+
+[node name="RatingLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_dybuw")
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
