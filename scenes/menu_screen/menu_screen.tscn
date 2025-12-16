@@ -144,9 +144,14 @@ horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="Easy" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Hard")
+focus_neighbor_top = NodePath("../../Credits")
+focus_neighbor_right = NodePath("../Normal")
+focus_neighbor_bottom = NodePath("../../Quit")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 text = "Easy"
@@ -158,6 +163,10 @@ size_flags_vertical = 3
 
 [node name="Normal" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Easy")
+focus_neighbor_top = NodePath("../../Credits")
+focus_neighbor_right = NodePath("../Hard")
+focus_neighbor_bottom = NodePath("../../Quit")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 text = "Normal"
@@ -170,6 +179,10 @@ size_flags_vertical = 3
 
 [node name="Hard" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
 layout_mode = 2
+focus_neighbor_left = NodePath("../Normal")
+focus_neighbor_top = NodePath("../../Credits")
+focus_neighbor_right = NodePath("../Easy")
+focus_neighbor_bottom = NodePath("../../Quit")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 text = "Hard"
@@ -182,6 +195,8 @@ size_flags_vertical = 3
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../HBoxContainer/Normal")
+focus_neighbor_bottom = NodePath("../Credits")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 64
@@ -190,6 +205,8 @@ text = "Quit"
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../HBoxContainer/Normal")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
 theme_override_font_sizes/font_size = 64
