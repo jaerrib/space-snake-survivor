@@ -1,18 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds3nox3ujrl06"]
+[gd_scene load_steps=11 format=3 uid="uid://ds3nox3ujrl06"]
 
 [ext_resource type="Script" uid="uid://b6bpemm7mt8t6" path="res://scenes/end_game_screen/end_game_screen.gd" id="1_214ef"]
 [ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="2_n3ur5"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="3_83yby"]
-[ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="4_etblx"]
+[ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="4_214ef"]
 [ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="5_riq3t"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_214ef"]
+font = ExtResource("2_n3ur5")
+font_size = 64
+
 [sub_resource type="LabelSettings" id="LabelSettings_6cprg"]
-font = ExtResource("4_etblx")
+font = ExtResource("4_214ef")
 font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_dybuw"]
 font = ExtResource("2_n3ur5")
-font_size = 48
+font_size = 36
 
 [sub_resource type="Animation" id="Animation_vtso4"]
 resource_name = "pulse_text"
@@ -71,9 +75,8 @@ grow_vertical = 2
 [node name="StatusLabel" type="Label" parent="VBoxContainer"]
 modulate = Color(1, 0, 0, 1)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("2_n3ur5")
-theme_override_font_sizes/font_size = 48
 text = "Level Complete"
+label_settings = SubResource("LabelSettings_214ef")
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]

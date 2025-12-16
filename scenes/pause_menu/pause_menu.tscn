@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8t776dyqvfyk"]
+[gd_scene load_steps=6 format=3 uid="uid://c8t776dyqvfyk"]
 
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_5bgjm"]
 [ext_resource type="Script" uid="uid://bhdrqdmrgygvc" path="res://scenes/pause_menu/pause_menu.gd" id="1_qcmsd"]
+[ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="3_10tpt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcmsd"]
 font = ExtResource("1_5bgjm")
 font_size = 96
 
 [sub_resource type="LabelSettings" id="LabelSettings_10tpt"]
-font = ExtResource("1_5bgjm")
+font = ExtResource("3_10tpt")
 font_size = 24
 
 [node name="PauseMenu" type="Control"]
