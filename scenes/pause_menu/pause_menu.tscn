@@ -68,7 +68,6 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
-horizontal_alignment = 1
 
 [node name="Spacer1" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
@@ -80,7 +79,6 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
-horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
@@ -92,7 +90,6 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
-horizontal_alignment = 1
 
 [node name="Spacer3" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
@@ -104,7 +101,6 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
-horizontal_alignment = 1
 
 [node name="Spacer4" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
@@ -116,4 +112,3 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 0
 label_settings = SubResource("LabelSettings_10tpt")
-horizontal_alignment = 1
