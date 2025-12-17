@@ -54,6 +54,8 @@ func instantiate_sectors(available: Dictionary) -> void:
 		scene.position.x = i * SECTOR_WIDTH
 		random_sectors.call_deferred("add_child", scene)
 		i += 1
+		if i % 2 != 0:
+			scene.has_station = true
 
 
 func get_current_sector_name() -> String:
