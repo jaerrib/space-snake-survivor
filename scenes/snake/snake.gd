@@ -147,6 +147,7 @@ func on_level_up() -> void:
 	update_damage_reduction()
 	check_for_weapon_add()
 	update_xp_detection()
+	update_speed()
 
 
 func check_for_weapon_add() -> void:
@@ -179,6 +180,10 @@ func update_damage_reduction():
 	var sector_bonus = 0.005 * (current_sector - 1)   # +0.5% per sector
 	var level_bonus = 0.001 * xp_level                # +0.1% per level
 	dmg_reduction = clamp(sector_bonus + level_bonus, 0.0, 0.25)  # max 25% reduction
+
+
+func update_speed() -> void:
+	speed = clamp(speed + 0.1, 40, 55)
 
 
 func update_xp_detection() -> void:
