@@ -1,4 +1,5 @@
-class_name GamePlayManager extends Node
+class_name GamePlayManager
+extends Node
 
 
 func _input(event) -> void:

@@ -1,4 +1,5 @@
-class_name HealthBar extends TextureProgressBar
+class_name HealthBar
+extends TextureProgressBar
 
 const COLOR_DANGER: Color = Color("#e01b24")
 const COLOR_MIDDLE: Color = Color("#ff7800")
@@ -29,6 +30,7 @@ func set_color() -> void:
 		tint_progress = COLOR_MIDDLE
 	else:
 		tint_progress = COLOR_GOOD
+
 
 func on_update_health(hp: float) -> void:
 	value = hp

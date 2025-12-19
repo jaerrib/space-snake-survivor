@@ -172,11 +172,11 @@ func update_regen() -> void:
 	hp_regen_amoung = clamp(0.1 + base_regen + bonus_regen, 0.1, 1.5)
 
 
-func update_max_hp():
+func update_max_hp() -> void:
 	max_hp = 100 + (xp_level - 1) * 3  # +3 HP per level
 
 
-func update_damage_reduction():
+func update_damage_reduction() -> void:
 	var sector_bonus = 0.005 * (current_sector - 1)   # +0.5% per sector
 	var level_bonus = 0.001 * xp_level                # +0.1% per level
 	dmg_reduction = clamp(sector_bonus + level_bonus, 0.0, 0.25)  # max 25% reduction

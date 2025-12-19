@@ -49,7 +49,7 @@ func _ready() -> void:
 	SignalManager.on_create_projectile.connect(on_create_projectile)
 
 
-func on_create_enemy(pos: Vector2, enemy_type: Constants.EnemyType):
+func on_create_enemy(pos: Vector2, enemy_type: Constants.EnemyType) -> void:
 	var num_enemies: int = enemy_holder.get_child_count()
 	if num_enemies < MAX_ENEMIES:
 		var scene = ENEMY_SCENE[enemy_type].instantiate()

@@ -10,7 +10,7 @@ var music_player: AudioStreamPlayer = null
 var alert_player: AudioStreamPlayer = null
 
 
-func _ready():
+func _ready() -> void:
 	ui_player = AudioStreamPlayer.new()
 	ui_player.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(ui_player)
@@ -40,7 +40,7 @@ func play_ui_sound(s_type: int) -> void:
 		ui_player.play()
 
 
-func play_music(level: int):
+func play_music(level: int) -> void:
 	var s_type: int = level % (len(SoundDefs.MUSIC_TYPES) - 2) # exclude menu music
 	var stream: AudioStream
 	if level == -1:
@@ -57,19 +57,19 @@ func play_music(level: int):
 		music_player.play()
 
 
-func stop_music():
+func stop_music() -> void:
 	music_player.stop()
 
 
-func pause_music():
+func pause_music() -> void:
 	music_player.stream_paused = true
 
 
-func resume_music():
+func resume_music() -> void:
 	music_player.stream_paused = false
 
 
-func play_alert(s_type: int, volume: float = 1.0):
+func play_alert(s_type: int, volume: float = 1.0) -> void:
 	var stream: AudioStream = SoundDefs.LOOPING_SOUND_TYPES.get(s_type, null)
 	if stream:
 		alert_player.stream = stream
@@ -80,21 +80,21 @@ func play_alert(s_type: int, volume: float = 1.0):
 
 
 
-func stop_alert():
+func stop_alert() -> void:
 	alert_player.stop()
 
 
-func pause_alert():
+func pause_alert() -> void:
 	if alert_player.playing:
 		alert_player.stream_paused = true
 
 
-func resume_alert():
+func resume_alert() -> void:
 	if alert_player.stream_paused:
 		alert_player.stream_paused = false
 
 
-func play_sound_at(s_type: int, position: Vector2):
+func play_sound_at(s_type: int, position: Vector2) -> void:
 	var stream: AudioStream = SoundDefs.SOUND_TYPES.get(s_type, null)
 	if stream == null:
 		return
@@ -115,7 +115,12 @@ func play_sound_at(s_type: int, position: Vector2):
 		_use_channel(lowest_player, stream, s_type, priority, position)
 
 
-func _use_channel(player: AudioStreamPlayer2D, stream: AudioStream, s_type: int, priority: int, position: Vector2):
+func _use_channel(
+	player: AudioStreamPlayer2D,
+	stream: AudioStream,
+	s_type: int,
+	priority: int,
+	position: Vector2) -> void:
 	player.global_position = position
 	player.stream = stream
 	player.volume_db = _calculate_volume(

@@ -45,7 +45,7 @@ func handle_end_game() -> void:
 	show()
 
 
-func stop_movables():
+func stop_movables() -> void:
 	for node in get_tree().get_nodes_in_group("movables"):
 		node.set_process(false)
 		node.set_physics_process(false)
