@@ -35,7 +35,7 @@ enum ObjectType { XP, LEVEL_UP }
 enum Difficulty { EASY, NORMAL, HARD }
 
 # Name new sectors in sequential order (1 through n) and increase this value when adding them
-const TOTAL_SECTOR_SCENES = 20
+const TOTAL_SECTOR_SCENES = 30
 
 const DIFFICULTY_MODIFIERS: Dictionary = {
 	Constants.Difficulty.EASY: 0.75,
