@@ -218,10 +218,10 @@ func get_xp_required_for_next_level() -> int:
 func get_snake_stats() -> Dictionary:
 	var snake_stats: Dictionary = {
 	"Current HP": str(hp).pad_decimals(1),
-	"Max HP": max_hp,
+	"Max HP": "%0.2f" % max_hp,
 	"HP Regen Rate": str(hp_regen_amoung) + "/sec",
 	"Dmg Reduction": str(floor(dmg_reduction * 1000) / 1000) + "%",
-	"Speed": speed,
+	"Speed": "%0.2f" % speed,
 	"Current XP": xp_points,
 	"Next XP Level": get_xp_required_for_next_level()
 	}
