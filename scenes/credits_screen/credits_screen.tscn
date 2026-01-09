@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4bhjf1pjwnl1"]
+[gd_scene load_steps=7 format=3 uid="uid://b4bhjf1pjwnl1"]
 
 [ext_resource type="Script" uid="uid://cceyu65sx331d" path="res://scenes/credits_screen/credits_screen.gd" id="1_vwmq1"]
-[ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="2_520cl"]
 [ext_resource type="Texture2D" uid="uid://c0o7degwuwgqw" path="res://assets/background/menu-bg.png" id="2_qs8jq"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_vwmq1"]
 [ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="3_43wdk"]
@@ -90,8 +89,5 @@ size_flags_vertical = 8
 theme = ExtResource("2_vwmq1")
 text = "Return to Menu"
 script = ExtResource("5_43wdk")
-
-[node name="Scanlines" parent="." instance=ExtResource("2_520cl")]
-layout_mode = 1
 
 [connection signal="pressed" from="MC/VBoxContainer/ReturnButton" to="." method="_on_button_pressed"]

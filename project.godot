@@ -20,6 +20,7 @@ boot_splash/minimum_display_time=2000
 
 [autoload]
 
+ScanlineCanvas="*res://scenes/scanlines/scanline_canvas.tscn"
 GameManager="*res://singletons/game_manager.gd"
 SignalManager="*res://singletons/signal_manager.gd"
 SoundManager="*res://singletons/sound_manager.gd"

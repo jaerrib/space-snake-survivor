@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bf8sagvh3beum"]
+[gd_scene load_steps=7 format=3 uid="uid://bf8sagvh3beum"]
 
 [ext_resource type="PackedScene" uid="uid://biiskars8k5vj" path="res://scenes/level/level.tscn" id="1_iuonh"]
 [ext_resource type="PackedScene" uid="uid://bm6ipr5efunpg" path="res://scenes/hud/hud.tscn" id="2_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://c8t776dyqvfyk" path="res://scenes/pause_menu/pause_menu.tscn" id="3_l3cfh"]
 [ext_resource type="PackedScene" uid="uid://ds3nox3ujrl06" path="res://scenes/end_game_screen/end_game_screen.tscn" id="4_hujxm"]
 [ext_resource type="PackedScene" uid="uid://bwj3v6wmh3ecs" path="res://scenes/game_play_manager/game_play_manager.tscn" id="5_6q06x"]
-[ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="7_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://b6dccfu65i247" path="res://scenes/visual_status/visual_status.tscn" id="7_yyfjg"]
 
 [node name="Main" type="Node2D"]
@@ -25,7 +24,5 @@ visible = false
 visible = false
 
 [node name="VisualStatus" parent="CanvasLayer" instance=ExtResource("7_yyfjg")]
-
-[node name="Scanlines" parent="CanvasLayer" instance=ExtResource("7_b1x3f")]
 
 [node name="GamePlayManager" parent="." instance=ExtResource("5_6q06x")]

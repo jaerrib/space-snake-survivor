@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d06qo5paubbni"]
+[gd_scene load_steps=15 format=4 uid="uid://d06qo5paubbni"]
 
 [ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="1_1olso"]
 [ext_resource type="Script" uid="uid://jj32w418qnur" path="res://scenes/menu_screen/menu_screen.gd" id="1_f65jf"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_46ee7"]
 [ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="2_bka6l"]
 [ext_resource type="Texture2D" uid="uid://c0o7degwuwgqw" path="res://assets/background/menu-bg.png" id="2_qq4bh"]
-[ext_resource type="PackedScene" uid="uid://hamqe2bk3rgo" path="res://scenes/scanlines/scanlines.tscn" id="6_f6bca"]
 [ext_resource type="TileSet" uid="uid://dssym2ve4l5ck" path="res://assets/tilemap.tres" id="7_k7h71"]
 [ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="7_u3bdl"]
 
@@ -241,9 +240,6 @@ layout_mode = 2
 text = "Version 1.0"
 label_settings = SubResource("LabelSettings_df1yq")
 horizontal_alignment = 2
-
-[node name="Scanlines" parent="." instance=ExtResource("6_f6bca")]
-layout_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
