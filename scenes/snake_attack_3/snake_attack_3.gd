@@ -13,6 +13,7 @@ var weapon_level: int = 1
 var level_increases: int = 0
 var player_ref: Snake
 
+@onready var initial_timer: Timer = $InitialTimer
 @onready var timer: Timer = $Timer
 
 
@@ -23,7 +24,7 @@ func _ready() -> void:
 	SignalManager.on_level_up.connect(on_level_up)
 	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
 	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
-	timer.start()
+	initial_timer.start()
 
 
 func on_player_died_or_level_complete() -> void:
@@ -74,3 +75,7 @@ func get_weapon_stats() -> Dictionary:
 		"Penetration": penetration,
 		}
 	return weapon_stats
+
+
+func _on_initial_timer_timeout() -> void:
+	timer.start()
