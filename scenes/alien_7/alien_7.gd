@@ -1,7 +1,7 @@
 class_name Alien7
 extends EnemyBase
 
-var _projectile_speed: float = 70.0
+var _projectile_speed: float = 60.0
 var _projectile_dmg: float = 10.0
 var _attack_penetration: float = 1.0
 
