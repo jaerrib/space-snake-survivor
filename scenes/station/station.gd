@@ -1,7 +1,6 @@
 class_name Station
 extends CharacterBody2D
 
-@export var heal_percentage: float = .20
 @export var max_supply: float = 100.0
 @export var supply: float
 
