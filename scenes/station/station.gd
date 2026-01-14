@@ -2,7 +2,7 @@ class_name Station
 extends CharacterBody2D
 
 @export var max_supply: float = 100.0
-@export var supply: float
+@export var supply: float = 100.0
 
 var player_ref: Snake = null
 var heal_amt: float = 0.0
@@ -12,7 +12,6 @@ var heal_amt: float = 0.0
 
 func _ready() -> void:
 	player_ref =  get_tree().get_first_node_in_group("player")
-	supply = max_supply
 	station_heal_supply.on_update_supply(supply)
 
 
@@ -31,3 +30,10 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	station_heal_supply.on_update_supply(supply)
 	if heal_amt > 0:
 		SoundManager.play_sound_at(SoundDefs.SoundType.STATION_HEAL, global_position)
+
+
+func set_supply_levels(sector_num: int) -> void:
+	var difficulty = GameManager.get_difficulty()
+	var modifier = Constants.DIFFICULTY_MODIFIERS[difficulty]
+	max_supply = 100.0 + (sector_num * 30 / modifier)
+	supply = max_supply

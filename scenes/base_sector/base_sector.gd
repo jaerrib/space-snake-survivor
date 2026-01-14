@@ -3,6 +3,7 @@ extends Node2D
 
 @export var spawns: Array[SpawnInfo] = []
 @export var has_station: bool = false
+@export var sector_num: int
 
 @onready var forcefield: TileMapLayer = $Forcefield
 @onready var station: Station = $Objects/Station
@@ -22,3 +23,5 @@ func update_object_positions() -> void:
 func toggle_station() -> void:
 	if has_station == false:
 		station.queue_free()
+	else:
+		station.set_supply_levels(sector_num)
