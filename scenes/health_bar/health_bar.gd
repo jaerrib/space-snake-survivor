@@ -41,6 +41,7 @@ func on_update_health(hp: float) -> void:
 func on_level_up() -> void:
 	max_value = player_ref.get_max_health()
 	set_hp_levels()
+	set_color()
 
 
 func set_hp_levels() -> void:
