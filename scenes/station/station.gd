@@ -37,3 +37,5 @@ func set_supply_levels(sector_num: int) -> void:
 	var modifier = Constants.DIFFICULTY_MODIFIERS[difficulty]
 	max_supply = 100.0 + (sector_num * 30 / modifier)
 	supply = max_supply
+	station_heal_supply.max_value = max_supply
+	station_heal_supply.on_update_supply(max_supply)
