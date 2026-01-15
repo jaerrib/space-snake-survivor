@@ -85,7 +85,7 @@ radius = 112.0
 [node name="Neuropticlord" instance=ExtResource("1_275on")]
 script = ExtResource("2_r5xhj")
 movement_speed = 10.0
-hp = 200.0
+hp = 125.0
 damage = 5.0
 xp_val = 100
 knockback_amount = 0
