@@ -19,7 +19,6 @@ func _ready() -> void:
 	hit_box.set_deferred("monitoring", true)
 	hurt_box.set_deferred("monitorable", true)
 	death_timer.wait_time = 2.0
-	print(damage)
 
 
 func _on_shoot_timer_timeout() -> void:
