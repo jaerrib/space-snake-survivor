@@ -1,5 +1,6 @@
 extends Node
 
+@warning_ignore_start("unused_signal")
 signal on_create_enemy(position: Vector2, enemy_type: Constants.EnemyType)
 signal on_create_object(
 	position: Vector2,
@@ -37,3 +38,4 @@ signal on_snake_position_update(pos: Vector2)
 signal on_level_ready
 signal on_damage_caused(dmg: float)
 signal on_damage_received(dmg: float)
+@warning_ignore_restore("unused_signal")
