@@ -228,7 +228,7 @@ alignment = 1
 
 [node name="CopyrightText" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "© 2025 John Beers"
+text = "© 2026 John Beers"
 label_settings = SubResource("LabelSettings_df1yq")
 
 [node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer"]
