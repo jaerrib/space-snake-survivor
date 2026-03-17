@@ -6,11 +6,11 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_qcmsd"]
 font = ExtResource("1_5bgjm")
-font_size = 96
+font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_10tpt"]
 font = ExtResource("3_10tpt")
-font_size = 24
+font_size = 12
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
