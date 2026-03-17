@@ -8,15 +8,13 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_214ef"]
 font = ExtResource("2_n3ur5")
-font_size = 64
+font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_6cprg"]
 font = ExtResource("4_214ef")
-font_size = 36
 
 [sub_resource type="LabelSettings" id="LabelSettings_dybuw"]
 font = ExtResource("2_n3ur5")
-font_size = 36
 
 [sub_resource type="Animation" id="Animation_vtso4"]
 resource_name = "pulse_text"
@@ -80,7 +78,7 @@ label_settings = SubResource("LabelSettings_214ef")
 horizontal_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
 [node name="GameStats" type="Label" parent="VBoxContainer"]
@@ -95,7 +93,7 @@ label_settings = SubResource("LabelSettings_dybuw")
 horizontal_alignment = 1
 
 [node name="Spacer2" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 
 [node name="ReturnButton" type="Button" parent="VBoxContainer"]
