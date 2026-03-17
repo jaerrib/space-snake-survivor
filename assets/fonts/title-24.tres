@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://f2s4a3rt1hl"]
+
+[ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="1_om8gd"]
+
+[resource]
+font = ExtResource("1_om8gd")
+font_size = 24

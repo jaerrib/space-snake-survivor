@@ -1,17 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://d06qo5paubbni"]
+[gd_scene load_steps=14 format=4 uid="uid://d06qo5paubbni"]
 
 [ext_resource type="Script" uid="uid://bl7n6csnqx6ei" path="res://scenes/menu_screen/menu_button.gd" id="1_1olso"]
 [ext_resource type="Script" uid="uid://jj32w418qnur" path="res://scenes/menu_screen/menu_screen.gd" id="1_f65jf"]
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="1_q8734"]
 [ext_resource type="Theme" uid="uid://n0r8g1cxvm4g" path="res://assets/misc/button_theme.tres" id="2_46ee7"]
-[ext_resource type="FontFile" uid="uid://d3ssqlodqofhc" path="res://assets/fonts/karmatic-arcade.regular.ttf" id="2_bka6l"]
 [ext_resource type="Texture2D" uid="uid://c0o7degwuwgqw" path="res://assets/background/menu-bg.png" id="2_qq4bh"]
+[ext_resource type="LabelSettings" uid="uid://f2s4a3rt1hl" path="res://assets/fonts/title-24.tres" id="3_qq4bh"]
 [ext_resource type="TileSet" uid="uid://dssym2ve4l5ck" path="res://assets/tilemap.tres" id="7_k7h71"]
 [ext_resource type="FontFile" uid="uid://b07rpjdpjlrw" path="res://assets/fonts/Kenney Pixel.ttf" id="7_u3bdl"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_46ee7"]
-font = ExtResource("2_bka6l")
-font_size = 48
 
 [sub_resource type="Theme" id="Theme_f65jf"]
 default_font = ExtResource("1_q8734")
@@ -19,7 +15,6 @@ default_font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_df1yq"]
 font = ExtResource("7_u3bdl")
-font_size = 32
 
 [sub_resource type="Animation" id="Animation_f6bca"]
 length = 0.001
@@ -101,6 +96,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_qq4bh")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -109,10 +105,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -121,7 +117,7 @@ alignment = 1
 [node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Space Snake Survivor"
-label_settings = SubResource("LabelSettings_46ee7")
+label_settings = ExtResource("3_qq4bh")
 horizontal_alignment = 1
 
 [node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -130,14 +126,14 @@ size_flags_horizontal = 4
 theme = SubResource("Theme_f65jf")
 
 [node name="VSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 68)
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 theme = ExtResource("2_46ee7")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "New Game"
 horizontal_alignment = 1
 
@@ -156,7 +152,7 @@ theme_type_variation = &"FlatButton"
 text = "Easy"
 
 [node name="HSpacer1" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -172,7 +168,7 @@ text = "Normal"
 script = ExtResource("1_1olso")
 
 [node name="HSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer/HBoxContainer"]
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -187,7 +183,7 @@ theme_type_variation = &"FlatButton"
 text = "Hard"
 
 [node name="VSpacer2" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 24)
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -198,7 +194,7 @@ focus_neighbor_top = NodePath("../HBoxContainer/Normal")
 focus_neighbor_bottom = NodePath("../Credits")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Quit"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
@@ -208,17 +204,17 @@ focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../HBoxContainer/Normal")
 theme = ExtResource("2_46ee7")
 theme_type_variation = &"FlatButton"
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 32
 text = "Credits"
 
 [node name="VSpacer3" type="Control" parent="MarginContainer/VBoxContainer/MenuContainer"]
-custom_minimum_size = Vector2(0, 48)
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 size_flags_vertical = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="MarginContainer/VBoxContainer"]
 position = Vector2(-32, -32)
-tile_map_data = PackedByteArray("AAAGAAwAAAATAAEAAAAHAAwAAAATAAEAAAAIAAwAAAATAAEAAAAJAAwAAAATAAEAAAAKAAwAAAATAAEAAAALAAwAAAATAAEAAAAMAAwAAAATAAEAAAANAAwAAAATAAEAAAAOAAwAAAATAAEAAAAPAAwAAAATAAEAAAAQAAwAAAATAAEAAAARAAwAAAATAAEAAAASAAwAAAATAAEAAAATAAwAAAATAAEAAAAUAAwAAAATAAEAAAAVAAwAAAATAAEAAAAWAAwAAAATAAEAAAAXAAwAAAATAAEAAAAYAAwAAAATAAEAAAAZAAwAAAATAAEAAAAaAAwAAAATAAEAAAAbAAwAAAATAAEAAAAcAAwAAAATAAEAAAAdAAwAAAATAAEAAAAeAAwAAAATAAEAAAAfAAwAAAATAAEAAAAgAAwAAAATAAEAAAAhAAwAAAATAAEAAAAiAAwAAAATAAEAAAAjAAwAAAATAAEAAAAkAAwAAAATAAEAAAAlAAwAAAATAAEAAAAmAAwAAAATAAEAAAAnAAwAAAATAAEAAAAoAAwAAAATAAEAAAApAAwAAAATAAEAAAAqAAwAAAATAAEAAAArAAwAAAATAAEAAAAsAAwAAAATAAEAAAAtAAwAAAATAAEAAAAuAAwAAAATAAEAAAAvAAwAAAATAAEAAAAwAAwAAAATAAEAAAAxAAwAAAATAAEAAAAyAAwAAAATAAEAAAAzAAwAAAATAAEAAAA0AAwAAAATAAEAAAA1AAwAAAATAAEAAAAGAAcAAAATAAEAAAAHAAcAAAATAAEAAAAIAAcAAAATAAEAAAAJAAcAAAATAAEAAAAKAAcAAAATAAEAAAALAAcAAAATAAEAAAAMAAcAAAATAAEAAAANAAcAAAATAAEAAAAOAAcAAAATAAEAAAAPAAcAAAATAAEAAAAQAAcAAAATAAEAAAARAAcAAAATAAEAAAASAAcAAAATAAEAAAATAAcAAAATAAEAAAAUAAcAAAATAAEAAAAVAAcAAAATAAEAAAAWAAcAAAATAAEAAAAXAAcAAAATAAEAAAAYAAcAAAATAAEAAAAZAAcAAAATAAEAAAAaAAcAAAATAAEAAAAbAAcAAAATAAEAAAAcAAcAAAATAAEAAAAdAAcAAAATAAEAAAAeAAcAAAATAAEAAAAfAAcAAAATAAEAAAAgAAcAAAATAAEAAAAhAAcAAAATAAEAAAAiAAcAAAATAAEAAAAjAAcAAAATAAEAAAAkAAcAAAATAAEAAAAlAAcAAAATAAEAAAAmAAcAAAATAAEAAAAnAAcAAAATAAEAAAAoAAcAAAATAAEAAAApAAcAAAATAAEAAAAqAAcAAAATAAEAAAArAAcAAAATAAEAAAAsAAcAAAATAAEAAAAtAAcAAAATAAEAAAAuAAcAAAATAAEAAAAvAAcAAAATAAEAAAAwAAcAAAATAAEAAAAxAAcAAAATAAEAAAAyAAcAAAATAAEAAAAzAAcAAAATAAEAAAA0AAcAAAATAAEAAAA1AAcAAAATAAEAAAA=")
+tile_map_data = PackedByteArray("AAAbAAYAAAATAAEAAAAaAAYAAAATAAEAAAAZAAYAAAATAAEAAAAYAAYAAAATAAEAAAAXAAYAAAATAAEAAAAWAAYAAAATAAEAAAAVAAYAAAATAAEAAAAUAAYAAAATAAEAAAATAAYAAAATAAEAAAASAAYAAAATAAEAAAARAAYAAAATAAEAAAAQAAYAAAATAAEAAAAPAAYAAAATAAEAAAAOAAYAAAATAAEAAAANAAYAAAATAAEAAAAMAAYAAAATAAEAAAALAAYAAAATAAEAAAAKAAYAAAATAAEAAAAJAAYAAAATAAEAAAAIAAYAAAATAAEAAAAHAAYAAAATAAEAAAAGAAYAAAATAAEAAAAFAAYAAAATAAEAAAAEAAYAAAATAAEAAAAcAAYAAAATAAEAAAADAAYAAAATAAEAAAADAAMAAAATAAEAAAAEAAMAAAATAAEAAAAFAAMAAAATAAEAAAAGAAMAAAATAAEAAAAHAAMAAAATAAEAAAAIAAMAAAATAAEAAAAJAAMAAAATAAEAAAAKAAMAAAATAAEAAAALAAMAAAATAAEAAAAMAAMAAAATAAEAAAANAAMAAAATAAEAAAAOAAMAAAATAAEAAAAPAAMAAAATAAEAAAAQAAMAAAATAAEAAAARAAMAAAATAAEAAAASAAMAAAATAAEAAAATAAMAAAATAAEAAAAUAAMAAAATAAEAAAAVAAMAAAATAAEAAAAWAAMAAAATAAEAAAAXAAMAAAATAAEAAAAYAAMAAAATAAEAAAAZAAMAAAATAAEAAAAaAAMAAAATAAEAAAAbAAMAAAATAAEAAAAcAAMAAAATAAEAAAA=")
 tile_set = ExtResource("7_k7h71")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
