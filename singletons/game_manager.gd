@@ -9,7 +9,7 @@ const CREDITS = preload("res://scenes/credits_screen/credits_screen.tscn")
 
 @export var difficulty: Constants.Difficulty
 
-var scanlines: bool = true
+var scanlines: bool = false
 
 
 func load_main_menu() -> void:
