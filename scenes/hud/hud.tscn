@@ -7,11 +7,9 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
 font = ExtResource("3_0bx4p")
-font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
 font = ExtResource("3_0bx4p")
-font_size = 24
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -44,13 +42,18 @@ color = Color(0, 0, 0, 0.564706)
 layout_mode = 2
 alignment = 1
 
+[node name="EdgeSpacer1" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="HealthBar" parent="MC/MC2/HB/HBoxContainer" instance=ExtResource("1_cgeww")]
-custom_minimum_size = Vector2(200, 16)
+custom_minimum_size = Vector2(100, 8)
 layout_mode = 2
 size_flags_horizontal = 6
 
@@ -99,10 +102,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="XPBar" parent="MC/MC2/HB/HBoxContainer3" instance=ExtResource("2_c45xl")]
-custom_minimum_size = Vector2(200, 16)
+custom_minimum_size = Vector2(100, 8)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+
+[node name="EdgeSpacer2" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
