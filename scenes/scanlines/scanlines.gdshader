@@ -6,7 +6,7 @@ uniform vec2 resolution = vec2(640.0, 480.0);
 uniform float scan_line_amount : hint_range(0.0, 1.0) = 0.5;
 uniform float warp_amount : hint_range(0.0, 1.0) = 0.05;
 uniform float vignette_amount : hint_range(0.0, 1.0) = 0.5;
-uniform float vignette_intensity : hint_range(0.0, 1.0) = 0.3;
+//uniform float vignette_intensity : hint_range(0.0, 1.0) = 0.3;
 uniform float grille_amount : hint_range(0.0, 1.0) = 0.05;
 uniform float brightness_boost : hint_range(1.0, 2.0) = 1.2;
 
