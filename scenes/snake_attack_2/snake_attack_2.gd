@@ -7,7 +7,7 @@ const MAX_LEVEL: int = 10
 
 @export var damage: float = 5
 @export var delay_time: float = 3.0
-@export var penetration: int = 500
+@export var penetration: int = 20
 
 var weapon_level: int = 1
 var level_increases: int = 0
@@ -56,7 +56,7 @@ func on_level_up() -> void:
 	damage += damage * adjustment
 	delay_time *= (1 - adjustment * 0.75)
 	cooldown_timer.wait_time = delay_time
-	penetration += 1
+	penetration += 3
 
 
 func get_weapon_stats() -> Dictionary:
