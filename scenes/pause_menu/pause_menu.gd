@@ -47,7 +47,10 @@ func update_weapons_stats() -> void:
 		var stats_text: String = ""
 		for key in w_stats.keys():
 			var value: String = str(w_stats[key])
-			stats_text += key + ": " + value + "\n"
+			if key == "Weapon":
+				stats_text += value.to_upper() + "\n"
+			else:
+				stats_text += key + ": " + value + "\n"
 		var label_node = $VBoxContainer/WeaponStats.get_node_or_null("WeaponLabel" + str(index))
 		if label_node:
 			label_node.text = stats_text
