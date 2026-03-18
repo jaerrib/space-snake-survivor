@@ -10,7 +10,6 @@ font_size = 48
 
 [sub_resource type="LabelSettings" id="LabelSettings_10tpt"]
 font = ExtResource("3_10tpt")
-font_size = 12
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -71,7 +70,7 @@ label_settings = SubResource("LabelSettings_10tpt")
 
 [node name="Spacer1" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="WeaponLabel2" type="Label" parent="VBoxContainer/WeaponStats"]
@@ -82,7 +81,7 @@ label_settings = SubResource("LabelSettings_10tpt")
 
 [node name="Spacer2" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="WeaponLabel3" type="Label" parent="VBoxContainer/WeaponStats"]
@@ -93,7 +92,7 @@ label_settings = SubResource("LabelSettings_10tpt")
 
 [node name="Spacer3" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="WeaponLabel4" type="Label" parent="VBoxContainer/WeaponStats"]
@@ -104,7 +103,7 @@ label_settings = SubResource("LabelSettings_10tpt")
 
 [node name="Spacer4" type="Control" parent="VBoxContainer/WeaponStats"]
 visible = false
-custom_minimum_size = Vector2(16, 0)
+custom_minimum_size = Vector2(4, 0)
 layout_mode = 2
 
 [node name="WeaponLabel5" type="Label" parent="VBoxContainer/WeaponStats"]
