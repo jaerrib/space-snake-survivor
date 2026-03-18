@@ -67,6 +67,3 @@ libraries = {
 &"": SubResource("AnimationLibrary_32v08")
 }
 autoplay = "flash"
-
-[connection signal="timeout" from="RemovalTimer" to="." method="_on_removal_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

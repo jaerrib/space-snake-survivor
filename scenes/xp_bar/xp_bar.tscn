@@ -5,8 +5,8 @@
 [ext_resource type="Script" uid="uid://u2287nf4f3ls" path="res://scenes/xp_bar/xp_bar.gd" id="1_ohdb3"]
 
 [node name="XPBar" type="TextureProgressBar"]
-offset_right = 200.0
-offset_bottom = 16.0
+offset_right = 100.0
+offset_bottom = 8.0
 value = 50.0
 fill_mode = 1
 nine_patch_stretch = true

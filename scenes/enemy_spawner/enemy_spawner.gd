@@ -22,7 +22,7 @@ func _ready() -> void:
 	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
 	on_set_modifiers()
 	view_size = get_viewport_rect().size
-	base_distance = max(view_size.x, view_size.y) / 4
+	base_distance = view_size.length() / 2
 
 
 func on_player_died_or_level_complete() -> void:
@@ -66,7 +66,7 @@ func _on_timer_timeout() -> void:
 				var rand_pos = get_random_position()
 				SignalManager.on_create_enemy.emit(rand_pos, spawn_info.enemy)
 
-
+	
 func get_random_position() -> Vector2:
 	var spawn_distance: float = randf_range(base_distance * 1.1, base_distance * 1.4)
 	var angle: float = randf_range(0, TAU)

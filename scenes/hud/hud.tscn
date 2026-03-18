@@ -1,17 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm6ipr5efunpg"]
+[gd_scene load_steps=8 format=3 uid="uid://bm6ipr5efunpg"]
 
 [ext_resource type="Script" uid="uid://bgyqs8s1n6j1r" path="res://scenes/hud/hud.gd" id="1_0bx4p"]
 [ext_resource type="PackedScene" uid="uid://8pydh1pfgx1s" path="res://scenes/health_bar/health_bar.tscn" id="1_cgeww"]
 [ext_resource type="PackedScene" uid="uid://b1lplrwpbqcsk" path="res://scenes/xp_bar/xp_bar.tscn" id="2_c45xl"]
 [ext_resource type="FontFile" uid="uid://cx7p7b56jckga" path="res://assets/fonts/Kenney High Square.ttf" id="3_0bx4p"]
+[ext_resource type="LabelSettings" uid="uid://de5k15ww1afkt" path="res://assets/fonts/debug-16.tres" id="5_mgtrf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c45xl"]
 font = ExtResource("3_0bx4p")
-font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_48c2t"]
 font = ExtResource("3_0bx4p")
-font_size = 24
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -44,13 +43,18 @@ color = Color(0, 0, 0, 0.564706)
 layout_mode = 2
 alignment = 1
 
+[node name="EdgeSpacer1" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="MC/MC2/HB"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 
 [node name="HealthBar" parent="MC/MC2/HB/HBoxContainer" instance=ExtResource("1_cgeww")]
-custom_minimum_size = Vector2(200, 16)
+custom_minimum_size = Vector2(100, 8)
 layout_mode = 2
 size_flags_horizontal = 6
 
@@ -99,10 +103,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="XPBar" parent="MC/MC2/HB/HBoxContainer3" instance=ExtResource("2_c45xl")]
-custom_minimum_size = Vector2(200, 16)
+custom_minimum_size = Vector2(100, 8)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
+
+[node name="EdgeSpacer2" type="Control" parent="MC/MC2/HB"]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="LevelTimer" type="Timer" parent="."]
 autostart = true
@@ -112,16 +121,15 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -180.0
-offset_right = 150.0
+offset_top = -124.0
+offset_right = 112.0
 grow_vertical = 0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="ColorRect" type="ColorRect" parent="DebugInfo"]
-custom_minimum_size = Vector2(64, 16)
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0, 0, 0, 0.752941)
@@ -129,35 +137,42 @@ color = Color(0, 0, 0, 0.752941)
 [node name="VBoxContainer" type="VBoxContainer" parent="DebugInfo"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 alignment = 1
 
 [node name="FPSLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "FPS 60"
+label_settings = ExtResource("5_mgtrf")
 vertical_alignment = 1
 
 [node name="DifficultyLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "Difficulty"
+label_settings = ExtResource("5_mgtrf")
 vertical_alignment = 1
 
 [node name="SectorLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
-text = "Sector0"
+text = "Sector 0"
+label_settings = ExtResource("5_mgtrf")
 
 [node name="EnemyCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "Enemies: 000"
+label_settings = ExtResource("5_mgtrf")
 vertical_alignment = 1
 
 [node name="ObjectCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "Objects: 000"
+label_settings = ExtResource("5_mgtrf")
 vertical_alignment = 1
 
 [node name="ProjectileCountLabel" type="Label" parent="DebugInfo/VBoxContainer"]
 layout_mode = 2
 text = "Projectiles: 000"
+label_settings = ExtResource("5_mgtrf")
 vertical_alignment = 1
 
 [connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]

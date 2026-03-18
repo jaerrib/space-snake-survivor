@@ -65,6 +65,7 @@ texture = ExtResource("2_reko3")
 hframes = 2
 
 [node name="PlayerCam" parent="." instance=ExtResource("2_h1wbu")]
+zoom = Vector2(1, 1)
 
 [node name="SegmentHolder" type="Node" parent="."]
 
