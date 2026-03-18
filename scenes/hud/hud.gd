@@ -42,7 +42,7 @@ func on_level_ready() -> void:
 	xp_level_label.text = str(player_ref.get_level())
 	object_maker = get_tree().root.get_node("Main/Level/ObjectMaker")
 	world_layer = get_tree().root.get_node("Main/Level/WorldLayer")
-	sector_interval = float(LEVEL_LENGTH) / world_layer.get_total_sectors()
+	sector_interval = int(float(LEVEL_LENGTH) / world_layer.get_total_sectors())
 	next_sector_time = sector_interval
 	debug_info.visible = debug
 	first_level = world_layer.get_first_level_num()
@@ -151,8 +151,8 @@ func get_game_stats() -> Dictionary:
 
 
 func get_formated_elapsed_time() -> String:
-	var minutes: int = time_elapsed / 60
-	var seconds: int = time_elapsed % 60
+	var minutes: int = int(float(time_elapsed) / 60)
+	var seconds: int = int(time_elapsed % 60)
 	return str(minutes).pad_zeros(2) + ":" + str(seconds).pad_zeros(2)
 
 
