@@ -169,7 +169,7 @@ func on_create_enemy(_pos, _enemy) -> void:
 
 
 func calculate_rating() -> Dictionary:
-	var survival_time: float = min(time_elapsed / LEVEL_LENGTH, 2.0)
+	var survival_time: float = min(float(time_elapsed) / LEVEL_LENGTH, 2.0)
 	var sector_progress: float = float(sector_tracker) / (world_layer.total_sectors + 1)
 	var kill_efficiency: float = 0.0
 	if actual_enemies_spawned > 0:
