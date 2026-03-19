@@ -4,6 +4,16 @@ extends EnemyBase
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
+func _ready() -> void:
+	super._ready()
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
+
+
+func on_player_died_or_level_complete() -> void:
+	death_timer.stop()
+
+
 func _on_hit_box_area_entered(area: Area2D) -> void:
 	var dmg = area.get_damage()
 	hp -= dmg
