@@ -5,6 +5,17 @@ var _projectile_speed: float = 60.0
 var _projectile_dmg: float = 10.0
 var _attack_penetration: float = 1.0
 
+@onready var shoot_timer: Timer = $ShootTimer
+
+
+func _ready() -> void:
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
+
+
+func on_player_died_or_level_complete() -> void:
+	shoot_timer.stop()
+
 
 func _on_shoot_timer_timeout() -> void:
 	var direction = global_position.direction_to(player.global_position)

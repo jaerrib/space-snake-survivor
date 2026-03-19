@@ -19,6 +19,12 @@ func _ready() -> void:
 	hit_box.set_deferred("monitoring", true)
 	hurt_box.set_deferred("monitorable", true)
 	death_timer.wait_time = 2.0
+	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
+	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
+
+
+func on_player_died_or_level_complete() -> void:
+	shoot_timer.stop()
 
 
 func _on_shoot_timer_timeout() -> void:
