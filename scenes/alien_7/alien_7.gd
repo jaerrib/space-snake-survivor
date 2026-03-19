@@ -9,6 +9,7 @@ var _attack_penetration: float = 1.0
 
 
 func _ready() -> void:
+	super._ready()
 	SignalManager.on_player_died.connect(on_player_died_or_level_complete)
 	SignalManager.on_level_complete.connect(on_player_died_or_level_complete)
 
