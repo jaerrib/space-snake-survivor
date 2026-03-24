@@ -30,7 +30,8 @@ func on_player_died_or_level_complete() -> void:
 func _on_cooldown_timer_timeout() -> void:
 	var direction: Vector2 = Vector2(-1, 1).normalized()
 	for i in range(num_projectiles):
-		var rand_pos: Vector2 = get_random_position()
+		var rand_pos: Vector2 = get_fireball_spawn_position_and_direction()
+
 		SignalManager.on_create_projectile.emit(
 			rand_pos,
 			direction,
@@ -42,23 +43,14 @@ func _on_cooldown_timer_timeout() -> void:
 
 
 func get_fireball_spawn_position_and_direction() -> Vector2:
+	var camera: Camera2D = get_viewport().get_camera_2d()
 	var view_size: Vector2 = get_viewport_rect().size
 	var margin: float = 50.0
-	var fireball_size: float = 16.0
-	var spawn_x: float = randf_range(view_size.x * 0.2, view_size.x + fireball_size)
-	var spawn_y: float = -margin
-	var spawn_position: Vector2 = Vector2(spawn_x, spawn_y)
-	return spawn_position
-
-
-func get_random_position() -> Vector2:
-	var player: Snake = get_tree().get_first_node_in_group("player")
-	var view_size: Vector2 = get_viewport_rect().size
-	var base_distance: float = max(view_size.x, view_size.y) / 2
-	var spawn_distance: float = randf_range(base_distance * 1.1, base_distance * 1.4)
-	var angle: float = randf_range(0, TAU)
-	var offset: Vector2 = Vector2.RIGHT.rotated(angle) * spawn_distance
-	return player.global_position + offset
+	var left_x_limit: float = camera.global_position.x - view_size.x * 0.5
+	var right_x_limit: float = camera.global_position.x + view_size.x * 0.5
+	var spawn_x: float = randf_range(left_x_limit, right_x_limit)
+	var spawn_y: float = camera.global_position.y - view_size.y * 0.5 - margin
+	return Vector2(spawn_x, spawn_y)
 
 
 func on_level_up() -> void:
