@@ -133,7 +133,6 @@ func check_wall_collision() -> void:
 		hp = 0
 		SignalManager.on_update_health.emit(hp)
 		SignalManager.on_player_died.emit()
-		SignalManager.on_snake_hit.emit()
 
 
 func get_level() -> int:
