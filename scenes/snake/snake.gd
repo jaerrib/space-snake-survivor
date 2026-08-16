@@ -36,6 +36,7 @@ func _ready() -> void:
 	SignalManager.on_station_entered.connect(on_station_entered)
 	SignalManager.on_snake_grow.connect(on_snake_grow)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
+	rotate_sprite()
 
 
 func _physics_process(_delta: float) -> void:
@@ -45,21 +46,24 @@ func _physics_process(_delta: float) -> void:
 	if move_positions.size() > (segments.size() + 2) * SEGMENT_SPACING:
 		move_positions.pop_back()
 	move_and_slide()
-	rotate_sprite()
 	check_wall_collision()
-	SignalManager.on_rotate_snake.emit(move_direction)
 	update_segments()
 
 
 func get_input() -> void:
+	var new_dir: Vector2 = move_direction
 	if Input.is_action_just_pressed("down") and move_direction != Vector2.UP:
-		move_direction = Vector2.DOWN
+		new_dir = Vector2.DOWN
 	elif Input.is_action_just_pressed("up") and move_direction != Vector2.DOWN:
-		move_direction = Vector2.UP
+		new_dir = Vector2.UP
 	elif Input.is_action_just_pressed("left") and move_direction != Vector2.RIGHT:
-		move_direction = Vector2.LEFT
+		new_dir = Vector2.LEFT
 	elif Input.is_action_just_pressed("right") and move_direction != Vector2.LEFT:
-		move_direction = Vector2.RIGHT
+		new_dir = Vector2.RIGHT
+	if new_dir != move_direction:
+		move_direction = new_dir
+		rotate_sprite()
+		SignalManager.on_rotate_snake.emit(move_direction)
 
 
 func rotate_sprite() -> void:
