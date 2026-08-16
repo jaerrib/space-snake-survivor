@@ -96,11 +96,6 @@ func on_xp_touched(val: int) -> void:
 func on_snake_grow() -> void:
 	var new_segment = SEGMENT.instantiate()
 	segment_holder.add_child(new_segment)
-	if segments.size() > 0:
-		var last_segment = segments[-1]
-		new_segment.global_position = last_segment.global_position - (move_direction * SEGMENT_SPACING)
-	else:
-		new_segment.global_position = global_position - (move_direction * SEGMENT_SPACING)
 	segments.append(new_segment)
 
 
