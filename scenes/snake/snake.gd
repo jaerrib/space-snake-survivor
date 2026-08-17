@@ -5,6 +5,7 @@ const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 22
 const XP_DETECTION_MODIFIER: float = 1.022
 
+var _grow_pending: int = 0
 var current_sector: int = 1
 var dmg_reduction: float = 0.0
 var hp: float
@@ -94,9 +95,16 @@ func on_xp_touched(val: int) -> void:
 
 
 func on_snake_grow() -> void:
-	var new_segment = SEGMENT.instantiate()
-	segment_holder.add_child(new_segment)
-	segments.append(new_segment)
+	_grow_pending += 1
+	call_deferred("_do_snake_grow")
+
+
+func _do_snake_grow() -> void:
+	while _grow_pending > 0:
+		_grow_pending -= 1
+		var new_segment: Segment = SEGMENT.instantiate()
+		segment_holder.add_child(new_segment)
+		segments.append(new_segment)
 
 
 func update_segments() -> void:
