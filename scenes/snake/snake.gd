@@ -42,10 +42,10 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	get_input()
 	velocity = move_direction * speed
-	move_positions.insert(0, position)
+	move_and_slide()
+	move_positions.insert(0, global_position)
 	if move_positions.size() > (segments.size() + 2) * SEGMENT_SPACING:
 		move_positions.pop_back()
-	move_and_slide()
 	check_wall_collision()
 	update_segments()
 
