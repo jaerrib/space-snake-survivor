@@ -5,6 +5,7 @@ const SEGMENT = preload("res://scenes/snake/segment.tscn")
 const SEGMENT_SPACING = 22
 const XP_DETECTION_MODIFIER: float = 1.022
 
+var _grow_pending: int = 0
 var current_sector: int = 1
 var dmg_reduction: float = 0.0
 var hp: float
@@ -36,30 +37,34 @@ func _ready() -> void:
 	SignalManager.on_station_entered.connect(on_station_entered)
 	SignalManager.on_snake_grow.connect(on_snake_grow)
 	SignalManager.on_advance_sector.connect(on_advance_sector)
+	rotate_sprite()
 
 
 func _physics_process(_delta: float) -> void:
 	get_input()
 	velocity = move_direction * speed
-	move_positions.insert(0, position)
+	move_and_slide()
+	move_positions.insert(0, global_position)
 	if move_positions.size() > (segments.size() + 2) * SEGMENT_SPACING:
 		move_positions.pop_back()
-	move_and_slide()
-	rotate_sprite()
 	check_wall_collision()
-	SignalManager.on_rotate_snake.emit(move_direction)
 	update_segments()
 
 
 func get_input() -> void:
+	var new_dir: Vector2 = move_direction
 	if Input.is_action_just_pressed("down") and move_direction != Vector2.UP:
-		move_direction = Vector2.DOWN
+		new_dir = Vector2.DOWN
 	elif Input.is_action_just_pressed("up") and move_direction != Vector2.DOWN:
-		move_direction = Vector2.UP
+		new_dir = Vector2.UP
 	elif Input.is_action_just_pressed("left") and move_direction != Vector2.RIGHT:
-		move_direction = Vector2.LEFT
+		new_dir = Vector2.LEFT
 	elif Input.is_action_just_pressed("right") and move_direction != Vector2.LEFT:
-		move_direction = Vector2.RIGHT
+		new_dir = Vector2.RIGHT
+	if new_dir != move_direction:
+		move_direction = new_dir
+		rotate_sprite()
+		SignalManager.on_rotate_snake.emit(move_direction)
 
 
 func rotate_sprite() -> void:
@@ -90,14 +95,16 @@ func on_xp_touched(val: int) -> void:
 
 
 func on_snake_grow() -> void:
-	var new_segment = SEGMENT.instantiate()
-	segment_holder.add_child(new_segment)
-	if segments.size() > 0:
-		var last_segment = segments[-1]
-		new_segment.global_position = last_segment.global_position - (move_direction * SEGMENT_SPACING)
-	else:
-		new_segment.global_position = global_position - (move_direction * SEGMENT_SPACING)
-	segments.append(new_segment)
+	_grow_pending += 1
+	call_deferred("_do_snake_grow")
+
+
+func _do_snake_grow() -> void:
+	while _grow_pending > 0:
+		_grow_pending -= 1
+		var new_segment: Segment = SEGMENT.instantiate()
+		segment_holder.add_child(new_segment)
+		segments.append(new_segment)
 
 
 func update_segments() -> void:
@@ -129,7 +136,6 @@ func check_wall_collision() -> void:
 		hp = 0
 		SignalManager.on_update_health.emit(hp)
 		SignalManager.on_player_died.emit()
-		SignalManager.on_snake_hit.emit()
 
 
 func get_level() -> int:
